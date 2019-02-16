@@ -17,7 +17,7 @@ function Volcano:new()
 end
 
 function Volcano:update(dt)
-  count = count + 0.0025
+  count = count + 0.025
   if count > 3 then
     if whichimg == stop then
       whichimg = cross
