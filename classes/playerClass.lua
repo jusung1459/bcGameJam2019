@@ -6,6 +6,7 @@ Son = Object:extend()
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
 
+--create a new player
 function Player:new()
   self.image = love.graphics.newImage( "/art/whale.png" )
   self.x = 40
@@ -15,6 +16,7 @@ function Player:new()
   self.height = self.image:getHeight()
 end
 
+--check the boundaries
 function Player:update(dt)
   if self.x < 0 then self.x = 0
   elseif self.x + self.width > window_width then
@@ -27,10 +29,12 @@ function Player:update(dt)
 
 end
 
+--draw the player
 function Player:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
 
+--move character+son
 function Player:keypressed(key, son)
   if key == "a" then
     self.x = 200
@@ -84,22 +88,4 @@ end
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
---
--- function Son:keypressed(key)
---   if key == "a" then
---     self.x = 200
---     self.y = 200
---   end
---   if key == "up" then
---     self.y = self.y - 40
---   end
---   if key == "down" then
---     self.y = self.y + 40
---   end
---   if key == "left" then
---     self.x = self.x - 40
---   end
---   if key == "right" then
---     self.x = self.x + 40
---   end
--- end
+
