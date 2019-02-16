@@ -4,6 +4,7 @@ Map = Object:extend()
 
 grass = love.graphics.newImage("/art/grass.png")
 sand = love.graphics.newImage("art/sand.png")
+
 wall = {}
 
 function Map:new(width, height, tileblocks)
