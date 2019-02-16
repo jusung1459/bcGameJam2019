@@ -10,10 +10,14 @@ function love.load()
                 }
 
     shade = 255
+    x = 0
+    y = 0
+
     image = love.graphics.newImage('image.png')
+    icon = love.graphics.newImage('person.png')
+  
     Object = require "classic"
     -- player = require "playerClass"
-
 end
 
 function love.update(dt)
@@ -25,7 +29,7 @@ end
 
 function love.draw()
     love.graphics.setColor(shade)/255, shade/255, shade/255)
-
+    love.graphics.draw(person, x, y)
 
     draw tileblocks
     function love.draw()
@@ -33,7 +37,8 @@ function love.draw()
             for j,tile in ipairs(row) do
                 if tile == 1 then
                     -- draw something
-                    love.graphics.draw(image, 0, 0)
+                    if
+                    love.graphics.rectangle("fill", j*25, i*25, 20, 20)
                 end
             end
         end
