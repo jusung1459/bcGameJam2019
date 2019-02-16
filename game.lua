@@ -10,6 +10,7 @@ function Game:new()
     player = Player()
     son = Son()
     volcano = Volcano()
+    box = Box()
 
 
     map = Map(1,1,tileblocks)
@@ -34,13 +35,17 @@ function Game:extend()
       player:update(dt)
       son:update(dt)
       volcano:update(dt)
+      box:update(dt)
       if volcano.halt == true then
         collides = player:checkCollision(player, volcano)
         if collides == true then
           player:update(dt,true)
         end
       end
-
+      boxIntact = player:checkCollision( player, box )
+      if boxIntact == true then
+        box:update(dt,true)
+      end
   end
 
 function Game:draw()
@@ -49,6 +54,7 @@ function Game:draw()
     player:draw()
     son:draw()
     volcano:draw()
+    box.draw()
 
     --love.graphics.draw(gear, 5, 5)
 
