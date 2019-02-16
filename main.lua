@@ -9,11 +9,12 @@ function love.load()
 
     rooms = {}
     current_room = Menu()
+    game = Game()
 
 end
 
 function love.update(dt)
-
+  game.update()
 end
 
 function love.draw()

@@ -26,18 +26,17 @@ function Game:extend()
     return cls
   end
 
-function Game:update(dt)
+  function Game:update(dt)
 
-    player:update(dt)
-    son:update(dt)
+      player:update(dt)
+      son:update(dt)
 
-end
+  end
 
 function Game:draw()
 
     player:draw()
     son:draw()
-
     map:draw()
 
 end
@@ -48,6 +47,7 @@ function Game:keypressed(key)
     -- son:keypressed(key)
 
 end
+
 
 
 function Game:mousepressed(x, y, button, istouch)
