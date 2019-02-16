@@ -9,6 +9,7 @@ function Game:new()
     player = Player()
     son = Son()
     volcano = Volcano()
+    box = Box()
 
 
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
@@ -42,6 +43,9 @@ end
           player:update(dt,true)
         end
       end
+      pushBox = player:checkCollision(player, box)
+      if pushBox == true then
+        box:update(dt, true)
       self:update2(dt)
   end
 
