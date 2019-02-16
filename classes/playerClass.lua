@@ -78,7 +78,7 @@ function Son:update(dt)
     self.y  = window_height - self.height
   end
 
-  if self.x + self.width ==
+  
 end
 
 function Son:draw()
