@@ -4,6 +4,7 @@ Son = Object:extend()
 Box = Player:extend()
 
 
+
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
 
@@ -90,7 +91,7 @@ function Player:keypressed(key, son)
     son.y = self.y
     son.x = self.x
     if self.y ~= 560 then
-      if walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then
+      if walls[current_level][(self.y/40)+2][(self.x/40)+1] ~= 1 then
         self.y = self.y + 40
       end
     end
@@ -100,7 +101,7 @@ function Player:keypressed(key, son)
     son.y = self.y
     son.x = self.x
     if self.x ~= 0 then
-      if walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then
+      if walls[current_level][(self.y/40)+1][(self.x/40)] ~= 1 then
         self.x = self.x - 40
       end
     end
@@ -109,12 +110,26 @@ function Player:keypressed(key, son)
     son.y = self.y
     son.x = self.x
     if self.x ~= 760 then
-      if walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then
+      if walls[current_level][(self.y/40)+1][(self.x/40)+2] ~= 1 then
         self.x = self.x + 40
       end
     end
   end
+
+  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 2 then
+    self:nextLevel()
+  end
 end
+
+function Player:nextLevel()
+  self.x = 40
+  self.y = 0
+  son.x = 0
+  son.y = 0
+  gotoRoom(next_level, next_level_index)
+end
+
+
 
 function Son:new()
   self.image = love.graphics.newImage("art/penguin.png")

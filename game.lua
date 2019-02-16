@@ -9,7 +9,10 @@ function Game:new()
     player = Player()
     son = Son()
     volcano = Volcano()
+<<<<<<< HEAD
     box = Box()
+=======
+>>>>>>> origin/master
 
 
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
@@ -43,12 +46,15 @@ end
           player:update(dt,true)
         end
       end
+<<<<<<< HEAD
 
       box:update(dt)
       pushBox = box:checkCollision(player, box)
       if pushBox == true then
         box:update(dt, true)
       end
+=======
+>>>>>>> origin/master
       self:update2(dt)
   end
 
@@ -61,7 +67,10 @@ function Game:draw()
     player:draw()
     son:draw()
     volcano:draw()
+<<<<<<< HEAD
     box:draw()
+=======
+>>>>>>> origin/master
 
     love.graphics.draw(gear, 0, 0)
 end
