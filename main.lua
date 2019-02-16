@@ -33,9 +33,12 @@ function love.load()
     -- player = require "playerClass"
 
 
-    --map = Map(1,1,tileblocks)
 
-    current_room = Menu()
+    require "map"
+    map = Map(1,1,tileblocks)
+
+    love.graphics.setBackgroundColor( 1, 1, 1 )
+
 
 end
 
@@ -48,18 +51,17 @@ function love.update(dt)
       shade = shade - 0.5
     end
 
-    if current_room then current_room:update(dt) end
 end
 
 function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
-    --map:draw()
 
     player:draw()
     son:draw()
 
+    map:draw()
 
     -- love.graphics.draw(image, 0, 0)
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
