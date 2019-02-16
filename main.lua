@@ -35,8 +35,8 @@ end
 function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
-    -- player:draw()
-    -- son:draw()
+    player:draw()
+    son:draw()
 
     -- draw tileblocks
     -- function love.draw()
