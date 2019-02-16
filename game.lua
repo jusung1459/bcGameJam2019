@@ -44,10 +44,11 @@ end
 
 function Game:keypressed(key)
 
-    player:keypressed(key)
+    player:keypressed(key, son)
     -- son:keypressed(key)
 
 end
+
 
 function Game:mousepressed(x, y, button, istouch)
 end

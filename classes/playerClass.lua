@@ -31,59 +31,57 @@ function Player:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
 
-function Player:keypressed(key)
+function Player:keypressed(key, son)
   if key == "a" then
     self.x = 200
     self.y = 200
   end
   if key == "up" then
-    sony = self.y
-    sonx = self.x
+    son.y = self.y
+    son.x = self.x
     self.y = self.y - 40
 
   end
   if key == "down" then
-    sony = self.y
-    sonx = self.x
+    son.y = self.y
+    son.x = self.x
     self.y = self.y + 40
   end
   if key == "left" then
-    sony = self.y
-    sonx = self.x
+    son.y = self.y
+    son.x = self.x
     self.x = self.x - 40
   end
   if key == "right" then
-    sony = self.y
-    sonx = self.x
+    son.y = self.y
+    son.x = self.x
     self.x = self.x + 40
   end
 end
 
-
-
 function Son:new()
   self.image = love.graphics.newImage("art/penguin.png")
-  sonx = 0
-  sony = 0
+  self.x = 0
+  self.y = 0
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
 end
 
 function Son:update(dt)
-  if sonx < 0 then sonx = 0
-  elseif sonx + self.width > window_width then
-    sonx = window_width - self.width
+  if self.x < 0 then Son.x = 0
+  elseif self.x + self.width > window_width then
+    self.x = window_width - self.width
   end
-  if sony < 0 then sony = 0
-  elseif sony + self.height > window_height then
-    sony = window_height - self.height
+  if self.y  < 0 then self.y = 0
+  elseif self.y + self.height > window_height then
+    self.y  = window_height - self.height
   end
 
 end
 
 function Son:draw()
-  love.graphics.draw( self.image, sonx, sony )
+  love.graphics.draw( self.image, self.x, self.y )
 end
 --
 -- function Son:keypressed(key)
