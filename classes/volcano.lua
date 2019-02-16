@@ -7,11 +7,12 @@ stop = love.graphics.newImage("/art/redv.png")
 whichimg = cross
 
 
-function Volcano:new()
+function Volcano:new(x, y)
   self.image = whichimg
-  self.x = 280
-  self.y = 0
+  self.x = x
+  self.y = y
   self.halt = false
+  walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
 end
@@ -22,9 +23,11 @@ function Volcano:update(dt)
     if whichimg == stop then
       whichimg = cross
       self.halt = false
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
     else
       whichimg = stop
       self.halt = true
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = 1
     end
     count = 0
   end

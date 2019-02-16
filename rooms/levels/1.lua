@@ -46,6 +46,7 @@ function Lv1:init()
     self.tileblocks = tileblocks
 
     box = Box(360, 0)
+    volcano = Volcano(280, 40)
 end
 
 function Lv1:update2()
@@ -53,6 +54,15 @@ function Lv1:update2()
   pushBox = box:checkCollision(player, box)
   if pushBox == true then
     box:update(dt, true)
+  end
+
+  
+  volcano:update(dt)
+  if volcano.halt == true then
+    collides = player:checkCollision(player, volcano)
+    if collides == true then
+      player:update(dt,true)
+    end
   end
 
 end
@@ -116,6 +126,8 @@ function Lv1:draw2()
 
     
     box:draw()
+    
+    volcano:draw()
 end
 
 function Lv1:keypressed2(key)

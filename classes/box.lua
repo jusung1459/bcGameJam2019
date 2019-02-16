@@ -14,6 +14,7 @@ function Box:new(x, y)
     self.intact = false
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
+    walls[current_level][(self.y/40)+1][(self.x/40)+1] = 1
   end
   
   function Box:draw()
@@ -29,7 +30,11 @@ function Box:new(x, y)
       if key == "a" then
         self.push = not self.push
       end
+      if self.push == false then
+        walls[current_level][(self.y/40)+1][(self.x/40)+1] = 1
+      end
       if self.push == true then
+        walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
         if key == "up" then
           son.y = self.y
           son.x = self.x

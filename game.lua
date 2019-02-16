@@ -8,9 +8,6 @@ function Game:new()
 
     player = Player()
     son = Son()
-    volcano = Volcano()
-
-
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
     self:init()
 end
@@ -35,15 +32,7 @@ end
 
       player:update(dt)
       son:update(dt)
-      volcano:update(dt)
-      if volcano.halt == true then
-        collides = player:checkCollision(player, volcano)
-        if collides == true then
-          player:update(dt,true)
-        end
-      end
 
-      
       self:update2(dt)
   end
 
@@ -55,7 +44,6 @@ function Game:draw()
     self:draw2()
     player:draw()
     son:draw()
-    volcano:draw()
 
     love.graphics.draw(gear, 0, 0)
 end
