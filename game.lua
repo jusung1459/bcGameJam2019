@@ -33,8 +33,8 @@ function Game:extend()
 
       player:update(dt)
       son:update(dt)
-      stop = volcano:update(dt)
-      if stop == true then
+      volcano:update(dt)
+      if volcano.halt == true then
         collides = player:checkCollision(player, volcano)
         if collides == true then
           player:update(dt,true)
