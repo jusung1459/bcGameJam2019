@@ -82,8 +82,31 @@ function love.draw()
 end
 
 function love.keypressed(key)
-    player:keypressed(key)
-    son:keypressed(key)
+    --player:keypressed(key)
+    --son:keypressed(key)
+    if key == "up" then
+      son.x = player.x
+      son.y = player.y
+      player.y = player.y - 40
+    end
+
+    if key == "down" then
+      son.x = player.x
+      son.y = player.y
+      player.y = player.y + 40
+    end
+
+    if key == "left" then
+      son.x = player.x
+      son.y = player.y
+      player.x = player.x - 40
+    end
+
+    if key == "right" then
+      son.x = player.x
+      son.y = player.y
+      player.x = player.x + 40
+    end
 end
 
 function love.gotoRoom(room_type, ...)
