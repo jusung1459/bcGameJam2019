@@ -11,6 +11,9 @@ function love.load()
 
     shade = 255
     image = love.graphics.newImage('image.png')
+    Object = require "classic"
+    -- player = require "playerClass"
+
 end
 
 function love.update(dt)
