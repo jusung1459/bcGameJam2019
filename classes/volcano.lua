@@ -5,6 +5,7 @@ count = 0
 whichimg = cross
 cross = love.graphics.newImage("/art/greenv.png")
 stop = love.graphics.newImage("/art/redv.png")
+whichimg = cross
 
 
 function Volcano:new()
