@@ -16,8 +16,12 @@ function love.load()
     image = love.graphics.newImage('art/image.png')
     person = love.graphics.newImage('art/person.png')
   
-    Object = require "classic"
+    Object = require "libraries/classic/classic"
     -- player = require "playerClass"
+
+    Menu = require "rooms/main_menu"
+
+    current_room = nil
 end
 
 function love.update(dt)
@@ -26,6 +30,8 @@ function love.update(dt)
     if shade > 0 then
       color = color - 0.5
     end
+
+    if current_room then current_room:update(dt) end
 end
 
 function love.draw()
@@ -44,5 +50,6 @@ function love.draw()
         end
     end
 
+    if current_room then current_room:draw() end
     love.graphics.draw(image, 0, 0)
 end
