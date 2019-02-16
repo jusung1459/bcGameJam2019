@@ -3,7 +3,7 @@ Object = require 'libraries/classic/classic'
 Menu = Object:extend()
 
 function Menu:new()
-    background = love.graphics.newImage('art/menu')
+    background = love.graphics.newImage('art/menu.png')
 end 
 
 function Menu:update(dt)

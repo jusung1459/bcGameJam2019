@@ -1,3 +1,6 @@
+Object = require 'libraries/classic/classic'
+require 'rooms/typeA'
+
 function love.load()
 
     -- tileblocks
@@ -25,12 +28,10 @@ function love.load()
     -- image = love.graphics.newImage('art/image.png')
     -- person = love.graphics.newImage('art/person.png')
 
-    Object = require "libraries/classic/classic"
     -- player = require "playerClass"
 
-    Menu = require "rooms/main_menu"
 
-    current_room = nil
+    current_room = typeA()
 
 end
 
@@ -72,4 +73,8 @@ function love.draw()
 
     if current_room then current_room:draw() end
     -- love.graphics.draw(image, 0, 0)
+end
+
+function love.gotoRoom(room_type, ...)
+    current_room = _G[room_type](...)
 end
