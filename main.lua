@@ -4,9 +4,9 @@ require 'rooms/A/options'
 require 'game'
 
 function love.load()
-    
+
     love.window.setMode(800, 600)
-    
+
     rooms = {}
     current_room = Menu()
 
@@ -25,13 +25,13 @@ end
 function love.keypressed(key)
 
     if current_room then current_room:keypressed(key) end
-    
+
 end
 
 function love.keypressed(key)
     player:keypressed(key)
     -- son:keypressed(key)
-
+end
 function addRoom(room_type, room_name, ...)
     local room = _G[room_type](room_name, ...)
     rooms[room_name] = room
