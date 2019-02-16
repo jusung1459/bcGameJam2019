@@ -1,3 +1,7 @@
+Object = require 'libraries/classic/classic'
+require 'rooms/A/main_menu'
+require 'map'
+
 function love.load()
 
     -- tileblocks
@@ -12,7 +16,8 @@ function love.load()
     shade = 255
     x = 0
     y = 0
-
+    
+    love.window.setMode(800, 600)
     -- image = love.graphics.newImage('image.png')
     -- icon = love.graphics.newImage('person.png')
 
@@ -25,15 +30,12 @@ function love.load()
     -- image = love.graphics.newImage('art/image.png')
     -- person = love.graphics.newImage('art/person.png')
 
-    Object = require "libraries/classic/classic"
     -- player = require "playerClass"
 
-    Menu = require "rooms/main_menu"
 
-    Object = require "map"
-    map = Map(1,1,tileblocks)
+    --map = Map(1,1,tileblocks)
 
-    current_room = nil
+    current_room = Menu()
 
 end
 
@@ -53,7 +55,7 @@ function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
-    map:draw()
+    --map:draw()
 
     player:draw()
     son:draw()
@@ -68,4 +70,12 @@ function love.draw()
 
     if current_room then current_room:draw() end
     -- love.graphics.draw(image, 0, 0)
+end
+
+function love.gotoRoom(room_type, ...)
+    current_room = _G[room_type](...)
+end
+
+function love.mousepressed(x, y, button, istouch)
+    if current_room then current_room:mousepressed(x, y, button, istouch) end
 end
