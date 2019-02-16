@@ -28,6 +28,10 @@ function love.keypressed(key)
     
 end
 
+function love.keypressed(key)
+    player:keypressed(key)
+    -- son:keypressed(key)
+
 function addRoom(room_type, room_name, ...)
     local room = _G[room_type](room_name, ...)
     rooms[room_name] = room

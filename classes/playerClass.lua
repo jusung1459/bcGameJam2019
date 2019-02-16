@@ -37,15 +37,24 @@ function Player:keypressed(key)
     self.y = 200
   end
   if key == "up" then
+    sony = self.y
+    sonx = self.x
     self.y = self.y - 40
+
   end
   if key == "down" then
+    sony = self.y
+    sonx = self.x
     self.y = self.y + 40
   end
   if key == "left" then
+    sony = self.y
+    sonx = self.x
     self.x = self.x - 40
   end
   if key == "right" then
+    sony = self.y
+    sonx = self.x
     self.x = self.x + 40
   end
 end
@@ -54,44 +63,44 @@ end
 
 function Son:new()
   self.image = love.graphics.newImage("art/penguin.png")
-  self.x = 0
-  self.y = 0
+  sonx = 0
+  sony = 0
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
 end
 
 function Son:update(dt)
-  if self.x < 0 then self.x = 0
-  elseif self.x + self.width > window_width then
-    self.x = window_width - self.width
+  if sonx < 0 then sonx = 0
+  elseif sonx + self.width > window_width then
+    sonx = window_width - self.width
   end
-  if self.y < 0 then self.y = 0
-  elseif self.y + self.height > window_height then
-    self.y = window_height - self.height
+  if sony < 0 then sony = 0
+  elseif sony + self.height > window_height then
+    sony = window_height - self.height
   end
 
 end
 
 function Son:draw()
-  love.graphics.draw( self.image, self.x, self.y )
+  love.graphics.draw( self.image, sonx, sony )
 end
-
-function Son:keypressed(key)
-  if key == "a" then
-    self.x = 200
-    self.y = 200
-  end
-  if key == "up" then
-    self.y = self.y - 40
-  end
-  if key == "down" then
-    self.y = self.y + 40
-  end
-  if key == "left" then
-    self.x = self.x - 40
-  end
-  if key == "right" then
-    self.x = self.x + 40
-  end
-end
+--
+-- function Son:keypressed(key)
+--   if key == "a" then
+--     self.x = 200
+--     self.y = 200
+--   end
+--   if key == "up" then
+--     self.y = self.y - 40
+--   end
+--   if key == "down" then
+--     self.y = self.y + 40
+--   end
+--   if key == "left" then
+--     self.x = self.x - 40
+--   end
+--   if key == "right" then
+--     self.x = self.x + 40
+--   end
+-- end

@@ -11,8 +11,6 @@ function Game:new()
 
     map = Map(1,1,tileblocks)
 
-end 
-
 function Game:extend()
     local cls = {}
     for k, v in pairs(self) do
@@ -43,9 +41,9 @@ function Game:draw()
 end
 
 function Game:keypressed(key)
-    
+
     player:keypressed(key)
-    son:keypressed(key)
+    -- son:keypressed(key)
 
 end
 
@@ -57,5 +55,3 @@ function Game:activate()
 end
 
 function Game:deactivate()
-
-end
