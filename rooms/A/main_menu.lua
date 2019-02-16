@@ -1,6 +1,7 @@
 Object = require 'libraries/classic/classic'
+require 'rooms/typeA'
 
-Menu = Object:extend()
+Menu = typeA:extend()
 
 function Menu:new()
     background = love.graphics.newImage('art/menu.png')

@@ -1,5 +1,6 @@
 Object = require 'libraries/classic/classic'
-require 'rooms/typeA'
+require 'rooms/A/main_menu'
+require 'map'
 
 function love.load()
 
@@ -31,10 +32,9 @@ function love.load()
     -- player = require "playerClass"
 
 
-    map = Map(1,1,tileblocks)
-    Object = require "map"
+    --map = Map(1,1,tileblocks)
 
-    current_room = typeA()
+    current_room = Menu()
 
 end
 
@@ -54,7 +54,7 @@ function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
-    map:draw()
+    --map:draw()
 
     player:draw()
     son:draw()
