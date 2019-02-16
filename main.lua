@@ -62,19 +62,6 @@ function love.draw()
     player:draw()
     son:draw()
 
-    -- draw tileblocks
-    -- function love.draw()
-    --     for i,row in ipairs(tileblocks) do
-    --         for j,tile in ipairs(row) do
-    --             if tile == 1 then
-    --                 -- draw something
-    --                 if
-    --                 love.graphics.rectangle("fill", j*25, i*25, 20, 20)
-    --                 end
-    --             end
-    --         end
-    --     end
-    -- end
 
     -- love.graphics.draw(image, 0, 0)
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
