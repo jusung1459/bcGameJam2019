@@ -43,3 +43,12 @@ function love.draw()
     if current_room then current_room:draw() end
     --love.graphics.draw(image, 0, 0)
 end
+
+function love.gotoRoom(room_type, ...)
+    current_room = _G[room_type](...)
+end
+
+function love.mousepressed(x, y, button)
+    if current_room then current_room:mousepressed(x, y, button) end
+end
+
