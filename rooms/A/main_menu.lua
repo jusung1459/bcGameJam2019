@@ -14,3 +14,6 @@ function Menu:draw()
     love.graphics.draw(background, 0, 0)
 end
 
+function Menu:mousepressed(x, y, button, istouch)
+
+end

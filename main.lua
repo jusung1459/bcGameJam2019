@@ -16,7 +16,8 @@ function love.load()
     shade = 255
     x = 0
     y = 0
-
+    
+    love.window.setMode(800, 600)
     -- image = love.graphics.newImage('image.png')
     -- icon = love.graphics.newImage('person.png')
 
@@ -76,5 +77,5 @@ function love.gotoRoom(room_type, ...)
 end
 
 function love.mousepressed(x, y, button, istouch)
-    if current_room then current_room:mousepressed(x, y, button, istouch)
+    if current_room then current_room:mousepressed(x, y, button, istouch) end
 end
