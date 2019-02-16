@@ -1,16 +1,20 @@
 Object = require 'libraries/classic/classic'
 require 'rooms/A/main_menu'
 require 'rooms/A/options'
-require 'game'
+require 'rooms/A/credits'
+require 'rooms/levels/1'
 
 function love.load()
 
     love.window.setMode(800, 600)
 
     rooms = {}
+    walls = {}
     current_room = Menu()
     rooms[1] = current_room
     game = Game()
+    previous_room = nil
+    previous_room_index = nil
 
 end
 
@@ -32,6 +36,7 @@ end
 function addRoom(room_type, room_name, ...)
     local room = _G[room_type](room_name, ...)
     rooms[room_name] = room
+    current_room:activate()
     return room
 end
 

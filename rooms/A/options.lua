@@ -23,7 +23,7 @@ function Options:mousepressed(x, y, button, istouch)
             if button == 1 then
                 if y >= 500 then
                     if y <= 540 then
-                        gotoRoom('Menu', 1)
+                        gotoRoom(previous_room, previous_room_index)
                     end
                 end
             end

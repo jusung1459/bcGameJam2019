@@ -116,8 +116,6 @@ function Son:update(dt)
   elseif self.y + self.height > window_height then
     self.y  = window_height - self.height
   end
-
-
 end
 
 function Son:draw()

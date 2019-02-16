@@ -16,6 +16,9 @@ function Game:new()
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
 end
 
+function Game:init()
+end
+
 function Game:extend()
     local cls = {}
     for k, v in pairs(self) do
@@ -69,7 +72,7 @@ function Game:mousepressed(x, y, button, istouch)
             if y >= 5 then
                 if x <= 55 then
                     if y <= 55 then
-                        gotoRoom('Options', 3)
+                        gotoRoom('Options', 2)
                     end
                 end
             end

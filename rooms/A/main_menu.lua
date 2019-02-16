@@ -26,13 +26,13 @@ function Menu:mousepressed(x, y, button, istouch)
             if button == 1 then
                 if y >= 300 then
                     if y <= 340 then
-                        gotoRoom('Game', 2)                
+                        gotoRoom('Lv1', 4)                
                     elseif y >= 350 then
                         if y <= 390 then
-                            gotoRoom('Options', 3)
+                            gotoRoom('Options', 2)
                         elseif y >= 400 then
                             if y <= 440 then
-                                gotoRoom('Credits', 4)
+                                gotoRoom('Credits', 3)
                             elseif y >= 550 then
                                 if y <= 590 then
                                     love.event.quit()
@@ -44,4 +44,9 @@ function Menu:mousepressed(x, y, button, istouch)
             end
         end
     end
+end
+
+function Menu:activate()
+    previous_room = "Menu"
+    previous_room_index = 1
 end
