@@ -8,9 +8,9 @@ function Menu:new()
 end 
 
 function Menu:update(dt)
-
 end
 
 function Menu:draw()
     love.graphics.draw(background, 0, 0)
 end
+

@@ -74,3 +74,7 @@ end
 function love.gotoRoom(room_type, ...)
     current_room = _G[room_type](...)
 end
+
+function love.mousepressed(x, y, button, istouch)
+    if current_room then current_room:mousepressed(x, y, button, istouch)
+end
