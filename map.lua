@@ -3,9 +3,22 @@
 Map = Object:extend()
 
 function Map:new(width, height, tileblocks)
+
+    tileblocks = {  {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
+                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
+                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
+                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
+                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
+                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1}
+                }
+
+    love.graphics.setBackgroundColor( 1, 1, 1 )
+
     self.width = width
     self.height = height
     self.tileblocks = tileblocks
+
+
 end
 
 function Map:update(dt)
