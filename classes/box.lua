@@ -7,7 +7,7 @@ local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
 
 function Box:new(x, y)
-    self.image = love.graphics.newImage("art/sand.png")
+    self.image = love.graphics.newImage("art/box.png")
     self.x = x
     self.y = y
     self.push = false
