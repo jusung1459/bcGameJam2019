@@ -23,7 +23,7 @@ function love.load()
 
     Object = require "classic"
     require "/classes/playerClass"
-
+    require "/classes/queue"
     player = Player()
     son = Son()
 

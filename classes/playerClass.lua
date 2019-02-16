@@ -1,5 +1,5 @@
 -- Player and Son class
-
+require "/classes/queue"
 Player = Object:extend()
 Son = Object:extend()
 
