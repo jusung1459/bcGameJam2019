@@ -1,7 +1,9 @@
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
+Box = Object:extend()
 
+boximg = love.graphics.newImage("/art/sand.png")
 
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
@@ -14,6 +16,7 @@ function Player:new()
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
+  self.flag = false
 end
 
 function Player:checkCollision(player, b)
@@ -74,8 +77,7 @@ end
 --move character+son
 function Player:keypressed(key, son)
   if key == "a" then
-    self.x = 200
-    self.y = 200
+    self.flag = ~self.flag
   end
   if key == "up" then
     son.y = self.y
@@ -122,4 +124,12 @@ end
 
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
+end
+
+function Box:new()
+  self.image = boximg
+  self.x = 200
+  self.y = 200
+  self.width = self.image:getWidth()
+  self.height = self.image:getHeight()
 end
