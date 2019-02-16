@@ -4,7 +4,6 @@ require 'rooms/typeA'
 Menu = typeA:extend()
 
 function Menu:new()
-    current_level = 1
     picture = love.graphics.newImage('art/menu.png')
     background = love.graphics.newImage('art/menu/background.png')
 end 
@@ -48,10 +47,6 @@ function Menu:mousepressed(x, y, button, istouch)
 end
 
 function Menu:activate()
-    current_level = 1
-end
-
-function Menu:deactivate()
     previous_room = "Menu"
     previous_room_index = 1
 end

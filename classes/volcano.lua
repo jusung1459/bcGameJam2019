@@ -6,7 +6,6 @@ cross = love.graphics.newImage("/art/greenv.png")
 stop = love.graphics.newImage("/art/redv.png")
 whichimg = cross
 
-
 function Volcano:new()
   self.image = whichimg
   self.x = 280
@@ -24,11 +23,10 @@ function Volcano:update(dt)
       self.halt = false
     else
       whichimg = stop
-      self.halt = true
+      self.halt = true 
     end
     count = 0
   end
-  return self.halt
 end
 
 function Volcano:draw()
