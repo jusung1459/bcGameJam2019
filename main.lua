@@ -9,6 +9,7 @@ function love.load()
 
     rooms = {}
     current_room = Menu()
+    rooms[1] = current_room
     game = Game()
 
 end
@@ -24,9 +25,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-
     if current_room then current_room:keypressed(key) end
-
 end
 
 
@@ -46,4 +45,13 @@ end
 
 function love.mousepressed(x, y, button, istouch)
     if current_room then current_room:mousepressed(x, y, button, istouch) end
+end
+-- cant mouse to press a second time on a different option
+
+function love.mousereleased(x, y, button, istouch)
+    if current_room then current_room:mousepressed(x, y, button, istouch) end
+end
+
+function love.quit()
+
 end

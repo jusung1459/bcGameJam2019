@@ -1,6 +1,7 @@
 Object = require 'libraries/classic/classic'
 require 'map'
 require "classes/playerClass"
+require "classes/volcano"
 
 Game = Object:extend()
 
@@ -8,11 +9,12 @@ function Game:new()
 
     player = Player()
     son = Son()
+    volcano = Volcano()
 
     volcano = Volcano()
 
     map = Map(1,1,tileblocks)
-
+    gear = love.graphics.newImage('art/menu/gear_wheel.png')
 end
 
 function Game:extend()
@@ -41,6 +43,9 @@ function Game:draw()
     map:draw()
     player:draw()
     son:draw()
+    volcano:draw()
+
+    --love.graphics.draw(gear, 5, 5)
 
 end
 
@@ -54,7 +59,22 @@ end
 
 
 function Game:mousepressed(x, y, button, istouch)
+    if button == 1 then
+        if x >= 5 then
+            if y >= 5 then
+                if x <= 55 then
+                    if y <= 55 then
+                        gotoRoom('Options', 3)
+                    end
+                end
+            end
+        end
+    end
 end
+
+function Game:mousereleased(x, y, button, istouch)
+end
+
 
 function Game:activate()
 end
