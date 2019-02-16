@@ -35,9 +35,9 @@ function Game:extend()
 
 function Game:draw()
 
+    map:draw()
     player:draw()
     son:draw()
-    map:draw()
 
 end
 
