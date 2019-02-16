@@ -26,3 +26,14 @@ end
 function typeA:draw()
 
 end
+
+function typeA:mousepressed(x, y, button, istouch)
+end
+
+function typeA:activate()
+
+end
+
+function typeA:deactivate()
+
+end
