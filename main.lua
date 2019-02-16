@@ -9,6 +9,7 @@ function love.load()
 
     rooms = {}
     current_room = Menu()
+    rooms[1] = current_room
     game = Game()
 
 end

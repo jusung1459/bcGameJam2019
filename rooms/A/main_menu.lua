@@ -26,59 +26,19 @@ function Menu:mousepressed(x, y, button, istouch)
             if button == 1 then
                 if y >= 300 then
                     if y <= 340 then
-                        gotoRoom('Game', 1)
-                    end
-                --[[
-                elseif y >= 350 then
-                    if y <= 390 then
-                        gotoRoom('Options', 1)
-                    end
-                elseif y >= 400 then
-                    if y <= 440 then
-                        gotoRoom('Credits', 1)
-                    end
-                elseif y >= 550 then
-                    if y <= 590 then
-                        love.event.quit()
-                    end
-                end
-                doesn't work for some reason
-                ]]
-                end
-            end
-        end
-    end
-
-    if x >= 300 then
-        if x <= 500 then
-            if button == 1 then
-                if y >= 350 then
-                    if y <= 390 then
-                        gotoRoom('Options', 1)
-                    end
-                end
-            end
-        end
-    end
-
-    if x >= 300 then
-        if x <= 500 then
-            if button == 1 then
-                if y >= 400 then
-                    if y <= 440 then
-                        gotoRoom('Credits', 1)
-                    end
-                end
-            end
-        end
-    end
-
-    if x >= 300 then
-        if x <= 500 then
-            if button == 1 then
-                if y >= 550 then
-                    if y <= 590 then
-                        love.event.quit()
+                        gotoRoom('Game', 2)                
+                    elseif y >= 350 then
+                        if y <= 390 then
+                            gotoRoom('Options', 3)
+                        elseif y >= 400 then
+                            if y <= 440 then
+                                gotoRoom('Credits', 4)
+                            elseif y >= 550 then
+                                if y <= 590 then
+                                    love.event.quit()
+                                end
+                            end
+                        end    
                     end
                 end
             end

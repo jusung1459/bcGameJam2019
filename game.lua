@@ -58,7 +58,7 @@ function Game:mousepressed(x, y, button, istouch)
             if y >= 5 then
                 if x <= 55 then
                     if y <= 55 then
-                        gotoRoom('Options', 1)
+                        gotoRoom('Options', 3)
                     end
                 end
             end
