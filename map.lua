@@ -29,7 +29,7 @@ function Map:new(width, height, tileblocks)
 
     --21 columns bc things i/j at one?? there shouldn't actually be anything there
     tileblocks = {
-      {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -92,22 +92,22 @@ function Map:draw()
               elseif j == 20 and i == 15 then
                 love.graphics.draw(botright, (j-1)*40, (i-1)*40)
 
-              elseif i == 1 then
+              elseif i == 1 and j ~= 1 and j ~= 20 then
                 love.graphics.draw(top, (j-1)*40, (i-1)*40)
 
-              elseif j == 1 then
+              elseif j == 1 and i ~= 1 and i ~= 15 then
                 love.graphics.draw(left, (j-1)*40, (i-1)*40)
 
-              elseif j == 20 then
+              elseif j == 20  and i ~= 1 and i ~= 15 then
                 love.graphics.draw(right, (j-1)*40, (i-1)*40)
 
-              elseif i == 15 then
+              elseif i == 15 and j ~= 1 and j ~= 20 then
                 love.graphics.draw(bot, (j-1)*40, (i-1)*40)
 
-              else
-                love.graphics.draw(center, j * 40, i * 40)
-
+              elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
+                love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
               end
+
             end
             if tile == 1 then
               table.insert(wall, {i,j})
