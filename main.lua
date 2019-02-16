@@ -15,6 +15,9 @@ function love.load()
 
     image = love.graphics.newImage('image.png')
     icon = love.graphics.newImage('person.png')
+  
+    Object = require "classic"
+    -- player = require "playerClass"
 end
 
 function love.update(dt)
