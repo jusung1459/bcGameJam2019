@@ -8,7 +8,7 @@ function Game:new()
 
     player = Player()
     son = Son()
-    volcano = Volcano()
+    volcano = Volcano(300, 40)
 
 
     gear = love.graphics.newImage('art/menu/gear_wheel.png')

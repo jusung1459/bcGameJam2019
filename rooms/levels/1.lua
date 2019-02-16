@@ -1,4 +1,5 @@
 Object = require 'libraries/classic/classic'
+require "classes/volcano"
 require 'game'
 
 Lv1 = Game:extend()
@@ -17,7 +18,7 @@ function Lv1:init()
     bot = love.graphics.newImage("art/floor_tiles/bot.png")
     botright = love.graphics.newImage("art/floor_tiles/botright.png")
     wall = love.graphics.newImage("art/floor_tiles/wall.png")
-    
+
     --insert matrix here for obstacle
     walls[current_level] = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
