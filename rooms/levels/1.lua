@@ -4,6 +4,7 @@ require 'game'
 Lv1 = Game:extend()
 
 function Lv1:init()
+    current_level = 4
     grass = love.graphics.newImage("/art/grass.png")
     sand = love.graphics.newImage("/art/sand.png")
     topleft = love.graphics.newImage("art/floor_tiles/topleft.png")
@@ -15,20 +16,21 @@ function Lv1:init()
     botleft = love.graphics.newImage("art/floor_tiles/botleft.png")
     bot = love.graphics.newImage("art/floor_tiles/bot.png")
     botright = love.graphics.newImage("art/floor_tiles/botright.png")
+    wall = love.graphics.newImage("art/floor_tiles/wall.png")
     
     --insert matrix here for obstacle
-    walls[4] = {
+    walls[current_level] = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -44,7 +46,7 @@ end
 
 function Lv1:draw2()
 
-    for i, row in ipairs (walls[4]) do
+    for i, row in ipairs (walls[current_level]) do
         for j, tile in ipairs(row) do
             -- if tile == 0 and i != 15 and j != 20 then
             --   love.graphics.rectangle("fill", (j-1) * 40, (i-1) * 40, 40, 40)
@@ -86,7 +88,7 @@ function Lv1:draw2()
 
             end
             if tile == 1 then
-              table.insert(walls[4], {i,j})
+              love.graphics.draw(wall, (j-1)*40, (i-1)*40)
             end
             -- love.graphics.draw(grass, j * 40, i * 40)
             -- if tile == 1 then
@@ -99,6 +101,10 @@ function Lv1:draw2()
 end
 
 function Lv1:activate()
+    current_level = 4
+end
+
+function Lv1:deactivate()
     previous_room = 'Lv1'
     previous_room_index = 4
 end
