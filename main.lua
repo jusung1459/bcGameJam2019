@@ -6,7 +6,7 @@ function love.load()
                     {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
                     {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
                     {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1},
-                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1} 
+                    {1,1,1,0,1,0,1,0,1,0,1,0,1,0,1}
                 }
 
 
@@ -14,6 +14,9 @@ function love.load()
 
 
     image = love.graphics.newImage('image.png')
+    Object = require "classic"
+    -- player = require "playerClass"
+
 end
 
 function love.update(dt)
@@ -29,7 +32,7 @@ function love.draw()
                 if tile == 1 then
                     -- draw something
                     love.graphics.draw(image, 0, 0)
-                end 
+                end
             end
         end
     end
