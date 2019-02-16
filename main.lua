@@ -45,6 +45,11 @@ end
 function love.mousepressed(x, y, button, istouch)
     if current_room then current_room:mousepressed(x, y, button, istouch) end
 end
+-- cant mouse to press a second time on a different option
+
+function love.mousereleased(x, y, button, istouch)
+    if current_room then current_room:mousepressed(x, y, button, istouch) end
+end
 
 function love.quit()
 

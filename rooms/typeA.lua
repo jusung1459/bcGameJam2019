@@ -28,14 +28,16 @@ function typeA:draw()
 end
 
 function typeA:keypressed(key)
-  
+
+end
+
+function typeA:mousepressed(x, y, button, istouch)
 end
 
 function typeA:mousepressed(x, y, button, istouch)
 end
 
 function typeA:activate()
-
 end
 
 function typeA:deactivate()

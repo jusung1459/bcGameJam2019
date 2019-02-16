@@ -26,7 +26,7 @@ function Menu:mousepressed(x, y, button, istouch)
             if button == 1 then
                 if y >= 300 then
                     if y <= 340 then
-                        gotoRoom('Games', 1)
+                        gotoRoom('Game', 1)
                     end
                 --[[
                 elseif y >= 350 then
