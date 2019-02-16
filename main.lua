@@ -83,7 +83,7 @@ end
 
 function love.keypressed(key)
     player:keypressed(key)
-    son:keypressed(key)
+    -- son:keypressed(key)
 end
 
 function love.gotoRoom(room_type, ...)
