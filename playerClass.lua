@@ -26,10 +26,6 @@ function Player:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
 
-
-
-
-
 function Son:new()
   self.image = love.graphics.newImage("art/kenney_animalpackredux/PNG/Round/penguin.png")
   self.x = 300
