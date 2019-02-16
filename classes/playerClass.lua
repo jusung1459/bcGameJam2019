@@ -125,45 +125,39 @@ end
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
+--
+-- function Box:new()
+--   self.image = boximg
+--   self.x = 200
+--   self.y = 200
+--   self.intact = false
+--   self.width = self.image:getWidth()
+--   self.height = self.image:getHeight()
+-- end
 
-function Box:new()
-  self.image = boximg
-  self.x = 200
-  self.y = 200
-  self.intact = false
-  self.width = self.image:getWidth()
-  self.height = self.image:getHeight()
-end
-
-function Box:keypressed(key, person, son, bool)
-  if key == "a" then
-    self.flag = not self.flag
-  end
-  if key == "up" then
-    son.y = self.y
-    son.x = self.x
-    self.y = self.y - 40
-
-  end
-  if key == "down" then
-    son.y = self.y
-    son.x = self.x
-    self.y = self.y + 40
-  end
-  if key == "left" then
-    son.y = self.y
-    son.x = self.x
-    self.x = self.x - 40
-  end
-  if key == "right" then
-    son.y = self.y
-    son.x = self.x
-    self.x = self.x + 40
-  end
-end
-
-function Box:update(dt, bool)
-  if bool == true then
-    self.intact = true
-  end
-end
+-- function Box:keypressed(key, person, son, bool)
+--   if key == "a" then
+--     self.flag = not self.flag
+--   end
+--   if key == "up" then
+--     son.y = self.y
+--     son.x = self.x
+--     self.y = self.y - 40
+--
+--   end
+--   if key == "down" then
+--     son.y = self.y
+--     son.x = self.x
+--     self.y = self.y + 40
+--   end
+--   if key == "left" then
+--     son.y = self.y
+--     son.x = self.x
+--     self.x = self.x - 40
+--   end
+--   if key == "right" then
+--     son.y = self.y
+--     son.x = self.x
+--     self.x = self.x + 40
+--   end
+-- end
