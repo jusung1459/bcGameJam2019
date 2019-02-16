@@ -1,3 +1,7 @@
+Object = require 'libraries/classic/classic'
+require 'rooms/A/main_menu'
+require 'map'
+
 function love.load()
 
     -- tileblocks
@@ -12,7 +16,8 @@ function love.load()
     shade = 255
     x = 0
     y = 0
-
+    
+    love.window.setMode(800, 600)
     -- image = love.graphics.newImage('image.png')
     -- icon = love.graphics.newImage('person.png')
 
@@ -25,12 +30,15 @@ function love.load()
     -- image = love.graphics.newImage('art/image.png')
     -- person = love.graphics.newImage('art/person.png')
 
-    Object = require "libraries/classic/classic"
     -- player = require "playerClass"
 
-    Menu = require "rooms/main_menu"
 
-    current_room = nil
+
+    require "map"
+    map = Map(1,1,tileblocks)
+
+    love.graphics.setBackgroundColor( 1, 1, 1 )
+
 
 end
 
@@ -43,13 +51,13 @@ function love.update(dt)
       shade = shade - 0.5
     end
 
-    if current_room then current_room:update(dt) end
 end
 
 function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       for i,row in ipairs(tileblocks) do
           for j,tile in ipairs(row) do
@@ -69,10 +77,13 @@ function love.draw()
       --     end
       -- end
 >>>>>>> Stashed changes
+=======
+>>>>>>> origin/master
 
     player:draw()
     son:draw()
 
+    map:draw()
 
     -- love.graphics.draw(image, 0, 0)
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
@@ -84,6 +95,7 @@ function love.draw()
     if current_room then current_room:draw() end
     -- love.graphics.draw(image, 0, 0)
 end
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
@@ -92,3 +104,13 @@ function love.keypressed(key)
     son:keypressed(key)
 end
 >>>>>>> Stashed changes
+=======
+
+function love.gotoRoom(room_type, ...)
+    current_room = _G[room_type](...)
+end
+
+function love.mousepressed(x, y, button, istouch)
+    if current_room then current_room:mousepressed(x, y, button, istouch) end
+end
+>>>>>>> origin/master

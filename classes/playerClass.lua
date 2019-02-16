@@ -3,15 +3,20 @@
 Player = Object:extend()
 Son = Object:extend()
 
+local window_width = love.graphics.getWidth()
+local window_height = love.graphics.getHeight()
+
 function Player:new()
   self.image = love.graphics.newImage( "/art/whale.png" )
   self.x = 300
   self.y = 20
   self.speed = 500
+  self.width = self.image:getWidth()
+  self.height = self.image:getHeight()
 end
 
 function Player:update(dt)
-<<<<<<< Updated upstream
+
   if love.keyboard.isDown( "down" ) then
     self.y = self.y + self.speed * dt
   elseif love.keyboard.isDown( "up" ) then
@@ -21,25 +26,23 @@ function Player:update(dt)
   elseif love.keyboard.isDown( "right" ) then
     self.x = self.x + self.speed * dt
   end
-=======
-  -- if love.keyboard.isDown( "down" ) then
-  --   self.y = self.y + self.speed * dt
-  -- elseif love.keyboard.isDown( "up" ) then
-  --   self.y = self.y - self.speed * dt
-  -- elseif love.keyboard.isDown( "left" ) then
-  --   self.x = self.x - self.speed * dt
-  -- elseif love.keyboard.isDown( "right" ) then
-  --   self.x = self.x + self.speed * dt
-  -- end
->>>>>>> Stashed changes
+
+
+  if self.x < 0 then self.x = 0
+  elseif self.x + self.width > window_width then
+    self.x = window_width - self.width
+  end
+  if self.y < 0 then self.y = 0
+  elseif self.y + self.height > window_height then
+    self.y = window_height - self.height
+  end
+
 end
 
 function Player:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
 
-<<<<<<< Updated upstream
-=======
 function Player:keypressed(key)
   if key == "a" then
     self.x = 200
@@ -58,17 +61,20 @@ function Player:keypressed(key)
     self.x = self.x + 40
   end
 end
->>>>>>> Stashed changes
+
+
 
 function Son:new()
   self.image = love.graphics.newImage("art/penguin.png")
   self.x = 300
   self.y = 40
   self.speed = 500
+  self.width = self.image:getWidth()
+  self.height = self.image:getHeight()
 end
 
 function Son:update(dt)
-<<<<<<< Updated upstream
+
   if love.keyboard.isDown( "down" ) then
     self.y = self.y + self.speed * dt
   elseif love.keyboard.isDown( "up" ) then
@@ -78,23 +84,20 @@ function Son:update(dt)
   elseif love.keyboard.isDown( "right" ) then
     self.x = self.x + self.speed * dt
   end
-=======
-  -- if love.keyboard.isDown( "down" ) then
-  --   self.y = self.y + self.speed * dt
-  -- elseif love.keyboard.isDown( "up" ) then
-  --   self.y = self.y - self.speed * dt
-  -- elseif love.keyboard.isDown( "left" ) then
-  --   self.x = self.x - self.speed * dt
-  -- elseif love.keyboard.isDown( "right" ) then
-  --   self.x = self.x + self.speed * dt
-  -- end
->>>>>>> Stashed changes
+
+  if self.x < 0 then self.x = 0
+  elseif self.x + self.width > window_width then
+    self.x = window_width - self.width
+  end
+  if self.y < 0 then self.y = 0
+  elseif self.y + self.height > window_height then
+    self.y = window_height - self.height
+  end
+
 end
 
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
-<<<<<<< Updated upstream
-=======
 end
 
 function Son:keypressed(key)
@@ -114,5 +117,4 @@ function Son:keypressed(key)
   if key == "right" then
     self.x = self.x + 40
   end
->>>>>>> Stashed changes
 end
