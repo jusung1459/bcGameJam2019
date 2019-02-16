@@ -67,9 +67,11 @@ end
 
 function Game:keypressed(key)
 
-    player:keypressed(key, son)
-    -- son:keypressed(key)
-
+    if player.flag == false then
+      box:keypressed(key, player, son)
+    else
+      player:keypressed(key, son)
+    end
 end
 
 
