@@ -4,7 +4,7 @@ Menu = Object:extend()
 
 function Menu:new()
     background = love.graphics.newImage('art/menu')
-end 
+end
 
 function Menu:update(dt)
 
