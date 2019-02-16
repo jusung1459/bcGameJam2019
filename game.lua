@@ -11,7 +11,6 @@ function Game:new()
     son = Son()
     volcano = Volcano()
 
-    volcano = Volcano()
 
     map = Map(1,1,tileblocks)
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
@@ -34,7 +33,13 @@ function Game:extend()
 
       player:update(dt)
       son:update(dt)
-      volcano:update(dt)
+      stop = volcano:update(dt)
+      if stop == true then
+        collides = player:checkCollision(player, volcano)
+        if collides == true then
+          player:update(dt,true)
+        end
+      end
 
   end
 
