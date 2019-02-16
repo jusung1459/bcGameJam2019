@@ -50,6 +50,7 @@ function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
+<<<<<<< Updated upstream
       for i,row in ipairs(tileblocks) do
           for j,tile in ipairs(row) do
               if tile == 1 then
@@ -58,6 +59,16 @@ function love.draw()
               end
           end
       end
+=======
+      -- for i,row in ipairs(tileblocks) do
+      --     for j,tile in ipairs(row) do
+      --         if tile == 1 then
+      --             -- draw something
+      --             love.graphics.rectangle("fill", j*25, i*25, 20, 20)
+      --         end
+      --     end
+      -- end
+>>>>>>> Stashed changes
 
     player:draw()
     son:draw()
@@ -73,3 +84,11 @@ function love.draw()
     if current_room then current_room:draw() end
     -- love.graphics.draw(image, 0, 0)
 end
+<<<<<<< Updated upstream
+=======
+
+function love.keypressed(key)
+    player:keypressed(key)
+    son:keypressed(key)
+end
+>>>>>>> Stashed changes
