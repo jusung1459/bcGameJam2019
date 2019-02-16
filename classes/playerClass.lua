@@ -77,7 +77,7 @@ end
 --move character+son
 function Player:keypressed(key, son)
   if key == "a" then
-    self.flag = ~self.flag
+    self.flag = not self.flag
   end
   if key == "up" then
     son.y = self.y
@@ -137,7 +137,7 @@ end
 
 function Box:keypressed(key, person, son, bool)
   if key == "a" then
-    self.flag = ~self.flag
+    self.flag = not self.flag
   end
   if key == "up" then
     son.y = self.y
@@ -165,3 +165,5 @@ end
 function Box:update(dt, bool)
   if bool == true then
     self.intact = true
+  end
+end

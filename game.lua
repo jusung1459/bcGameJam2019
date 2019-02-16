@@ -46,6 +46,7 @@ end
       pushBox = player:checkCollision(player, box)
       if pushBox == true then
         box:update(dt, true)
+      end
       self:update2(dt)
   end
 
@@ -73,7 +74,6 @@ function Game:keypressed(key)
       player:keypressed(key, son)
     end
 end
-
 
 
 function Game:mousepressed(x, y, button, istouch)
