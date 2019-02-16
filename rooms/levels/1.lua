@@ -1,5 +1,6 @@
 Object = require 'libraries/classic/classic'
 require 'game'
+require 'classes/box'
 
 Lv1 = Game:extend()
 
@@ -43,8 +44,18 @@ function Lv1:init()
     self.width = width
     self.height = height
     self.tileblocks = tileblocks
+
+    box = Box(360, 0)
 end
 
+function Lv1:update2()
+-- box:update(dt)
+  pushBox = box:checkCollision(player, box)
+  if pushBox == true then
+    box:update(dt, true)
+  end
+
+end
 function Lv1:draw2()
 
     for i, row in ipairs (walls[current_level]) do
@@ -102,6 +113,15 @@ function Lv1:draw2()
     end
 
     love.graphics.draw(topright, 760, 0)
+
+    
+    box:draw()
+end
+
+function Lv1:keypressed2(key)
+  
+  box:keypressed(key,player)
+
 end
 
 function Lv1:activate()

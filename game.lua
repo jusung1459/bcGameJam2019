@@ -9,7 +9,6 @@ function Game:new()
     player = Player()
     son = Son()
     volcano = Volcano()
-    box = Box()
 
 
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
@@ -44,11 +43,7 @@ end
         end
       end
 
-      -- box:update(dt)
-      pushBox = box:checkCollision(player, box)
-      if pushBox == true then
-        box:update(dt, true)
-      end
+      
       self:update2(dt)
   end
 
@@ -61,7 +56,6 @@ function Game:draw()
     player:draw()
     son:draw()
     volcano:draw()
-    box:draw()
 
     love.graphics.draw(gear, 0, 0)
 end
@@ -72,11 +66,13 @@ end
 function Game:keypressed(key)
 
     player:keypressed(key, son)
-    box:keypressed(key,player)
     -- son:keypressed(key)
-
+    self:keypressed2(key)
 end
 
+function Game:keypressed2(key)
+
+end
 
 
 function Game:mousepressed(x, y, button, istouch)
