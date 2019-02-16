@@ -22,7 +22,7 @@ function love.load()
     -- icon = love.graphics.newImage('person.png')
 
     Object = require "classic"
-    require "playerClass"
+    require "classes/playerClass"
 
     player = Player()
     son = Son()
@@ -38,7 +38,7 @@ function love.load()
     map = Map(1,1,tileblocks)
 
     love.graphics.setBackgroundColor( 1, 1, 1 )
-
+    
 
 end
 
@@ -57,8 +57,6 @@ function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
       for i,row in ipairs(tileblocks) do
           for j,tile in ipairs(row) do
               if tile == 1 then
@@ -67,7 +65,6 @@ function love.draw()
               end
           end
       end
-=======
       -- for i,row in ipairs(tileblocks) do
       --     for j,tile in ipairs(row) do
       --         if tile == 1 then
@@ -76,9 +73,6 @@ function love.draw()
       --         end
       --     end
       -- end
->>>>>>> Stashed changes
-=======
->>>>>>> origin/master
 
     player:draw()
     son:draw()
@@ -95,16 +89,11 @@ function love.draw()
     if current_room then current_room:draw() end
     -- love.graphics.draw(image, 0, 0)
 end
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 
 function love.keypressed(key)
     player:keypressed(key)
     son:keypressed(key)
 end
->>>>>>> Stashed changes
-=======
 
 function love.gotoRoom(room_type, ...)
     current_room = _G[room_type](...)
@@ -113,4 +102,3 @@ end
 function love.mousepressed(x, y, button, istouch)
     if current_room then current_room:mousepressed(x, y, button, istouch) end
 end
->>>>>>> origin/master
