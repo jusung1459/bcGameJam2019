@@ -130,6 +130,11 @@ function Box:new()
   self.image = boximg
   self.x = 200
   self.y = 200
+  self.intact = false
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
 end
+
+function Box:update(dt, bool)
+  if bool == true then
+    self.intact = true
