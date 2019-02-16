@@ -22,16 +22,16 @@ function love.load()
     player = Player()
     son = Son()
 
-    image = love.graphics.newImage('art/image.png')
-    person = love.graphics.newImage('art/person.png')
-  
+    -- image = love.graphics.newImage('art/image.png')
+    -- person = love.graphics.newImage('art/person.png')
+
     Object = require "libraries/classic/classic"
     -- player = require "playerClass"
 
     Menu = require "rooms/main_menu"
 
     current_room = nil
-  
+
 end
 
 function love.update(dt)
@@ -49,39 +49,27 @@ end
 function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
+
+      for i,row in ipairs(tileblocks) do
+          for j,tile in ipairs(row) do
+              if tile == 1 then
+                  -- draw something
+                  love.graphics.rectangle("fill", j*25, i*25, 20, 20)
+              end
+          end
+      end
+
     player:draw()
     son:draw()
 
-    -- draw tileblocks
-    -- function love.draw()
-    --     for i,row in ipairs(tileblocks) do
-    --         for j,tile in ipairs(row) do
-    --             if tile == 1 then
-    --                 -- draw something
-    --                 if
-    --                 love.graphics.rectangle("fill", j*25, i*25, 20, 20)
-    --                 end
-    --             end
-    --         end
-    --     end
-    -- end
 
     -- love.graphics.draw(image, 0, 0)
-    love.graphics.setColor(shade/255, shade/255, shade/255)
-    love.graphics.draw(person, x, y)
+    -- love.graphics.setColor(shade/255, shade/255, shade/255)
+    -- love.graphics.draw(person, x, y)
 
     --draw tileblocks
-    function love.draw()
-        for i,row in ipairs(tileblocks) do
-            for j,tile in ipairs(row) do
-                if tile == 1 then
-                    -- draw something
-                    love.graphics.rectangle("fill", j*25, i*25, 20, 20)
-                end
-            end
-        end
-    end
+
 
     if current_room then current_room:draw() end
-    love.graphics.draw(image, 0, 0)
+    -- love.graphics.draw(image, 0, 0)
 end

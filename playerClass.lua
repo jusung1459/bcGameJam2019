@@ -4,7 +4,7 @@ Player = Object:extend()
 Son = Object:extend()
 
 function Player:new()
-  self.image = love.graphics.newImage( "/art/kenney_animalpackredux/PNG/Round/whale.png" )
+  self.image = love.graphics.newImage( "/art/whale.png" )
   self.x = 300
   self.y = 20
   self.speed = 500
@@ -27,7 +27,7 @@ function Player:draw()
 end
 
 function Son:new()
-  self.image = love.graphics.newImage("art/kenney_animalpackredux/PNG/Round/penguin.png")
+  self.image = love.graphics.newImage("art/penguin.png")
   self.x = 300
   self.y = 40
   self.speed = 500
