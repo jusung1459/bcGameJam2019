@@ -4,6 +4,7 @@ Volcano = Object:extend()
 count = 0
 cross = love.graphics.newImage("/art/greenv.png")
 stop = love.graphics.newImage("/art/redv.png")
+whichimg = cross
 
 function Volcano:new()
   self.x = 280
