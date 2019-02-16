@@ -42,7 +42,6 @@ end
           player:update(dt,true)
         end
       end
-
       self:update2(dt)
   end
 
@@ -56,7 +55,7 @@ function Game:draw()
     son:draw()
     volcano:draw()
 
-    --love.graphics.draw(gear, 5, 5)
+    love.graphics.draw(gear, 0, 0)
 end
 
 function Game:draw2()
@@ -64,18 +63,19 @@ end
 
 function Game:keypressed(key)
 
-
     player:keypressed(key, son)
+    -- son:keypressed(key)
 
 end
 
 
+
 function Game:mousepressed(x, y, button, istouch)
     if button == 1 then
-        if x >= 5 then
-            if y >= 5 then
-                if x <= 55 then
-                    if y <= 55 then
+        if x >= 0 then
+            if y >= 0 then
+                if x <= 50 then
+                    if y <= 50 then
                         gotoRoom('Options', 2)
                     end
                 end
