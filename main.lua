@@ -1,3 +1,6 @@
+Object = require 'libraries/classic/classic'
+require 'rooms/main_menu'
+
 function love.load()
 
     -- tileblocks
@@ -16,12 +19,9 @@ function love.load()
     image = love.graphics.newImage('art/image.png')
     person = love.graphics.newImage('art/person.png')
   
-    Object = require "libraries/classic/classic"
     -- player = require "playerClass"
 
-    Menu = require "rooms/main_menu"
-
-    current_room = nil
+    current_room = Menu()
 end
 
 function love.update(dt)
