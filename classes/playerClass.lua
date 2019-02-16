@@ -48,8 +48,10 @@ end
 function Player:update(dt, stop)
 
   if stop == true then
-    self.x = self.width - self.x
-    self.y = self.height - self.y
+    self.x = self.x - self.width
+    self.y = self.y - self.height
+    --[[self.x = self.width - self.x
+    self.y = self.height - self.y]]--
     return false
   end
   if self.x < 0 then self.x = 0
