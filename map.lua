@@ -4,6 +4,7 @@ Map = Object:extend()
 
 grass = love.graphics.newImage("/art/grass.png")
 sand = love.graphics.newImage("art/sand.png")
+wall = {}
 
 function Map:new(width, height, tileblocks)
 
@@ -68,6 +69,9 @@ function Map:draw()
               if j == 1  or i == 1 then
                 love.graphics.draw(grass, (j-1) * 40, (i-1) * 40)
               end
+            end
+            if tile == 1 then
+              table.insert(wall, {i,j})
             end
             love.graphics.draw(grass, j * 40, i * 40)
             -- if tile == 1 then

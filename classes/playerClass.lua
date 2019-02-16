@@ -2,6 +2,7 @@
 Player = Object:extend()
 Son = Object:extend()
 
+
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
 
@@ -77,6 +78,7 @@ function Son:update(dt)
     self.y  = window_height - self.height
   end
 
+  if self.x + self.width ==
 end
 
 function Son:draw()
