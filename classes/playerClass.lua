@@ -49,9 +49,8 @@ end
 function Player:update(dt, stop)
 
   if stop == true then
-    --approaching the box while moving right
     self.x = self.x - self.width
-    --self.y = self.y - self.height
+    self.y = self.y - self.height
     --[[self.x = self.width - self.x
     self.y = self.height - self.y]]--
     return false

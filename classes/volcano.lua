@@ -7,10 +7,10 @@ stop = love.graphics.newImage("/art/redv.png")
 whichimg = cross
 
 
-function Volcano:new(xPos, yPos)
+function Volcano:new()
   self.image = whichimg
-  self.x = xPos
-  self.y = yPos
+  self.x = 280
+  self.y = 0
   self.halt = false
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
