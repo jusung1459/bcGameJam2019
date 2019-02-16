@@ -57,6 +57,28 @@ function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      for i,row in ipairs(tileblocks) do
+          for j,tile in ipairs(row) do
+              if tile == 1 then
+                  -- draw something
+                  love.graphics.rectangle("fill", j*25, i*25, 20, 20)
+              end
+          end
+      end
+=======
+      -- for i,row in ipairs(tileblocks) do
+      --     for j,tile in ipairs(row) do
+      --         if tile == 1 then
+      --             -- draw something
+      --             love.graphics.rectangle("fill", j*25, i*25, 20, 20)
+      --         end
+      --     end
+      -- end
+>>>>>>> Stashed changes
+=======
+>>>>>>> origin/master
 
     player:draw()
     son:draw()
@@ -73,6 +95,16 @@ function love.draw()
     if current_room then current_room:draw() end
     -- love.graphics.draw(image, 0, 0)
 end
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+
+function love.keypressed(key)
+    player:keypressed(key)
+    son:keypressed(key)
+end
+>>>>>>> Stashed changes
+=======
 
 function love.gotoRoom(room_type, ...)
     current_room = _G[room_type](...)
@@ -81,3 +113,4 @@ end
 function love.mousepressed(x, y, button, istouch)
     if current_room then current_room:mousepressed(x, y, button, istouch) end
 end
+>>>>>>> origin/master
