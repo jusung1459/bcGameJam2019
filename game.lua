@@ -9,6 +9,8 @@ function Game:new()
     player = Player()
     son = Son()
 
+    volcano = Volcano()
+
     map = Map(1,1,tileblocks)
 
 end
@@ -30,6 +32,7 @@ function Game:extend()
 
       player:update(dt)
       son:update(dt)
+      volcano:update(dt)
 
   end
 

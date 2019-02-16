@@ -17,7 +17,7 @@ function Map:new(width, height, tileblocks)
 
     --21 columns bc things i/j at one?? there shouldn't actually be anything there
     tileblocks = {
-      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -70,9 +70,9 @@ function Map:draw()
               end
             end
             love.graphics.draw(grass, j * 40, i * 40)
-            -- if tile == 1 then
-            --   love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
-            -- end
+            if tile == 1 then
+               love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
+            end
         end
     end
 end
