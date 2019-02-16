@@ -30,6 +30,9 @@ function love.load()
 
     Menu = require "rooms/main_menu"
 
+    Object = require "map"
+    map = Map(1,1,tileblocks)
+
     current_room = nil
 
 end
@@ -50,14 +53,7 @@ function love.draw()
     -- love.graphics.setColor(shade/255, shade/255, shade/255)
     -- love.graphics.draw(person, x, y)
 
-      for i,row in ipairs(tileblocks) do
-          for j,tile in ipairs(row) do
-              if tile == 1 then
-                  -- draw something
-                  love.graphics.rectangle("fill", j*25, i*25, 20, 20)
-              end
-          end
-      end
+    map:draw()
 
     player:draw()
     son:draw()
