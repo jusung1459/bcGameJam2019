@@ -8,7 +8,7 @@ function Game:new()
 
     player = Player()
     son = Son()
-    volcano = Volcano()
+    volcano = Volcano(200, 40)
     box = Box()
 
 
