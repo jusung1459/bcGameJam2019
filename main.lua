@@ -24,9 +24,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-
     if current_room then current_room:keypressed(key) end
-
 end
 
 
@@ -46,4 +44,8 @@ end
 
 function love.mousepressed(x, y, button, istouch)
     if current_room then current_room:mousepressed(x, y, button, istouch) end
+end
+
+function love.quit()
+
 end

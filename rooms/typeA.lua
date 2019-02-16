@@ -27,6 +27,10 @@ function typeA:draw()
 
 end
 
+function typeA:keypressed(key)
+  
+end
+
 function typeA:mousepressed(x, y, button, istouch)
 end
 
