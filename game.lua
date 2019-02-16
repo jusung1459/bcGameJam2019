@@ -1,5 +1,4 @@
 Object = require 'libraries/classic/classic'
-require 'map'
 require "classes/playerClass"
 require "classes/volcano"
 
@@ -12,8 +11,8 @@ function Game:new()
     volcano = Volcano()
 
 
-    map = Map(1,1,tileblocks)
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
+    self:init()
 end
 
 function Game:init()
@@ -30,7 +29,7 @@ function Game:extend()
     cls.super = self
     setmetatable(cls, self)
     return cls
-  end
+end
 
   function Game:update(dt)
 
@@ -43,18 +42,23 @@ function Game:extend()
           player:update(dt,true)
         end
       end
-
+      self:update2(dt)
   end
+
+function Game:update2(dt)
+end
 
 function Game:draw()
 
-    map:draw()
+    self:draw2()
     player:draw()
     son:draw()
     volcano:draw()
 
     --love.graphics.draw(gear, 5, 5)
+end
 
+function Game:draw2()
 end
 
 function Game:keypressed(key)

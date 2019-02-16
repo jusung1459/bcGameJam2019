@@ -19,7 +19,7 @@ function love.load()
 end
 
 function love.update(dt)
-  game.update()
+    if current_room then current_room:update(dt) end
 end
 
 function love.draw()
