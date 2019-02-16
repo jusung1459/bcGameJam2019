@@ -4,7 +4,6 @@ require 'rooms/typeA'
 Options = typeA:extend()
 
 function Options:new()
-    current_level = 2
     background = love.graphics.newImage('art/menu/background.png')
     picture = love.graphics.newImage('art/menu.png')
 end 
@@ -30,8 +29,4 @@ function Options:mousepressed(x, y, button, istouch)
             end
         end
     end
-end
-
-function Options:activate()
-    current_level = 2
 end

@@ -82,40 +82,23 @@ function Player:keypressed(key, son)
   if key == "up" then
     son.y = self.y
     son.x = self.x
-    if self.y ~= 0 then
-      if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
-        self.y = self.y - 40
-      end
-    end
-  end
+    self.y = self.y - 40
 
+  end
   if key == "down" then
     son.y = self.y
     son.x = self.x
-    if self.y ~= 560 then
-      if walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then
-        self.y = self.y + 40
-      end
-    end
+    self.y = self.y + 40
   end
-
   if key == "left" then
     son.y = self.y
     son.x = self.x
-    if self.x ~= 0 then
-      if walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then
-        self.x = self.x - 40
-      end
-    end
+    self.x = self.x - 40
   end
   if key == "right" then
     son.y = self.y
     son.x = self.x
-    if self.x ~= 760 then
-      if walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then
-        self.x = self.x + 40
-      end
-    end
+    self.x = self.x + 40
   end
 end
 

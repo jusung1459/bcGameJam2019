@@ -4,7 +4,6 @@ require 'rooms/typeA'
 Credits = typeA:extend()
 
 function Credits:new()
-    current_level = 3
     background = love.graphics.newImage('art/menu/background.png')
     picture = love.graphics.newImage('art/menu.png')
 end 
@@ -30,8 +29,4 @@ function Credits:mousepressed(x, y, button, istouch)
             end
         end
     end
-end
-
-function Credits:activate()
-    current_level = 3
 end

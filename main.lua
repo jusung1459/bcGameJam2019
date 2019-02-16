@@ -15,7 +15,6 @@ function love.load()
     game = Game()
     previous_room = nil
     previous_room_index = nil
-    current_level = nil
 
 end
 
@@ -41,8 +40,8 @@ function addRoom(room_type, room_name, ...)
 end
 
 function gotoRoom(room_type, room_name, ...)
-    if current_room.deactivate then current_room:deactivate() end
     if current_room and rooms[room_name] then
+        if current_room.deactivate then current_room:deactivate() end
         current_room = rooms[room_name]
         if current_room.activate then current_room:activate() end
     else current_room = addRoom(room_type, room_name, ...) 
