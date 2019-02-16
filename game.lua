@@ -10,8 +10,8 @@ function Game:new()
     son = Son()
 
     map = Map(1,1,tileblocks)
-
-end
+    gear = love.graphics.newImage('art/menu/gear_wheel.png')
+end 
 
 function Game:extend()
     local cls = {}
@@ -39,6 +39,8 @@ function Game:draw()
     player:draw()
     son:draw()
 
+    love.graphics.draw(gear, 5, 5)
+
 end
 
 function Game:keypressed(key)
@@ -51,7 +53,22 @@ end
 
 
 function Game:mousepressed(x, y, button, istouch)
+    if button == 1 then
+        if x >= 5 then
+            if y >= 5 then
+                if x <= 55 then
+                    if y <= 55 then
+                        gotoRoom('Options', 1)
+                    end
+                end
+            end
+        end
+    end
 end
+
+function Game:mousereleased(x, y, button, istouch)
+end
+
 
 function Game:activate()
 end
