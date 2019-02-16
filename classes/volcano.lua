@@ -11,12 +11,15 @@ function Volcano:new()
 end
 
 function Volcano:update(dt)
-  count = count + dt
+  count = count + 0.05
   if count > 3 then
-
+    if whichimg == stop then
+      whichimg = cross
+    else whichimg = stop end
     count = 0
   end
 end
 
 function Volcano:draw()
-  love.graphics.draw(drawable, x, y, r, sx, sy, ox, oy, kx, ky)
+  love.graphics.draw(whichimg, x, y)
+end

@@ -1,6 +1,7 @@
 Object = require 'libraries/classic/classic'
 require 'map'
 require "classes/playerClass"
+require "classes/volcano"
 
 Game = Object:extend()
 
@@ -8,10 +9,11 @@ function Game:new()
 
     player = Player()
     son = Son()
+    volcano = Volcano()
 
     map = Map(1,1,tileblocks)
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
-end 
+end
 
 function Game:extend()
     local cls = {}
@@ -30,6 +32,7 @@ function Game:extend()
 
       player:update(dt)
       son:update(dt)
+      volcano:update(dt)
 
   end
 
@@ -38,8 +41,9 @@ function Game:draw()
     map:draw()
     player:draw()
     son:draw()
+    volcano:draw()
 
-    love.graphics.draw(gear, 5, 5)
+    --love.graphics.draw(gear, 5, 5)
 
 end
 
