@@ -1,9 +1,7 @@
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
-Box = Object:extend()
 
-boximg = love.graphics.newImage("/art/sand.png")
 
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
@@ -16,7 +14,6 @@ function Player:new()
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
-  self.flag = false
 end
 
 function Player:checkCollision(player, b)
@@ -77,28 +74,46 @@ end
 --move character+son
 function Player:keypressed(key, son)
   if key == "a" then
-    self.flag = not self.flag
+    self.x = 200
+    self.y = 200
   end
   if key == "up" then
     son.y = self.y
     son.x = self.x
-    self.y = self.y - 40
-
+    if self.y ~= 0 then
+      if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
+        self.y = self.y - 40
+      end
+    end
   end
+
   if key == "down" then
     son.y = self.y
     son.x = self.x
-    self.y = self.y + 40
+    if self.y ~= 560 then
+      if walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then
+        self.y = self.y + 40
+      end
+    end
   end
+
   if key == "left" then
     son.y = self.y
     son.x = self.x
-    self.x = self.x - 40
+    if self.x ~= 0 then
+      if walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then
+        self.x = self.x - 40
+      end
+    end
   end
   if key == "right" then
     son.y = self.y
     son.x = self.x
-    self.x = self.x + 40
+    if self.x ~= 760 then
+      if walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then
+        self.x = self.x + 40
+      end
+    end
   end
 end
 
@@ -125,39 +140,3 @@ end
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
---
--- function Box:new()
---   self.image = boximg
---   self.x = 200
---   self.y = 200
---   self.intact = false
---   self.width = self.image:getWidth()
---   self.height = self.image:getHeight()
--- end
-
--- function Box:keypressed(key, person, son, bool)
---   if key == "a" then
---     self.flag = not self.flag
---   end
---   if key == "up" then
---     son.y = self.y
---     son.x = self.x
---     self.y = self.y - 40
---
---   end
---   if key == "down" then
---     son.y = self.y
---     son.x = self.x
---     self.y = self.y + 40
---   end
---   if key == "left" then
---     son.y = self.y
---     son.x = self.x
---     self.x = self.x - 40
---   end
---   if key == "right" then
---     son.y = self.y
---     son.x = self.x
---     self.x = self.x + 40
---   end
--- end
