@@ -1,10 +1,10 @@
 Object = require 'libraries/classic/classic'
 require 'game'
 
-Lv1 = Game:extend()
+Lv2 = Game:extend()
 
-function Lv1:init()
-    current_level = 4
+function Lv2:init()
+    current_level = 5
     grass = love.graphics.newImage("/art/grass.png")
     sand = love.graphics.newImage("/art/sand.png")
     topleft = love.graphics.newImage("art/floor_tiles/topleft.png")
@@ -17,21 +17,20 @@ function Lv1:init()
     bot = love.graphics.newImage("art/floor_tiles/bot.png")
     botright = love.graphics.newImage("art/floor_tiles/botright.png")
     wall = love.graphics.newImage("art/floor_tiles/wall.png")
-    door = love.graphics.newImage("art/floor_tiles/door.png")
     
     --insert matrix here for obstacle
     walls[current_level] = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -45,7 +44,7 @@ function Lv1:init()
     self.tileblocks = tileblocks
 end
 
-function Lv1:draw2()
+function Lv2:draw2()
 
     for i, row in ipairs (walls[current_level]) do
         for j, tile in ipairs(row) do
@@ -91,9 +90,6 @@ function Lv1:draw2()
             if tile == 1 then
               love.graphics.draw(wall, (j-1)*40, (i-1)*40)
             end
-            if tile == 2 then
-                love.graphics.draw(door, (j-1)*40, (i-1)*40)
-            end
             -- love.graphics.draw(grass, j * 40, i * 40)
             -- if tile == 1 then
             --    love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
@@ -104,13 +100,13 @@ function Lv1:draw2()
     love.graphics.draw(topright, 760, 0)
 end
 
-function Lv1:activate()
-    current_level = 4
-    next_level = 'Lv2'
-    next_level_index = 5
+function Lv2:activate()
+    current_level = 5
+    next_level = 'Lv3'
+    next_level_index = 6
 end
 
-function Lv1:deactivate()
-    previous_room = 'Lv1'
-    previous_room_index = 4
+function Lv2:deactivate()
+    previous_room = 'Lv2'
+    previous_room_index = 5
 end

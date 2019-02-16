@@ -3,6 +3,7 @@ require 'rooms/A/main_menu'
 require 'rooms/A/options'
 require 'rooms/A/credits'
 require 'rooms/levels/1'
+require 'rooms/levels/2'
 
 function love.load()
 
@@ -16,6 +17,8 @@ function love.load()
     previous_room = nil
     previous_room_index = nil
     current_level = nil
+    next_level = nil
+    next_level_index = nil
 
 end
 
