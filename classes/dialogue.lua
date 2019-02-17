@@ -25,12 +25,16 @@ end
 function DialogueBox:draw()
 
   --draw the black dialogue box
-  love.graphics.setColor(0, 0, 0, 0.2)
+  love.graphics.setColor(0, 0, 0, 0.3)
   love.graphics.rectangle('fill', self.xPos, self.yPos, self.width, self.height)
 
 end
 
-function DialogueBox:speak()
+function DialogueBox:speak(message)
+    local offset = 20;
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.print("Hello World", self.xPos+20, self.yPos + 20)
+
+    font = love.graphics.newFont("orange_kid.ttf", 30)
+    love.graphics.setFont(font)
+    love.graphics.print(message, self.xPos+offset, self.yPos + offset)
 end

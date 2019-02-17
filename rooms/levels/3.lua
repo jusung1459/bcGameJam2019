@@ -84,28 +84,28 @@ function Lv3:drawBackground()
             if j == 1 and i == 1 then
               love.graphics.draw(topleft, 0, 0)
 
-            elseif j == 1 and i == 15 then
+            elseif j == 1 and i == YTiles then
               love.graphics.draw(botleft, (j-1)*40, (i-1)*40)
 
-            elseif j == 20 and i == 1 then
+            elseif j == XTiles and i == 1 then
               love.graphics.draw(topright, (j-1)*40, (i-1)*40)
 
-            elseif j == 20 and i == 15 then
+            elseif j == XTiles and i == YTiles then
               love.graphics.draw(botright, (j-1)*40, (i-1)*40)
 
-            elseif i == 1 and j ~= 1 and j ~= 20 then
+            elseif i == 1 and j ~= 1 and j ~= XTiles then
               love.graphics.draw(top, (j-1)*40, (i-1)*40)
 
-            elseif j == 1 and i ~= 1 and i ~= 15 then
+            elseif j == 1 and i ~= 1 and i ~= YTiles then
               love.graphics.draw(left, (j-1)*40, (i-1)*40)
 
-            elseif j == 20  and i ~= 1 and i ~= 15 then
+            elseif j == XTiles  and i ~= 1 and i ~= YTiles then
               love.graphics.draw(right, (j-1)*40, (i-1)*40)
 
-            elseif i == 15 and j ~= 1 and j ~= 20 then
+            elseif i == YTiles and j ~= 1 and j ~= XTiles then
               love.graphics.draw(bot, (j-1)*40, (i-1)*40)
 
-            elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
+            elseif i ~= 1 and i ~= YTiles and j ~= 1 and j ~= XTiles then
               love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
             end
 
@@ -184,8 +184,6 @@ end
 
 function Lv3:draw2()
 
-    love.graphics.draw(topright, 760, 0)
-
     box:draw()
 
     volcano1:draw()
@@ -205,7 +203,7 @@ end
 function Lv3:keypressed2(key)
 
   box:keypressed(key,player)
-  npc3:keypressed(key)
+  
 end
 
 function Lv3:activate()

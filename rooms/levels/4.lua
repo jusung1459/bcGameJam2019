@@ -22,13 +22,13 @@ function Lv4:init()
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
       {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0},
       {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
       {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -41,14 +41,17 @@ function Lv4:init()
     self.height = height
     self.tileblocks = tileblocks
 
-    box = Box(600, 400)
-    volcano1 = Volcano(280, 200)
-    exit = Exit(480, 320, 4)
+    box = Box(600, 520)
+    volcano1 = Volcano(440, 320)
+    volcano2 = Volcano(280, 240)
+    volcano3 = Volcano(200, 120)
+    volcano4 = Volcano(640, 200)
+    exit = Exit(360, 320, 4)
 
-    key1 = Key(280, 160)
-    key2 = Key(360, 400)
-    key3 = Key(240, 320)
-    key4 = Key(560, 160)
+    key1 = Key(280, 200)
+    key2 = Key(200, 360)
+    key3 = Key(640, 240)
+    key4 = Key(480, 360)
 
     npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
@@ -59,13 +62,13 @@ function Lv4:drawBackground()
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
     {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0},
     {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
     {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -82,28 +85,28 @@ function Lv4:drawBackground()
             if j == 1 and i == 1 then
               love.graphics.draw(topleft, 0, 0)
 
-            elseif j == 1 and i == 15 then
+            elseif j == 1 and i == YTiles then
               love.graphics.draw(botleft, (j-1)*40, (i-1)*40)
 
-            elseif j == 20 and i == 1 then
+            elseif j == XTiles and i == 1 then
               love.graphics.draw(topright, (j-1)*40, (i-1)*40)
 
-            elseif j == 20 and i == 15 then
+            elseif j == XTiles and i == YTiles then
               love.graphics.draw(botright, (j-1)*40, (i-1)*40)
 
-            elseif i == 1 and j ~= 1 and j ~= 20 then
+            elseif i == 1 and j ~= 1 and j ~= XTiles then
               love.graphics.draw(top, (j-1)*40, (i-1)*40)
 
-            elseif j == 1 and i ~= 1 and i ~= 15 then
+            elseif j == 1 and i ~= 1 and i ~= YTiles then
               love.graphics.draw(left, (j-1)*40, (i-1)*40)
 
-            elseif j == 20  and i ~= 1 and i ~= 15 then
+            elseif j == XTiles  and i ~= 1 and i ~= YTiles then
               love.graphics.draw(right, (j-1)*40, (i-1)*40)
 
-            elseif i == 15 and j ~= 1 and j ~= 20 then
+            elseif i == YTiles and j ~= 1 and j ~= XTiles then
               love.graphics.draw(bot, (j-1)*40, (i-1)*40)
 
-            elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
+            elseif i ~= 1 and i ~= YTiles and j ~= 1 and j ~= XTiles then
               love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
             end
 
@@ -111,14 +114,8 @@ function Lv4:drawBackground()
           if tile == 1 then
             love.graphics.draw(wall, (j-1)*40, (i-1)*40)
           end
-          -- love.graphics.draw(grass, j * 40, i * 40)
-          -- if tile == 1 then
-          --    love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
-          -- end
       end
   end
-
-
 end
 
 function Lv4:update2()
@@ -149,6 +146,48 @@ function Lv4:update2()
     end
   end
 
+  volcano2:update(dt)
+  if volcano2.halt == true then
+    collides = volcano2:checkCollision(player, volcano2)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano2:checkCollision(son, volcano2)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
+  volcano3:update(dt)
+  if volcano3.halt == true then
+    collides = volcano3:checkCollision(player, volcano3)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano3:checkCollision(son, volcano3)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
+  volcano4:update(dt)
+  if volcano4.halt == true then
+    collides = volcano4:checkCollision(player, volcano4)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano4:checkCollision(son, volcano4)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
   exit:update()
 
   key1:update(dt)
@@ -162,7 +201,10 @@ function Lv4:draw2()
 
     box:draw()
 
-    volcano:draw()
+    volcano1:draw()
+    volcano2:draw()
+    volcano3:draw()
+    volcano4:draw()
 
     key1:draw()
     key2:draw()
@@ -177,14 +219,13 @@ end
 function Lv4:keypressed2(key)
 
   box:keypressed(key,player)
-  npc4:keypressed(key)
 end
 
-function Lv4:activate()
+--[[function Lv4:activate()
     current_level = 7
     next_level = 'Lv4'
     next_level_index = 8
-end
+end]]--
 
 function Lv4:deactivate()
     previous_room = 'Lv3'
