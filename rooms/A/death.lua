@@ -6,7 +6,7 @@ Death = typeA:extend()
 function Death:new()
     current_level = 0
     background = love.graphics.newImage('art/menu/background.png')
-    picture = love.graphics.newImage('art/menu.png')
+    picture = love.graphics.newImage('art/menu/cancel.png')
 end
 
 function Death:update(dt)
