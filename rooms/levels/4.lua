@@ -22,13 +22,13 @@ function Lv4:init()
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
       {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-      {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0},
-      {0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+      {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0},
+      {0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0},
       {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
       {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -41,14 +41,16 @@ function Lv4:init()
     self.height = height
     self.tileblocks = tileblocks
 
-    box = Box(600, 400)
-    volcano1 = Volcano(280, 200)
-    exit = Exit(480, 320, 4)
+    box = Box(600, 520)
+    volcano1 = Volcano(440, 320)
+    volcano2 = Volcano(320, 200)
+    volcano3 = Volcano(200, 120)
+    exit = Exit(360, 320, 4)
 
-    key1 = Key(280, 160)
-    key2 = Key(360, 400)
-    key3 = Key(240, 320)
-    key4 = Key(560, 160)
+    key1 = Key(280, 200)
+    key2 = Key(200, 360)
+    --key3 = Key(240, 320)
+    --key4 = Key(560, 160)
 
     npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
@@ -59,13 +61,13 @@ function Lv4:drawBackground()
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
     {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-    {0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0},
-    {0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+    {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0},
+    {0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0},
     {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
     {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -143,12 +145,40 @@ function Lv4:update2()
     end
   end
 
+  volcano2:update(dt)
+  if volcano2.halt == true then
+    collides = volcano2:checkCollision(player, volcano2)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano2:checkCollision(son, volcano2)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
+  volcano3:update(dt)
+  if volcano3.halt == true then
+    collides = volcano3:checkCollision(player, volcano3)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano3:checkCollision(son, volcano3)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
   exit:update()
 
   key1:update(dt)
   key2:update(dt)
-  key3:update(dt)
-  key4:update(dt)
+  --key3:update(dt)
+  --key4:update(dt)
 
 end
 
@@ -156,12 +186,14 @@ function Lv4:draw2()
 
     box:draw()
 
-    volcano:draw()
+    volcano1:draw()
+    volcano2:draw()
+    volcano3:draw()
 
     key1:draw()
     key2:draw()
-    key3:draw()
-    key4:draw()
+    --key3:draw()
+    --key4:draw()
 
     exit:draw()
 
@@ -173,11 +205,11 @@ function Lv4:keypressed2(key)
   box:keypressed(key,player)
 end
 
-function Lv4:activate()
+--[[function Lv4:activate()
     current_level = 7
     next_level = 'Lv4'
     next_level_index = 8
-end
+end]]--
 
 function Lv4:deactivate()
     previous_room = 'Lv3'
