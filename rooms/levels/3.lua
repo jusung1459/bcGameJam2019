@@ -44,7 +44,9 @@ function Lv3:init()
     self.tileblocks = tileblocks
 
     box = Box(680, 480)
-    volcano = Volcano(280, 200)
+    volcano1 = Volcano(280, 200)
+    volcano2 = Volcano(80, 80)
+    volcano3 = Volcano(120, 80)
     exit = Exit(480, 320, 4)
 
     key1 = Key(280, 160)
@@ -76,6 +78,34 @@ function Lv3:update2()
       player:update(dt,true)
     else
       collides = volcano1:checkCollision(son, volcano1)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
+  volcano2:update(dt)
+  if volcano2.halt == true then
+    collides = volcano2:checkCollision(player, volcano2)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano2:checkCollision(son, volcano2)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
+  volcano3:update(dt)
+  if volcano3.halt == true then
+    collides = volcano3:checkCollision(player, volcano3)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano3:checkCollision(son, volcano3)
       if collides == true then
         son.x = player.x
         son.y = player.y
@@ -149,7 +179,9 @@ function Lv3:draw2()
 
     box:draw()
 
-    volcano:draw()
+    volcano1:draw()
+    volcano2:draw()
+    volcano3:draw()
 
     key1:draw()
     key2:draw()
