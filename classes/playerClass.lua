@@ -1,6 +1,4 @@
 
-
-
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
@@ -21,11 +19,10 @@ local window_height = love.graphics.getHeight()
 
 --create a new player
 function Player:new()
-  self.image = love.graphics.newImage( "/art/alienBlue_badge2.png" )
+  self.image = playerDown --love.graphics.newImage( "/art/alienBlue_badge2.png" )
   self.x = tile_size
   self.y = 0
   self.keys = 0
-  self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
   self.prevX = tile_size;
@@ -158,6 +155,7 @@ function Player:keypressed(key, son)
     end
   end
 
+
   if key == "down" then
 
     if self.sonFollow then
@@ -263,7 +261,7 @@ end
 
 
 function Son:new()
-  self.image = love.graphics.newImage("art/alienPink_badge1.png")
+  self.image = sonDown --love.graphics.newImage("art/alienPink_badge1.png")
   self.x = 0
   self.y = 0
   self.speed = 500

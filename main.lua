@@ -6,6 +6,7 @@ require 'rooms/A/death'
 require 'rooms/levels/1'
 require 'rooms/levels/2'
 require 'rooms/levels/3'
+require 'rooms/levels/4'
 require 'classes/npc'
 Moan = require('Moan')
 --require 'classes/dialogue'
@@ -21,6 +22,8 @@ function love.load()
     decay_rate = 0.5
 
 
+    XTiles = window_width / tile_size
+    YTiles = window_height / tile_size
     color = 255
     pause = 1
     love.window.setMode(window_width, window_height)

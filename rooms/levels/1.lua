@@ -72,7 +72,7 @@ function Lv1:init()
     key1 = Key(80, 80)
     key2 = Key(440, 440)
 
-    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "You and your son want to go through the door? Try moving the box by pressing 'E'")
     dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
@@ -109,28 +109,28 @@ function Lv1:drawBackground()
             if j == 1 and i == 1 then
               love.graphics.draw(topleft, 0, 0)
 
-            elseif j == 1 and i == 15 then
+            elseif j == 1 and i == YTiles then
               love.graphics.draw(botleft, (j-1)*40, (i-1)*40)
 
-            elseif j == 20 and i == 1 then
+            elseif j == XTiles and i == 1 then
               love.graphics.draw(topright, (j-1)*40, (i-1)*40)
 
-            elseif j == 20 and i == 15 then
+            elseif j == XTiles and i == YTiles then
               love.graphics.draw(botright, (j-1)*40, (i-1)*40)
 
-            elseif i == 1 and j ~= 1 and j ~= 20 then
+            elseif i == 1 and j ~= 1 and j ~= XTiles then
               love.graphics.draw(top, (j-1)*40, (i-1)*40)
 
-            elseif j == 1 and i ~= 1 and i ~= 15 then
+            elseif j == 1 and i ~= 1 and i ~= YTiles then
               love.graphics.draw(left, (j-1)*40, (i-1)*40)
 
-            elseif j == 20  and i ~= 1 and i ~= 15 then
+            elseif j == XTiles  and i ~= 1 and i ~= YTiles then
               love.graphics.draw(right, (j-1)*40, (i-1)*40)
 
-            elseif i == 15 and j ~= 1 and j ~= 20 then
+            elseif i == YTiles and j ~= 1 and j ~= XTiles then
               love.graphics.draw(bot, (j-1)*40, (i-1)*40)
 
-            elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
+            elseif i ~= 1 and i ~= YTiles and j ~= 1 and j ~= XTiles then
               love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
             end
 
@@ -140,7 +140,6 @@ function Lv1:drawBackground()
           end
       end
   end
-  love.graphics.draw(topright, 760, 0)
 end
 
 function Lv1:update2()
