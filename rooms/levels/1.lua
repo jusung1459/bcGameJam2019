@@ -15,7 +15,7 @@ function Lv1:init()
     botleft = love.graphics.newImage("art/floor_tiles/botleft1.png")
     bot = love.graphics.newImage("art/floor_tiles/bot1.png")
     botright = love.graphics.newImage("art/floor_tiles/botright1.png")
-    wall = love.graphics.newImage("art/floor_tiles/wall.png")
+    wall = love.graphics.newImage("art/floor_tiles/wall1.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
 
 
@@ -24,6 +24,24 @@ function Lv1:init()
     --1 is a wall
 
     walls[current_level] = {
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    }
+
+    current_env = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -58,6 +76,8 @@ function Lv1:init()
     dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
+
+    trap = Trap(720, 520)
 end
 
 function Lv1:drawBackground()
@@ -158,6 +178,8 @@ function Lv1:update2()
 
   door:update(dt)
 
+  trap:update(dt)
+
 end
 function Lv1:draw2()
 
@@ -176,6 +198,7 @@ function Lv1:draw2()
     npc1:draw()
     npc1:dialogue(dial1)
 
+    trap:draw()
 end
 
 function Lv1:keypressed2(key)
