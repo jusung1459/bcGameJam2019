@@ -54,7 +54,7 @@ function Lv3:init()
     key4 = Key(560, 160)
     
     dial3 = DialogueBox()
-    npc3 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc3 = Npc(120, 160, true, "Bob", "Here is a tip! Don't Die!")
 end
 
 function Lv3:drawBackground()

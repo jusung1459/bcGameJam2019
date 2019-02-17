@@ -53,8 +53,9 @@ function Lv4:init()
     key2 = Key(200, 360)
     key3 = Key(640, 240)
     key4 = Key(480, 360)
-
-    npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
+    
+    dial4 = DialogueBox()
+    npc4 = Npc(120, 160, true, "Bob", "Im stuck...")
 end
 
 function Lv4:drawBackground()
@@ -126,9 +127,9 @@ function Lv4:update2()
     box:update(dt, true)
   else box:update(dt, false) end
 
-  nearNpc = npc4:checkCollision(npc3,player)
+  nearNpc = npc4:checkCollision(npc4,player)
   if nearNpc == true then
-    npc3:update(dt, player, true)
+    npc4:update(dt, player, true)
   else
     npc4:update(dt,player, false)
   end
@@ -215,6 +216,7 @@ function Lv4:draw2()
     exit:draw()
 
     npc4:draw()
+    npc4:dialogue(dial4)
 end
 
 function Lv4:keypressed2(key)
