@@ -47,9 +47,6 @@ end
 
 function Npc:draw()
     love.graphics.draw(self.image, self.x, self.y)
-    --[[if self.intact then
-      Moan.draw()
-    end]]--
 end
 
 

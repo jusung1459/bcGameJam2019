@@ -202,10 +202,11 @@ function Lv1:draw2()
     door:draw()
     box:draw()
 
-    npc1:draw()
-    npc1:dialogue(dial1)
+
 
     intro:dialogue(dial1)
+    npc1:draw()
+    npc1:dialogue(dial1)
 
     trap:draw()
 end
