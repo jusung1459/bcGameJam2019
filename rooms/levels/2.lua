@@ -60,7 +60,7 @@ function Lv2:update2()
   pushBox = box:checkCollision(player, box)
   if pushBox == true then
     box:update(dt, true)
-  end
+  else box:update(dt, false) end
 
   nearNpc = npc1:checkCollision(npc1,player)
   if nearNpc == true then
