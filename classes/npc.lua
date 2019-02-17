@@ -7,7 +7,7 @@ local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
 
 function Npc:new(x, y, move, name, message, imageLocation)
-    if imageLocation == nil then self.image = love.graphics.newImage('art/villager.png')
+    if imageLocation == nil then self.image = love.graphics.newImage('art/sensei.png')
     else self.image = love.graphics.newImage(imageLocation) end
     self.x = x
     self.y = y
@@ -27,7 +27,7 @@ end
 function Npc:draw()
     love.graphics.draw(self.image, self.x, self.y)
 end
-                
+
 function Npc:keypressed(key)
     if self.move == true and self.intact == false then
         if key == "up" or key == "down" or key == "left" or key == "right" then
