@@ -44,7 +44,7 @@ function Lv4:init()
     self.tileblocks = tileblocks
 
     box = Box(680, 480)
-    volcano = Volcano(280, 200)
+    volcano1 = Volcano(280, 200)
     exit = Exit(480, 320, 4)
 
     key1 = Key(280, 160)
@@ -66,7 +66,7 @@ function Lv4:update2()
   if nearNpc == true then
     npc3:update(dt, player, true)
   else
-    npc3:update(dt,player, false)
+    npc4:update(dt,player, false)
   end
 
   volcano1:update(dt)

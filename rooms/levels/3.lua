@@ -45,8 +45,8 @@ function Lv3:init()
 
     box = Box(680, 480)
     volcano1 = Volcano(280, 200)
-    volcano2 = Volcano(80, 80)
-    volcano3 = Volcano(120, 80)
+    volcano2 = Volcano(560, 200)
+    volcano3 = Volcano(200, 320)
     exit = Exit(480, 320, 4)
 
     key1 = Key(280, 160)

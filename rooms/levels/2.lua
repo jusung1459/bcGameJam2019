@@ -52,7 +52,7 @@ function Lv2:init()
     key2 = Key(480, 480)
     key3 = Key(520, 240)
 
-    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
 
 function Lv2:update2()
@@ -64,9 +64,9 @@ function Lv2:update2()
 
   nearNpc = npc1:checkCollision(npc1,player)
   if nearNpc == true then
-    npc1:update(dt, player, true)
+    npc2:update(dt, player, true)
   else
-    npc1:update(dt,player, false)
+    npc2:update(dt,player, false)
   end
 
   volcano1:update(dt)
@@ -171,13 +171,13 @@ function Lv2:draw2()
 
     exit:draw()
 
-    npc1:draw()
+    npc2:draw()
 end
 
 function Lv2:keypressed2(key)
 
   box:keypressed(key,player)
-  npc1:keypressed(key)
+  npc2:keypressed(key)
 end
 
 function Lv2:activate()
