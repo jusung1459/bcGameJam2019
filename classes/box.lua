@@ -20,18 +20,26 @@ function Box:new(x, y)
   function Box:draw()
     love.graphics.draw( self.image, self.x, self.y )
   end
+
   function Box:update(dt, bool)
     if bool == true then
       self.intact = true
+    else 
+      self.intact = false
     end
   end
+
   function Box:keypressed(key,player)
     if self.intact == true then
       if key == "a" then
         self.push = not self.push
       end
-    if self.push == false then
+    end
+    if self.push == false and self.intact == true then
         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
+    end
+    if self.push == false and self.intact == false then
+        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
     end
       if self.push == true then
         if key == "up" then
@@ -42,7 +50,6 @@ function Box:new(x, y)
             walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 --for dad
             self.y = self.y - tile_size
             walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 --problematic line (not changing -1 for the son properly)
-
           end
         end
         if key == "down" then
@@ -75,10 +82,5 @@ function Box:new(x, y)
             walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
           end
         end
-
-
       end
-
-
     end
-  end
