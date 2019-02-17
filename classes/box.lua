@@ -35,13 +35,15 @@ function Box:new(x, y)
         self.push = not self.push
       end
     end
-    if self.push == false and self.intact == true then
+    if self.push == false then
+      player.box = false
+      if self.intact == true then
         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
-    end
-    if self.push == false and self.intact == false then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+      else walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+      end
     end
       if self.push == true then
+        player.box = true
         if key == "up" then
           if self.y ~= 0 and walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
             walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
