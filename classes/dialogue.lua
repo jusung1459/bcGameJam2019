@@ -7,10 +7,10 @@ local winHeight = love.graphics.getHeight()
 local winWidth = love.graphics.getWidth()
 
 function DialogueBox:new()
-  self.height = winHeight/3.0
+  self.height = winHeight/4.0
   self.width = winWidth
   self.xPos = 0
-  self.yPos = winHeight/3
+  self.yPos = winHeight - winHeight/4
 
 
 end
@@ -25,6 +25,6 @@ end
 
 function DialogueBox:draw()
   --draw the black dialogue box
-  love.graphics.setColor(1, 1, 1)
+  love.graphics.setColor(0, 0, 0)
   love.graphics.rectangle('fill', self.xPos, self.yPos, self.width, self.height)
 end
