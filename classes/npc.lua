@@ -40,6 +40,7 @@ function Npc:dialogue(dialogue)
 end
 
 function Npc:keypressed(key)
+    if pause == 0 then
     if self.move == true and self.intact == false then
         if key == "up" or key == "down" or key == "left" or key == "right" then
             rng = love.math.random(4)
@@ -64,6 +65,7 @@ function Npc:keypressed(key)
     if self.intact == true and key == "e" then
         love.window.showMessageBox(self.name, self.message)
     end
+end
 end
 
 function Npc:getIntact()
