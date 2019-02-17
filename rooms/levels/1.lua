@@ -59,8 +59,11 @@ function Lv1:update2()
   if pushBox == true then
     box:update(dt, true)
   end
-
-  npc1:update(dt, player)
+  
+  nearNpc = npc1:checkNearBy(npc1,player)
+  if nearNpc == true then
+    npc1:update(dt, player)
+  end
   
   volcano:update(dt)
   if volcano.halt == true then
