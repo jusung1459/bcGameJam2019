@@ -31,6 +31,7 @@ function DialogueBox:draw()
 end
 
 function DialogueBox:speak()
+    local offset = 20;
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.print("Hello World", self.xPos+20, self.yPos + 20)
+    love.graphics.print("Hello World", self.xPos+offset, self.yPos + offset)
 end
