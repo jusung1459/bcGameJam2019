@@ -54,25 +54,3 @@ function Npc:keypressed(key)
         love.window.showMessageBox(self.name, self.message)
     end
 end
-
-function Npc:checkNearBy(npc, player)
-    -- npc and player sides
-    local npc_left = self.x
-    local npc_right = self.x + self.width + 41
-    local npc_top = self.y
-    local npc_bottom = self.y + self.height + 41
-
-    local player_left = player.x
-    local player_right = player.x + player.width + 41
-    local player_top = player.y
-    local player_bottom = player.y + player.height + 41
-
-    if npc_right > player_left and 
-    npc_left < player_right and
-    npc_bottom > player_top and
-    npc_top < player_bottom then
-        return true
-    else
-        return false
-    end
-end

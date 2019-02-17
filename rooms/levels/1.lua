@@ -62,7 +62,7 @@ function Lv1:update2()
     box:update(dt, true)
   end
   
-  nearNpc = npc1:checkNearBy(npc1,player)
+  nearNpc = npc1:checkCollision(npc1,player)
   if nearNpc == true then
     npc1:update(dt, player, true)
   else  
