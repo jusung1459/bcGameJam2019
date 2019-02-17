@@ -8,7 +8,7 @@ require 'rooms/levels/2'
 require 'rooms/levels/3'
 require 'classes/npc'
 Moan = require('Moan')
-require 'classes/dialogue'
+--require 'classes/dialogue'
 
 function love.load()
 
@@ -33,7 +33,7 @@ function love.load()
     next_level = nil
     next_level_index = nil
     keys = 0
-    dialogue = DialogueBox()
+    --dialogue = DialogueBox()
 
     --Moan.speak("Title", {"Hello World!"})
 
@@ -62,7 +62,7 @@ function love.draw()
     --[[if true == true then
         Moan.draw()
     end]]--
-    dialogue:draw()
+    --dialogue:draw()
 
 end
 
