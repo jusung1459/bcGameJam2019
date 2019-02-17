@@ -117,13 +117,13 @@ function Player:keypressed(key, son)
   walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
-    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
+    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= 0 then
       if walls[current_level][(self.y/40)][(self.x/40)+1] ~= 1 then
         self.y = self.y - 40
-        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
       end
     end
   end
@@ -132,13 +132,13 @@ function Player:keypressed(key, son)
   walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
-    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
+    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= 560 then
       if walls[current_level][(self.y/40)+2][(self.x/40)+1] ~= 1 then
         self.y = self.y + 40
-        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
       end
     end
   end
@@ -147,13 +147,13 @@ function Player:keypressed(key, son)
   walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
-    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
+    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 0 then
       if walls[current_level][(self.y/40)+1][(self.x/40)] ~= 1 then
         self.x = self.x - 40
-        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
       end
     end
   end
@@ -162,23 +162,23 @@ function Player:keypressed(key, son)
   walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
-    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
+    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 760 then
       if walls[current_level][(self.y/40)+1][(self.x/40)+2] ~= 1 then
         self.x = self.x + 40
-        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
       end
     end
   end
 
-
   if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 2 then
     self:nextLevel()
   end
+
   if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 3 then
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
       keys = keys + 1
   end
 end
