@@ -9,7 +9,7 @@ local window_height = love.graphics.getHeight()
 
 --create a new player
 function Player:new()
-  self.image = love.graphics.newImage( "/art/whale.png" )
+  self.image = love.graphics.newImage( "/art/alienBlue_badge2.png" )
   self.x = 40
   self.y = 0
   self.speed = 500
@@ -131,7 +131,7 @@ end
 
 
 function Son:new()
-  self.image = love.graphics.newImage("art/penguin.png")
+  self.image = love.graphics.newImage("art/alienPink_badge1.png")
   self.x = 0
   self.y = 0
   self.speed = 500
@@ -153,5 +153,3 @@ end
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
-
-
