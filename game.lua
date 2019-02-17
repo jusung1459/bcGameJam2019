@@ -32,7 +32,7 @@ function Game:extend()
 end
 
   function Game:update(dt)
-      player:update(dt)
+      player:update(dt, son)
       son:update(dt)
 
       self:update2(dt)
@@ -47,7 +47,8 @@ function Game:draw()
     player:draw()
     son:draw()
 
-    love.graphics.draw(gear, 0, 0)
+    width = love.graphics.getWidth()
+    love.graphics.draw(gear, width - 40, 0)
 end
 
 function Game:draw2()

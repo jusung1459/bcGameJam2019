@@ -6,8 +6,8 @@ Options = typeA:extend()
 function Options:new()
     current_level = 2
     background = love.graphics.newImage('art/menu/background.png')
-    picture = love.graphics.newImage('art/menu.png')
-end 
+    picture = love.graphics.newImage('art/return.png')
+end
 
 function Options:update(dt)
 end

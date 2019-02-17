@@ -51,16 +51,16 @@ function Player:checkCollision(player, b)
     end
 end
 
-
 --check the boundaries
-function Player:update(dt, stop)
+function Player:update(dt, stop, Son)
 
 --when you are inside a volcano and it turns red
 if stop == true then
     --send the player to prev coordinates
     self.x = self.prevX
     self.y = self.prevY
-
+    son.x = son.prevX
+    son.y = son.prevY
     return false
   end
 
@@ -151,6 +151,7 @@ function Player:nextLevel()
   son.x = 0
   son.y = 0
   keys = 0
+  color = 255
   gotoRoom(next_level, next_level_index)
 end
 
@@ -163,6 +164,8 @@ function Son:new()
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
+  self.prevX = 0
+  self.prevY = 0
 end
 
 function Son:update(dt)
