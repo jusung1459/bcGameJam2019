@@ -1,3 +1,6 @@
+
+
+
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
@@ -12,9 +15,12 @@ function Player:new()
   self.image = love.graphics.newImage( "/art/alienBlue_badge2.png" )
   self.x = 40
   self.y = 0
+  self.keys = 0
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
+  self.prevX = 40;
+  self.prevY = 0;
 end
 
 function Player:checkCollision(player, b)
@@ -45,6 +51,7 @@ function Player:checkCollision(player, b)
     end
 end
 
+
 --check the boundaries
 function Player:update(dt, stop)
 
@@ -55,6 +62,8 @@ function Player:update(dt, stop)
     self.y = self.height - self.y]]--
     return false
   end
+
+  --check boundaries
   if self.x < 0 then self.x = 0
   elseif self.x + self.width > window_width then
     self.x = window_width - self.width
@@ -65,6 +74,13 @@ function Player:update(dt, stop)
     self.y = window_height - self.height
   end
 
+  --when you are inside a volcano and it turns red
+  if self.y ~= 560 and self.y ~= 0 and self.x ~= 0 and self.x ~= 760 then
+    if walls[current_level][(self.y/40)][(self.x/40)] == 1 then
+      self.x = self.prevX
+      self.y = self.prevY
+    end
+  end
 end
 
 --draw the player
@@ -72,23 +88,27 @@ function Player:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
 
+
 --move character+son
 function Player:keypressed(key, son)
 
   if key == "up" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.y ~= 0 then
-      if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
+      if walls[current_level][(self.y/40)][(self.x/40)+1] ~= 1 then
         self.y = self.y - 40
       end
     end
-
   end
 
   if key == "down" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.y ~= 560 then
       if walls[current_level][(self.y/40)+2][(self.x/40)+1] ~= 1 then
         self.y = self.y + 40
@@ -99,6 +119,8 @@ function Player:keypressed(key, son)
   if key == "left" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.x ~= 0 then
       if walls[current_level][(self.y/40)+1][(self.x/40)] ~= 1 then
         self.x = self.x - 40
@@ -108,6 +130,8 @@ function Player:keypressed(key, son)
   if key == "right" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.x ~= 760 then
       if walls[current_level][(self.y/40)+1][(self.x/40)+2] ~= 1 then
         self.x = self.x + 40
@@ -118,13 +142,19 @@ function Player:keypressed(key, son)
   if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 2 then
     self:nextLevel()
   end
+  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 3 then
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
+      keys = keys + 1
 end
+end
+
 
 function Player:nextLevel()
   self.x = 40
   self.y = 0
   son.x = 0
   son.y = 0
+  keys = 0
   gotoRoom(next_level, next_level_index)
 end
 
