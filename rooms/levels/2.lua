@@ -52,7 +52,7 @@ function Lv2:init()
     key2 = Key(480, 480)
     key3 = Key(520, 240)
 
-    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
 end
 
 function Lv2:update2()
