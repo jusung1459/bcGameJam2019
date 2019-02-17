@@ -10,6 +10,8 @@ require 'classes/npc'
 Moan = require('Moan')
 --require 'classes/dialogue'
 
+
+
 function love.load()
 
     --control variables

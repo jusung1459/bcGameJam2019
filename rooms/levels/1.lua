@@ -53,6 +53,7 @@ function Lv1:init()
     key2 = Key(440, 440)
 
     npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
 end
@@ -160,7 +161,7 @@ function Lv1:draw2()
 
     door:draw()
 
-    npc1:draw()
+    npc1:draw(dial1)
 end
 
 function Lv1:keypressed2(key)

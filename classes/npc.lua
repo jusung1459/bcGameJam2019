@@ -30,6 +30,12 @@ function Npc:draw()
     end]]--
 end
 
+function Npc:dialogue(dialogue)
+  if self.intact then
+    dialogue:draw()
+  end
+end
+
 function Npc:keypressed(key)
     if self.move == true and self.intact == false then
         if key == "up" or key == "down" or key == "left" or key == "right" then
