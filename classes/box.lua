@@ -24,24 +24,27 @@ function Box:new(x, y)
   function Box:update(dt, bool)
     if bool == true then
       self.intact = true
-    else 
+    else
       self.intact = false
+    end
+    if self.push == false then
+      player.box = false
+      if self.intact == true then
+        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
+      else walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+      end
     end
   end
 
   function Box:keypressed(key,player)
     if self.intact == true then
-      if key == "a" then
+      if key == "e" then
         self.push = not self.push
       end
     end
-    if self.push == false and self.intact == true then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
-    end
-    if self.push == false and self.intact == false then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-    end
+    
       if self.push == true then
+        player.box = true
         if key == "up" then
           if self.y ~= 0 and walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
             walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0

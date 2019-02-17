@@ -5,6 +5,11 @@
 Player = Object:extend()
 Son = Object:extend()
 
+-- 0: empty space
+-- 1: impassable wall
+-- 2: exit
+-- 3: key location
+-- 4: death locations
 
 
 local window_width = love.graphics.getWidth()
@@ -22,6 +27,7 @@ function Player:new()
   self.prevX = tile_size;
   self.prevY = 0;
   self.sonFollow = true;
+  self.box = false
 end
 
 function Player:checkCollision(player, b)
@@ -114,7 +120,7 @@ end
 --move character+son
 function Player:keypressed(key, son)
 
-  if key == "x" then
+  if key == "x" and self:checkCollision(self, son) then
     self.sonFollow = not self.sonFollow
   end
 
@@ -134,12 +140,12 @@ function Player:keypressed(key, son)
 
     if self.y ~= 0 then
       --change previous player coord's from -1 to 0
-      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+      if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
 
       if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y - tile_size
-        --when moving the box, the below line causes black square in the corner
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        --below line causes black box bug
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -158,10 +164,10 @@ function Player:keypressed(key, son)
     self.prevY = self.y
     if self.y ~= window_height - tile_size then
 
-      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+      if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
       if walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y + tile_size
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -176,10 +182,10 @@ function Player:keypressed(key, son)
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 0 then
+      if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
       if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] ~= 1 then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
         self.x = self.x - tile_size
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -194,10 +200,10 @@ function Player:keypressed(key, son)
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= window_width - tile_size then
+      if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
       if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] ~= 1 then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
         self.x = self.x + tile_size
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -209,6 +215,10 @@ function Player:keypressed(key, son)
   if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 3 then
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
       keys = keys + 1
+  end
+
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 4 then
+      gotoRoom("Death", 0)
   end
 end
 

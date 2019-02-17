@@ -6,6 +6,7 @@ require 'rooms/A/death'
 require 'rooms/levels/1'
 require 'rooms/levels/2'
 require 'rooms/levels/3'
+require 'rooms/levels/4'
 
 function love.load()
 
@@ -30,6 +31,9 @@ function love.load()
     next_level = nil
     next_level_index = nil
     keys = 0
+
+    envs = {}
+    --current_env = current_level
 
 end
 

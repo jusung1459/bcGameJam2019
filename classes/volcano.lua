@@ -7,7 +7,7 @@ local stop = love.graphics.newImage("/art/redv.png")
 local whichimg = cross
 
 
-function Volcano:new(x, y)
+function Volcano:new(x,y)
   self.image = whichimg
   self.x = x
   self.y = y

@@ -6,6 +6,8 @@ require "classes/key"
 require "classes/exit"
 require "classes/npc"
 require "classes/door"
+require "classes/trapdoor"
+
 
 Game = Object:extend()
 
@@ -31,19 +33,22 @@ function Game:extend()
     setmetatable(cls, self)
     return cls
 end
+function Game:background()
+  self:drawBackground()
+end
+function Game:update(dt)
+    player:update(dt, son)
+    son:update(dt)
 
-  function Game:update(dt)
-      player:update(dt, son)
-      son:update(dt)
-
-      self:update2(dt)
-  end
+    self:update2(dt)
+end
 
 function Game:update2(dt)
 end
 
 function Game:draw()
 
+    self:background()
     self:draw2()
     player:draw()
     son:draw()

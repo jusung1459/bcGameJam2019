@@ -30,7 +30,7 @@ function Menu:mousepressed(x, y, button, istouch)
     local bx = (window_width/2) - 100
     local by = (window_height/2)
     if x >= bx - 100 then
-        if x <= bx + 100 then
+        if x <= bx + 200 then
             if button == 1 then
                 if y >= by then
                     if y <= by + 40 then
