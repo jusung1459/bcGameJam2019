@@ -4,7 +4,7 @@ Object = require 'libraries/classic/classic'
 
 Intro = Object:extend()
 
-function Intro:new(message, )
+function Intro:new(message)
     self.message = message
 end
 
