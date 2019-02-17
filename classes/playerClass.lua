@@ -134,13 +134,14 @@ function Player:keypressed(key, son)
     end
   end
 
+
   if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 2 then
     self:nextLevel()
   end
   if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 3 then
       walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
       keys = keys + 1
-end
+  end
 end
 
 
