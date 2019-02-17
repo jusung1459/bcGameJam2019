@@ -4,7 +4,7 @@ require 'rooms/typeA'
 Death = typeA:extend()
 
 function Death:new()
-    current_level = 2
+    current_level = 0
     background = love.graphics.newImage('art/menu/background.png')
     picture = love.graphics.newImage('art/menu.png')
 end
