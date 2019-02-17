@@ -1,4 +1,6 @@
 require 'game'
+require 'classes/dialogue'
+require 'classes/introduction'
 
 Lv1 = Game:extend()
 
@@ -64,6 +66,8 @@ function Lv1:init()
     self.width = width
     self.height = height
     self.tileblocks = tileblocks
+    
+    self.intro = true
 
     box = Box(360, 0)
     volcano = Volcano(360, 240)
@@ -74,6 +78,7 @@ function Lv1:init()
 
     npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
     dial1 = DialogueBox()
+    intro = Intro("You are on your own kidos LMAO", true)
 
     door = Door(320, 240, 40, 40)
 
@@ -198,6 +203,8 @@ function Lv1:draw2()
     npc1:draw()
     npc1:dialogue(dial1)
 
+    intro:dialogue(dial1)
+
     trap:draw()
 end
 
@@ -217,3 +224,6 @@ function Lv1:deactivate()
     previous_room = 'Lv1'
     previous_room_index = 4
 end
+
+
+  
