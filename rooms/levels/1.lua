@@ -72,7 +72,7 @@ function Lv1:init()
     key1 = Key(80, 80)
     key2 = Key(440, 440)
 
-    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "You and your son want to go through the door? Try moving the box by pressing 'E'")
     dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
