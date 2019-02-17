@@ -62,6 +62,7 @@ function Worm:draw()
         if self.idle == false and self.left == false then
           self.image = worm_right
           self.drawIdle()
+        end
     end
     self.counter = 0
   end
