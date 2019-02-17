@@ -23,7 +23,7 @@ function Npc:new(x, y, move, name, message, imageLocation)
 function Npc:update(dt, player,bool)
     self.intact = bool
     self.frame = self.frame + 0.05
-    if self.frame > 3 then
+    if self.frame > 3 and self.intact == false then
       rng = love.math.random(4)
       if rng == 1 and self.x ~= 0 then
           if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
@@ -55,7 +55,6 @@ end
 
 function Npc:dialogue(dialogue)
   if self.intact then
-
     dialogue:draw()
     dialogue:speak(self.message)
   end
