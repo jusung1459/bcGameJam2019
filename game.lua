@@ -6,6 +6,9 @@ require "classes/key"
 require "classes/exit"
 require "classes/npc"
 require "classes/door"
+require "classes/dialogue"
+require "classes/trapdoor"
+
 
 Game = Object:extend()
 
@@ -46,10 +49,11 @@ end
 
 function Game:draw()
 
+    
     self:background()
-    self:draw2()
     player:draw()
     son:draw()
+    self:draw2()
 
     love.graphics.draw(gear, window_width - tile_size, 0)
 end

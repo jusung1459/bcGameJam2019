@@ -15,7 +15,7 @@ function Lv1:init()
     botleft = love.graphics.newImage("art/floor_tiles/botleft1.png")
     bot = love.graphics.newImage("art/floor_tiles/bot1.png")
     botright = love.graphics.newImage("art/floor_tiles/botright1.png")
-    wall = love.graphics.newImage("art/floor_tiles/wall.png")
+    wall = love.graphics.newImage("art/floor_tiles/wall1.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
 
 
@@ -24,6 +24,24 @@ function Lv1:init()
     --1 is a wall
 
     walls[current_level] = {
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    }
+
+    current_env = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -55,8 +73,11 @@ function Lv1:init()
     key2 = Key(440, 440)
 
     npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
+
+    trap = Trap(720, 520)
 end
 
 function Lv1:drawBackground()
@@ -119,6 +140,7 @@ function Lv1:drawBackground()
           end
       end
   end
+  love.graphics.draw(topright, 760, 0)
 end
 
 function Lv1:update2()
@@ -156,10 +178,11 @@ function Lv1:update2()
 
   door:update(dt)
 
+  trap:update(dt)
+
 end
 function Lv1:draw2()
 
-    love.graphics.draw(topright, 760, 0)
     door:draw()
     box:draw()
 
@@ -170,8 +193,12 @@ function Lv1:draw2()
 
     exit:draw()
 
-    npc1:draw()
+    door:draw()
 
+    npc1:draw()
+    npc1:dialogue(dial1)
+
+    trap:draw()
 end
 
 function Lv1:keypressed2(key)

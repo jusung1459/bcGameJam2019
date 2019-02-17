@@ -243,6 +243,10 @@ function Player:keypressed(key, son)
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
       keys = keys + 1
   end
+
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 4 then
+      gotoRoom("Death", 0)
+  end
 end
 
 
