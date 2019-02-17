@@ -70,7 +70,7 @@ end
 end
 
 function Worm:drawIdle()
-    love.graphics.draw(self.image, idleFrames[1], self.x, self.y)
+    love.graphics.draw(self.image, idleFrames[math.floor(currentFrame)], self.x, self.y)
 end
 
 function Worm:drawLeft()
