@@ -43,13 +43,13 @@ function Lv4:init()
 
     box = Box(600, 520)
     volcano1 = Volcano(440, 320)
-    volcano2 = Volcano(320, 200)
+    volcano2 = Volcano(280, 240)
     volcano3 = Volcano(200, 120)
     exit = Exit(360, 320, 4)
 
     key1 = Key(280, 200)
     key2 = Key(200, 360)
-    --key3 = Key(240, 320)
+    key3 = Key(540, 240)
     --key4 = Key(560, 160)
 
     npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
@@ -177,7 +177,7 @@ function Lv4:update2()
 
   key1:update(dt)
   key2:update(dt)
-  --key3:update(dt)
+  key3:update(dt)
   --key4:update(dt)
 
 end
@@ -192,7 +192,7 @@ function Lv4:draw2()
 
     key1:draw()
     key2:draw()
-    --key3:draw()
+    key3:draw()
     --key4:draw()
 
     exit:draw()
