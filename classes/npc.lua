@@ -35,7 +35,7 @@ function Npc:dialogue(dialogue)
   if self.intact then
 
     dialogue:draw()
-    dialogue:speak()
+    dialogue:speak(self.message)
   end
 end
 
