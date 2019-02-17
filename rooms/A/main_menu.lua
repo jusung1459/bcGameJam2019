@@ -8,7 +8,7 @@ function Menu:new()
     start = love.graphics.newImage('art/start.png')
     options = love.graphics.newImage('art/options.png')
     credits = love.graphics.newImage('art/credits.png')
-    --exit = love.graphics.newImage()
+    exit = love.graphics.newImage('art/exit.png')
     background = love.graphics.newImage('art/menu/background.png')
 end
 
@@ -21,7 +21,7 @@ function Menu:draw()
     love.graphics.draw(start, 300, 300)
     love.graphics.draw(options, 300, 350)
     love.graphics.draw(credits, 300, 400)
-    --love.graphics.draw(exit, 300, 550)
+    love.graphics.draw(exit, 300, 550)
 end
 
 function Menu:mousepressed(x, y, button, istouch)
