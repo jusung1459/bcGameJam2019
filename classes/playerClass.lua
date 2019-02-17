@@ -21,6 +21,7 @@ function Player:new()
   self.height = self.image:getHeight()
   self.prevX = tile_size;
   self.prevY = 0;
+  self.sonFollow = true;
 end
 
 function Player:checkCollision(player, b)
@@ -113,10 +114,16 @@ end
 --move character+son
 function Player:keypressed(key, son)
 
+  if key == "x" then
+    self.sonFollow = not self.sonFollow
+  end
+
   if key == "up" then
-  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
-    son.y = self.y
-    son.x = self.x
+    walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
+    if self.sonFollow then
+      son.y = self.y
+      son.x = self.x
+    end
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
