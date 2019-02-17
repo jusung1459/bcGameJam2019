@@ -51,7 +51,8 @@ function Lv2:init()
     key2 = Key(480, 480)
     key3 = Key(520, 240)
 
-    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc2 = Npc(160, 160, true, "Bob", "Did you figure out how to move the boxes yet? Psssst, it's done by pressing 'E'")
+    dial2 = DialogueBox()
 end
 
 function Lv2:drawBackground()
@@ -180,12 +181,13 @@ function Lv2:draw2()
     exit:draw()
 
     npc2:draw()
+    npc2:dialogue(dial1)
 end
 
 function Lv2:keypressed2(key)
 
   box:keypressed(key,player)
-  
+
 end
 
 function Lv2:activate()
