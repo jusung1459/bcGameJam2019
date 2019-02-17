@@ -62,11 +62,11 @@ function Lv2:update2()
     box:update(dt, true)
   end
 
-  nearNpc = npc2:checkCollision(npc2,player)
+  nearNpc = npc1:checkCollision(npc1,player)
   if nearNpc == true then
-    npc2:update(dt, player, true)
+    npc1:update(dt, player, true)
   else
-    npc2:update(dt,player, false)
+    npc1:update(dt,player, false)
   end
 
   volcano1:update(dt)
@@ -171,13 +171,13 @@ function Lv2:draw2()
 
     exit:draw()
 
-    npc2:draw()
+    npc1:draw()
 end
 
 function Lv2:keypressed2(key)
 
   box:keypressed(key,player)
-  npc2:keypressed(key)
+  npc1:keypressed(key)
 end
 
 function Lv2:activate()

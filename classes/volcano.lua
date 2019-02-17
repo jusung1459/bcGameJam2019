@@ -1,10 +1,10 @@
 Object = require('libraries/classic/classic')
 
 Volcano = Object:extend()
-count = 0
-cross = love.graphics.newImage("/art/greenv.png")
-stop = love.graphics.newImage("/art/redv.png")
-whichimg = cross
+local count = 0
+local cross = love.graphics.newImage("/art/greenv.png")
+local stop = love.graphics.newImage("/art/redv.png")
+local whichimg = cross
 
 
 function Volcano:new(x, y)
@@ -20,7 +20,7 @@ end
 function Volcano:update(dt)
   count = count + 0.025
   if count > 3 then
-    if whichimg == stop then
+    if self.halt == true then
       whichimg = cross
       self.halt = false
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
