@@ -34,48 +34,44 @@ function Box:new(x, y)
         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
       end
       if self.push == true then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
         if key == "up" then
-          player.y = self.y
-          player.x = self.x
-          walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-          if self.y ~= 0 then
-            if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
-              self.y = self.y - tile_size
-            end
+          if self.y ~= 0 and walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+            player.y = self.y
+            player.x = self.x
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+            self.y = self.y - tile_size
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
           end
         end
-  
-  
         if key == "down" then
-          player.y = self.y
-          player.x = self.x
-          walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-          if self.y ~= window_height - tile_size then
-            if walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] == 0 then
-              self.y = self.y + tile_size
-            end
+          if self.y ~= window_height - tile_size and walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] == 0 then
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+            player.y = self.y
+            player.x = self.x
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+            self.y = self.y + tile_size
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
           end
         end
-  
         if key == "left" then
-          player.y = self.y
-          player.x = self.x
-          walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-          if self.x ~= 0 then
-            if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
-              self.x = self.x - tile_size
-            end
+          if self.x ~= 0 and walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+            player.y = self.y
+            player.x = self.x
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+            self.x = self.x - tile_size
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
           end
         end
         if key == "right" then
-          player.y = self.y
-          player.x = self.x
-          walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-          if self.x ~= window_width - tile_size then
-            if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then
-              self.x = self.x + tile_size
-            end
+          if self.x ~= window_width - tile_size and walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+            player.y = self.y
+            player.x = self.x
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+            self.x = self.x + tile_size
+            walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
           end
         end
   

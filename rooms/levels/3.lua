@@ -50,7 +50,7 @@ function Lv3:init()
     key1 = Key(120, 80)
     key2 = Key(480, 480)
     key3 = Key(520, 240)
-    key4 = Key(100, 340)
+    --key4 = Key(100, 340)
 
     npc3 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
 end
@@ -62,7 +62,7 @@ function Lv3:update2()
     box:update(dt, true)
   end
 
-  nearNpc = npc3:checkCollision(npc2,player)
+  nearNpc = npc3:checkCollision(npc3,player)
   if nearNpc == true then
     npc3:update(dt, player, true)
   else
@@ -82,7 +82,7 @@ function Lv3:update2()
   key1:update(dt)
   key2:update(dt)
   key3:update(dt)
-  key4:update(dt)
+  --key4:update(dt)
 
 end
 
@@ -148,7 +148,7 @@ function Lv3:draw2()
     key1:draw()
     key2:draw()
     key3:draw()
-    key4:draw()
+    --key4:draw()
 
     exit:draw()
 

@@ -5,6 +5,7 @@ require 'rooms/A/credits'
 require 'rooms/A/death'
 require 'rooms/levels/1'
 require 'rooms/levels/2'
+require 'rooms/levels/3'
 
 function love.load()
 
