@@ -57,10 +57,11 @@ function Worm:draw()
       if self.counter > 3 then
         if self.idle == false and self.left == true then
           self.image = worm_left
+          self.drawIdle()
         end
         if self.idle == false and self.left == false then
           self.image = worm_right
-        else self:drawIdle() end
+          self.drawIdle()
     end
     self.counter = 0
   end
