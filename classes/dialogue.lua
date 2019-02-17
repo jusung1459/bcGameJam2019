@@ -1,10 +1,10 @@
-require 'classes/npc.lua'
+require 'classes/npc'
 Object = require 'libraries/classic/classic'
 
 DialogueBox = Object:extend()
 
-local winHeight = love.window.getHeight
-local winWidth = love.window.getWidth
+local winHeight = love.graphics.getHeight()
+local winWidth = love.graphics.getWidth()
 
 function DialogueBox:new()
   self.height = winHeight/3.0
