@@ -44,14 +44,14 @@ function Lv2:init()
     self.tileblocks = tileblocks
 
     box = Box(360, 0)
-    volcano1 = Volcano(280, 200)
+    volcano = Volcano(280, 200)
     exit = Exit(240, 360, 3)
 
     key1 = Key(120, 80)
     key2 = Key(480, 480)
     key3 = Key(520, 240)
 
-    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
 end
 
 function Lv2:update2()
@@ -82,7 +82,7 @@ function Lv2:update2()
     end
   end
 
-  exit:update()
+  exit:update(dt)
 
   key1:update(dt)
   key2:update(dt)
