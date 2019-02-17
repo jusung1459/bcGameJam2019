@@ -119,15 +119,23 @@ function Player:keypressed(key, son)
   end
 
   if key == "up" then
-    walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
+
+    --if son is following you, change his coordinates
     if self.sonFollow then
+      walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
+      if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     end
-    if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
+
+    --store the previous coordinates
     self.prevX = self.x
     self.prevY = self.y
+
     if self.y ~= 0 then
+      --change previous player coord's from -1 to 0
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
+
       if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y - tile_size
         if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
