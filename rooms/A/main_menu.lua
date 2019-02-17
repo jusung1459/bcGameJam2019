@@ -21,7 +21,7 @@ function Menu:draw()
     love.graphics.draw(start, 300, 300)
     love.graphics.draw(options, 300, 350)
     love.graphics.draw(credits, 300, 400)
-    love.graphics.draw(exit, 300, 550)
+    love.graphics.draw(exit, 300, 500)
 end
 
 function Menu:mousepressed(x, y, button, istouch)
