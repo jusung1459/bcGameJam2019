@@ -118,6 +118,8 @@ function Lv2:drawBackground()
       end
   end
 
+  love.graphics.draw(topright, 760, 0)
+
 end
 
 function Lv2:update2()
@@ -171,8 +173,6 @@ function Lv2:update2()
 end
 
 function Lv2:draw2()
-
-    love.graphics.draw(topright, 760, 0)
 
     box:draw()
 
