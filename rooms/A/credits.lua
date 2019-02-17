@@ -7,7 +7,7 @@ function Credits:new()
     current_level = 3
     background = love.graphics.newImage('art/menu/background.png')
     picture = love.graphics.newImage('art/menu.png')
-end 
+end
 
 function Credits:update(dt)
 end
