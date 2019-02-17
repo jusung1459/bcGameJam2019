@@ -6,6 +6,7 @@ require 'rooms/A/death'
 require 'rooms/levels/1'
 require 'rooms/levels/2'
 require 'rooms/levels/3'
+require 'rooms/levels/4'
 require 'classes/npc'
 Moan = require('Moan')
 --require 'classes/dialogue'
