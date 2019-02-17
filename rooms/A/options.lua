@@ -27,10 +27,10 @@ function Options:mousepressed(x, y, button, istouch)
                 if y >= 450 then
                     if y <= 490 then
                         gotoRoom("Death", 0)
-                    end
-                elseif y >= 500 then
-                    if y <= 540 then
-                        gotoRoom(previous_room, previous_room_index)
+                    elseif y >= 500 then
+                        if y <= 540 then
+                            gotoRoom(previous_room, previous_room_index)
+                        end
                     end
                 end
             end
