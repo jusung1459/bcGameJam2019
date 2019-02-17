@@ -45,6 +45,7 @@ function Lv2:init()
 
     box = Box(360, 0)
     volcano1 = Volcano(280, 200)
+    volcano2 = Volcano(520, 280)
     exit = Exit(240, 360, 3)
 
     key1 = Key(120, 80)
@@ -75,6 +76,20 @@ function Lv2:update2()
       player:update(dt,true)
     else
       collides = volcano1:checkCollision(son, volcano1)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
+  volcano2:update(dt)
+  if volcano2.halt == true then
+    collides = volcano2:checkCollision(player, volcano2)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano2:checkCollision(son, volcano2)
       if collides == true then
         son.x = player.x
         son.y = player.y
@@ -148,6 +163,7 @@ function Lv2:draw2()
     box:draw()
 
     volcano1:draw()
+    volcano2:draw()
 
     key1:draw()
     key2:draw()
