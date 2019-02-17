@@ -5,16 +5,16 @@
 Player = Object:extend()
 Son = Object:extend()
 
--- Possible icons (for directions)
-playerDown = love.graphics.newImage()
-playerUp = love.graphics.newImage()
-playerLeft = love.graphics.newImage()
-playerRight = love.graphics.newImage()
-
-sonDown = love.graphics.newImage()
-sonUp = love.graphics.newImage()
-sonLeft = love.graphics.newImage()
-sonRight = love.graphics.newImage()
+-- -- Possible icons (for directions)
+-- playerDown = love.graphics.newImage()
+-- playerUp = love.graphics.newImage()
+-- playerLeft = love.graphics.newImage()
+-- playerRight = love.graphics.newImage()
+--
+-- sonDown = love.graphics.newImage()
+-- sonUp = love.graphics.newImage()
+-- sonLeft = love.graphics.newImage()
+-- sonRight = love.graphics.newImage()
 
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
