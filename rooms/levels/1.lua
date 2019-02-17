@@ -76,7 +76,7 @@ function Lv1:init()
     key1 = Key(80, 80)
     key2 = Key(440, 440)
 
-    npc1 = Npc(160, 160, true, "Bob", "You and your son want to go through the door? Try moving the box by pressing 'E'")
+    npc1 = Npc(160, 160, true, "Bob", "You and your son want to go through the door? \n Try moving the box to the yellow button \n You can move the box by pressing 'E'")
     dial1 = DialogueBox()
     intro = Intro("You are on your own kidos LMAO", true)
 
@@ -205,7 +205,7 @@ function Lv1:draw2()
     npc1:draw()
     npc1:dialogue(dial1)
 
-    intro:dialogue(dial1)
+    --intro:dialogue(dial1)
 
     trap:draw()
 end
