@@ -3,6 +3,8 @@ require 'game'
 Lv1 = Game:extend()
 
 function Lv1:init()
+
+
     current_level = 4
     grass = love.graphics.newImage("/art/grass.png")
     sand = love.graphics.newImage("/art/sand.png")
@@ -18,7 +20,7 @@ function Lv1:init()
     wall = love.graphics.newImage("art/floor_tiles/wall.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
 
-    self:drawBackground()
+
 
     --insert matrix here for obstacle
     --1 is a wall
