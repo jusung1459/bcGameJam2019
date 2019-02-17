@@ -38,6 +38,7 @@ function Box:new(x, y)
         if key == "up" then
           player.y = self.y
           player.x = self.x
+          walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
           if self.y ~= 0 then
             if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
               self.y = self.y - 40
@@ -49,6 +50,7 @@ function Box:new(x, y)
         if key == "down" then
           player.y = self.y
           player.x = self.x
+          walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
           if self.y ~= 560 then
             if walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then
               self.y = self.y + 40
@@ -59,6 +61,7 @@ function Box:new(x, y)
         if key == "left" then
           player.y = self.y
           player.x = self.x
+          walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
           if self.x ~= 0 then
             if walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then
               self.x = self.x - 40
@@ -68,6 +71,7 @@ function Box:new(x, y)
         if key == "right" then
           player.y = self.y
           player.x = self.x
+          walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
           if self.x ~= 760 then
             if walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then
               self.x = self.x + 40

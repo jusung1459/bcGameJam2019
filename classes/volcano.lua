@@ -37,3 +37,31 @@ end
 function Volcano:draw()
   love.graphics.draw(whichimg, self.x, self.y)
 end
+
+function Volcano:checkCollision(player, b)
+  --With locals it's common usage to use underscores instead of camelCasing
+  local player_left = player.x
+  local player_right = player.x + player.width
+  local player_top = player.y
+  local player_bottom = player.y + player.height
+
+  local b_left = b.x
+  local b_right = b.x + b.width
+  local b_top = b.y
+  local b_bottom = b.y + b.height
+
+  --If Red's right side is further to the right than Blue's left side.
+  if player_right > b_left and
+  --and Red's left side is further to the left than Blue's right side.
+  player_left < b_right and
+  --and Red's bottom side is further to the bottom than Blue's top side.
+  player_bottom > b_top and
+  --and Red's top side is further to the top than Blue's bottom side then..
+  player_top < b_bottom then
+      --There is collision!
+      return true
+  else
+      --If one of these statements is false, return false.
+      return false
+  end
+end

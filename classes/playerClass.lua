@@ -56,11 +56,38 @@ function Player:update(dt, stop, Son)
 
 --when you are inside a volcano and it turns red
 if stop == true then
-    --send the player to prev coordinates
-    self.x = self.prevX
-    self.y = self.prevY
-    son.x = son.prevX
-    son.y = son.prevY
+    --send the player to prev coordinates if prev coord is free
+    if walls[current_level][(self.prevY/40)+1][(self.prevX/40)+1] == 0 or walls[current_level][(self.prevY/40)+1][(self.prevX/40)+1] == -1 then
+      self.x = self.prevX
+      self.y = self.prevY
+      son.x = self.prevX
+      son.y = self.prevY
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+    elseif walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then 
+      self.x = self.x 
+      self.y = self.y - 40
+      son.x = self.x 
+      son.y = self.y
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+    elseif walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then 
+      self.x = self.x - 40
+      self.y = self.y
+      son.x = self.x 
+      son.y = self.y
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+    elseif walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then 
+      self.x = self.x 
+      self.y = self.y + 40
+      son.x = self.x 
+      son.y = self.y
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+    elseif walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then 
+      self.x = self.x + 40
+      self.y = self.y
+      son.x = self.x 
+      son.y = self.y
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+    else gotoRoom("Death", 0) end
     return false
   end
 
@@ -87,49 +114,61 @@ end
 function Player:keypressed(key, son)
 
   if key == "up" then
+  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
+    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= 0 then
       if walls[current_level][(self.y/40)][(self.x/40)+1] ~= 1 then
         self.y = self.y - 40
+        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
       end
     end
   end
 
   if key == "down" then
+  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
+    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= 560 then
       if walls[current_level][(self.y/40)+2][(self.x/40)+1] ~= 1 then
         self.y = self.y + 40
+        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
       end
     end
   end
 
   if key == "left" then
+  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
+    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 0 then
       if walls[current_level][(self.y/40)+1][(self.x/40)] ~= 1 then
         self.x = self.x - 40
+        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
       end
     end
   end
 
   if key == "right" then
+  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
     son.y = self.y
     son.x = self.x
+    walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 760 then
       if walls[current_level][(self.y/40)+1][(self.x/40)+2] ~= 1 then
         self.x = self.x + 40
+        walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
       end
     end
   end

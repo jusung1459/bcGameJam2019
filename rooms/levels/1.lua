@@ -71,7 +71,7 @@ function Lv1:update2()
   
   volcano:update(dt)
   if volcano.halt == true then
-    collides = player:checkCollision(player, volcano)
+    collides = volcano:checkCollision(player, volcano)
     if collides == true then
       player:update(dt,true)
     end
