@@ -39,6 +39,10 @@ function Lv1:init()
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     }
 
+    --change start
+    envs[current_level] = walls[current_level]
+    --change end
+
     love.graphics.setBackgroundColor( 0, 0, 0 )
 
     self.width = width
