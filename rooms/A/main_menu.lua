@@ -5,9 +5,9 @@ Menu = typeA:extend()
 
 function Menu:new()
     current_level = 1
-    picture = love.graphics.newImage('art/menu.png')
+    picture = love.graphics.newImage('art/start.png')
     background = love.graphics.newImage('art/menu/background.png')
-end 
+end
 
 function Menu:update(dt)
 
@@ -27,7 +27,7 @@ function Menu:mousepressed(x, y, button, istouch)
             if button == 1 then
                 if y >= 300 then
                     if y <= 340 then
-                        gotoRoom('Lv1', 4)                
+                        gotoRoom('Lv1', 4)
                     elseif y >= 350 then
                         if y <= 390 then
                             gotoRoom('Options', 2)
@@ -39,7 +39,7 @@ function Menu:mousepressed(x, y, button, istouch)
                                     love.event.quit()
                                 end
                             end
-                        end    
+                        end
                     end
                 end
             end

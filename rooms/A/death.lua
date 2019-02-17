@@ -7,7 +7,7 @@ function Death:new()
     current_level = 2
     background = love.graphics.newImage('art/menu/background.png')
     picture = love.graphics.newImage('art/menu.png')
-end 
+end
 
 function Death:update(dt)
 end
