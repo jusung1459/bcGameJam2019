@@ -5,7 +5,6 @@ require "classes/volcano"
 Game = Object:extend()
 
 function Game:new()
-
     player = Player()
     son = Son()
     gear = love.graphics.newImage('art/menu/gear_wheel.png')
@@ -29,7 +28,6 @@ function Game:extend()
 end
 
   function Game:update(dt)
-
       player:update(dt)
       son:update(dt)
 

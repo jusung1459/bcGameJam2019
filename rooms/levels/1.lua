@@ -140,6 +140,7 @@ function Lv1:activate()
     current_level = 4
     next_level = 'Lv2'
     next_level_index = 5
+    pause = 0
 end
 
 function Lv1:deactivate()
