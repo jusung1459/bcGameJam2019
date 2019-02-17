@@ -44,15 +44,19 @@ function Lv2:init()
     self.tileblocks = tileblocks
 
     box = Box(360, 0)
+<<<<<<< HEAD
     volcano1 = Volcano(280, 200)
     volcano2 = Volcano(520, 280)
+=======
+    volcano = Volcano(280, 200)
+>>>>>>> cb2dbcb9500c0ec7f300af41393247ec311d73f9
     exit = Exit(240, 360, 3)
 
     key1 = Key(120, 80)
     key2 = Key(480, 480)
     key3 = Key(520, 240)
 
-    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
 end
 
 function Lv2:update2()
@@ -83,6 +87,7 @@ function Lv2:update2()
     end
   end
 
+<<<<<<< HEAD
   volcano2:update(dt)
   if volcano2.halt == true then
     collides = volcano2:checkCollision(player, volcano2)
@@ -98,6 +103,9 @@ function Lv2:update2()
   end
 
   exit:update()
+=======
+  exit:update(dt)
+>>>>>>> cb2dbcb9500c0ec7f300af41393247ec311d73f9
 
   key1:update(dt)
   key2:update(dt)
