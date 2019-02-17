@@ -27,7 +27,7 @@ end
 function Npc:draw()
     love.graphics.draw(self.image, self.x, self.y)
 end
-                
+
 function Npc:keypressed(key)
     if self.move == true and self.intact == false then
         if key == "up" or key == "down" or key == "left" or key == "right" then
@@ -50,7 +50,7 @@ function Npc:keypressed(key)
             end
         end
     end
-    if self.intact == true and key == "a" then
+    if self.intact == true and key == "e" then
         love.window.showMessageBox(self.name, self.message)
     end
 end
