@@ -13,7 +13,7 @@ function Volcano:new(x, y)
   self.y = y
   self.halt = false
   walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
-  self.width = self.image:getWidth()
+  self.width = self.image:getWidth()4
   self.height = self.image:getHeight()
 end
 
