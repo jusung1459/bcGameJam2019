@@ -25,7 +25,7 @@ function Box:new(x, y)
       self.intact = true
     end
   end
-  function Box:keypressed(key,son)
+  function Box:keypressed(key,player)
     if self.intact == true then
       if key == "a" then
         self.push = not self.push
@@ -36,8 +36,8 @@ function Box:new(x, y)
       if self.push == true then
         walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
         if key == "up" then
-          son.y = self.y
-          son.x = self.x
+          player.y = self.y
+          player.x = self.x
           if self.y ~= 0 then
             if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
               self.y = self.y - 40
@@ -47,8 +47,8 @@ function Box:new(x, y)
   
   
         if key == "down" then
-          son.y = self.y
-          son.x = self.x
+          player.y = self.y
+          player.x = self.x
           if self.y ~= 560 then
             if walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then
               self.y = self.y + 40
@@ -57,8 +57,8 @@ function Box:new(x, y)
         end
   
         if key == "left" then
-          son.y = self.y
-          son.x = self.x
+          player.y = self.y
+          player.x = self.x
           if self.x ~= 0 then
             if walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then
               self.x = self.x - 40
@@ -66,8 +66,8 @@ function Box:new(x, y)
           end
         end
         if key == "right" then
-          son.y = self.y
-          son.x = self.x
+          player.y = self.y
+          player.x = self.x
           if self.x ~= 760 then
             if walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then
               self.x = self.x + 40
