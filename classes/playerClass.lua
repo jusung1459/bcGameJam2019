@@ -24,7 +24,7 @@ function Player:new()
 end
 
 function Player:checkCollision(player, b)
-    --With locals it's common usage to use underscores instead of camelCasing
+
     local player_left = player.x
     local player_right = player.x + player.width + tile_size
     local player_top = player.y
@@ -35,13 +35,13 @@ function Player:checkCollision(player, b)
     local b_top = b.y
     local b_bottom = b.y + b.height + tile_size
 
-    --If Red's right side is further to the right than Blue's left side.
+    --approaching the obstacle while moving to the right
     if player_right > b_left and
-    --and Red's left side is further to the left than Blue's right side.
+    --while moving to the left
     player_left < b_right and
-    --and Red's bottom side is further to the bottom than Blue's top side.
+    --while moving up
     player_bottom > b_top and
-    --and Red's top side is further to the top than Blue's bottom side then..
+    --while moving down
     player_top < b_bottom then
         --There is collision!
         return true
@@ -63,28 +63,28 @@ if stop == true then
       son.x = self.prevX
       son.y = self.prevY
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-    elseif walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then 
-      self.x = self.x 
+    elseif walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
+      self.x = self.x
       self.y = self.y - tile_size
-      son.x = self.x 
+      son.x = self.x
       son.y = self.y
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-    elseif walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then 
+    elseif walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
       self.x = self.x - tile_size
       self.y = self.y
-      son.x = self.x 
+      son.x = self.x
       son.y = self.y
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-    elseif walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] == 0 then 
-      self.x = self.x 
+    elseif walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] == 0 then
+      self.x = self.x
       self.y = self.y + tile_size
-      son.x = self.x 
+      son.x = self.x
       son.y = self.y
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-    elseif walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then 
+    elseif walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then
       self.x = self.x + tile_size
       self.y = self.y
-      son.x = self.x 
+      son.x = self.x
       son.y = self.y
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
     else gotoRoom("Death", 0) end
