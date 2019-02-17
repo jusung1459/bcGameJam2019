@@ -83,6 +83,8 @@ function Lv1:init()
     door = Door(320, 240, 40, 40)
 
     trap = Trap(720, 520)
+
+    worm = Worm(120, 120)
 end
 
 function Lv1:drawBackground()
@@ -186,6 +188,8 @@ function Lv1:update2()
 
   intro:update(dt)
 
+  worm:update(dt)
+
 end
 function Lv1:draw2()
 
@@ -208,6 +212,8 @@ function Lv1:draw2()
     intro:dialogue(dial1)
 
     trap:draw()
+
+    worm:draw()
 end
 
 function Lv1:keypressed2(key)
