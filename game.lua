@@ -6,6 +6,8 @@ require "classes/key"
 require "classes/exit"
 require "classes/npc"
 require "classes/door"
+require "classes/trapdoor"
+
 
 Game = Object:extend()
 
