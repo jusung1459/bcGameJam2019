@@ -5,7 +5,16 @@
 Player = Object:extend()
 Son = Object:extend()
 
+-- Possible icons (for directions)
+playerDown = love.graphics.newImage()
+playerUp = love.graphics.newImage()
+playerLeft = love.graphics.newImage()
+playerRight = love.graphics.newImage()
 
+sonDown = love.graphics.newImage()
+sonUp = love.graphics.newImage()
+sonLeft = love.graphics.newImage()
+sonRight = love.graphics.newImage()
 
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
@@ -123,12 +132,15 @@ function Player:keypressed(key, son)
     --if son is following you, change his coordinates
     if self.sonFollow then
       son.direction = "up"
+      son.image = sonUp
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
       if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     end
+
     self.direction = "up"
+    self.image = playerUp
 
     --store the previous coordinates
     self.prevX = self.x
@@ -150,12 +162,16 @@ function Player:keypressed(key, son)
 
     if self.sonFollow then
       son.direction = "down"
+      son.image = sonDown
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
 
       son.y = self.y
       son.x = self.x
     end
+
     self.direction = "down"
+    self.image = playerDown
+
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
@@ -173,11 +189,15 @@ function Player:keypressed(key, son)
 
     if self.sonFollow then
       son.direction = "left"
+      son.image = sonLeft
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
     end
+
     self.direction = "left"
+    self.image = playerLeft
+
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
@@ -194,11 +214,15 @@ function Player:keypressed(key, son)
 
     if self.sonFollow then
       son.direction = "right"
+      son.image = sonRight
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
     end
+
     self.direction = "right"
+    self.image = playerRight
+
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
