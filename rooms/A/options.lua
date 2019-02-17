@@ -7,7 +7,7 @@ function Options:new()
     current_level = 2
     background = love.graphics.newImage('art/menu/background.png')
     picture = love.graphics.newImage('art/menu.png')
-end 
+end
 
 function Options:update(dt)
 end
