@@ -5,16 +5,16 @@
 Player = Object:extend()
 Son = Object:extend()
 
--- -- Possible icons (for directions)
--- playerDown = love.graphics.newImage()
--- playerUp = love.graphics.newImage()
--- playerLeft = love.graphics.newImage()
--- playerRight = love.graphics.newImage()
---
--- sonDown = love.graphics.newImage()
--- sonUp = love.graphics.newImage()
--- sonLeft = love.graphics.newImage()
--- sonRight = love.graphics.newImage()
+-- Possible icons (for directions)
+playerDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
+playerUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_back.png")
+playerLeft = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_left.png")
+playerRight = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_right.png")
+
+sonDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
+sonUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_back.png")
+sonLeft = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_left.png")
+sonRight = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_right.png")
 
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
