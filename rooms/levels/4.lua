@@ -118,7 +118,6 @@ function Lv4:drawBackground()
       end
   end
 
-  love.graphics.draw(topright, 760, 0)
 
 end
 
