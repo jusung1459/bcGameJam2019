@@ -14,7 +14,7 @@ function Lv3:init()
     botleft = love.graphics.newImage("art/floor_tiles/botleft1.png")
     bot = love.graphics.newImage("art/floor_tiles/bot1.png")
     botright = love.graphics.newImage("art/floor_tiles/botright1.png")
-    wall = love.graphics.newImage("art/floor_tiles/wall.png")
+    wall = love.graphics.newImage("art/floor_tiles/wall1.png")
 
     --insert matrix here for obstacle
     walls[current_level] = {
