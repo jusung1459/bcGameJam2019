@@ -1,13 +1,12 @@
-
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
 
 -- Possible icons (for directions)
-playerDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
-playerUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_back.png")
-playerLeft = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_left.png")
-playerRight = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_right.png")
+playerDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/player_front.png")
+playerUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/player_back.png")
+playerLeft = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/player_left.png")
+playerRight = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/player_right.png")
 
 sonDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
 sonUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_back.png")
@@ -19,7 +18,7 @@ local window_height = love.graphics.getHeight()
 
 --create a new player
 function Player:new()
-  self.image = playerDown --love.graphics.newImage( "/art/alienBlue_badge2.png" )
+  self.image = love.graphics.newImage( "art/Tiny Adventure Pack/Character/Char_one/player_front.png" )
   self.x = tile_size
   self.y = 0
   self.keys = 0
@@ -261,7 +260,7 @@ end
 
 
 function Son:new()
-  self.image = sonDown --love.graphics.newImage("art/alienPink_badge1.png")
+  self.image = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
   self.x = 0
   self.y = 0
   self.speed = 500
