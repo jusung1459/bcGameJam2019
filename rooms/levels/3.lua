@@ -45,12 +45,12 @@ function Lv3:init()
 
     box = Box(360, 0)
     volcano = Volcano(280, 200)
-    exit = Exit(480, 320, 3)
+    exit = Exit(480, 320, 4)
 
     key1 = Key(120, 80)
     key2 = Key(360, 400)
     key3 = Key(240, 320)
-    key4 = Key()
+    key4 = Key(80, 80)
 
     npc3 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
 end
@@ -89,7 +89,7 @@ function Lv3:update2()
   key2:update(dt)
   key3:update(dt)
   key4:update(dt)
-  
+
 end
 
 function Lv3:draw2()
