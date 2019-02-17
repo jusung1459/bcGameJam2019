@@ -15,6 +15,8 @@ function Player:new()
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
+  self.prevX = 40;
+  self.prevY = 0;
 end
 
 function Player:checkCollision(player, b)
@@ -78,6 +80,8 @@ function Player:keypressed(key, son)
   if key == "up" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.y ~= 0 then
       if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
         self.y = self.y - 40
@@ -89,6 +93,8 @@ function Player:keypressed(key, son)
   if key == "down" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.y ~= 560 then
       if walls[current_level][(self.y/40)+2][(self.x/40)+1] ~= 1 then
         self.y = self.y + 40
@@ -99,6 +105,8 @@ function Player:keypressed(key, son)
   if key == "left" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.x ~= 0 then
       if walls[current_level][(self.y/40)+1][(self.x/40)] ~= 1 then
         self.x = self.x - 40
@@ -108,6 +116,8 @@ function Player:keypressed(key, son)
   if key == "right" then
     son.y = self.y
     son.x = self.x
+    self.prevX = self.x
+    self.prevY = self.y
     if self.x ~= 760 then
       if walls[current_level][(self.y/40)+1][(self.x/40)+2] ~= 1 then
         self.x = self.x + 40
@@ -153,5 +163,3 @@ end
 function Son:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
-
-
