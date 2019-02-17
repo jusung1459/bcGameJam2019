@@ -151,6 +151,7 @@ function Player:nextLevel()
   son.x = 0
   son.y = 0
   keys = 0
+  color = 255
   gotoRoom(next_level, next_level_index)
 end
 
