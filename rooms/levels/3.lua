@@ -203,7 +203,7 @@ end
 function Lv3:keypressed2(key)
 
   box:keypressed(key,player)
-  npc3:keypressed(key)
+  
 end
 
 function Lv3:activate()
