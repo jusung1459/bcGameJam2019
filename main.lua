@@ -42,6 +42,10 @@ function love.load()
     envs = {}
     --current_env = current_level
 
+    -- bgm
+    music = love.audio.newSource("/soundtrack/Red_Carpet_Wooden_Floor.mp3", "static")
+    music:setLooping(true)
+    music:play()
 end
 
 function love.update(dt)
