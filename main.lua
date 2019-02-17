@@ -21,6 +21,8 @@ function love.load()
     decay_rate = 0.5
 
 
+    XTiles = window_width / tile_size
+    YTiles = window_height / tile_size
     color = 255
     pause = 1
     love.window.setMode(window_width, window_height)
