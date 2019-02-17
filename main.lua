@@ -39,6 +39,9 @@ function love.load()
 
     --Moan.speak("Title", {"Hello World!"})
 
+    envs = {}
+    --current_env = current_level
+
 end
 
 function love.update(dt)
