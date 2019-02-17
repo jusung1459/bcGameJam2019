@@ -5,6 +5,7 @@ Menu = typeA:extend()
 
 function Menu:new()
     current_level = 1
+    title = love.graphics.newImage('art/menu/BOXES.png')
     start = love.graphics.newImage('art/menu/start.png')
     options = love.graphics.newImage('art/menu/options.png')
     credits = love.graphics.newImage('art/menu/credits.png')
@@ -18,12 +19,13 @@ end
 
 function Menu:draw()
     local x = (window_width/2) - 100
-    local y = (window_height/2)
+    local y = (window_height/2) - 40
     love.graphics.draw(background, 0, 0)
+    love.graphics.draw(title, 239, 140)
     love.graphics.draw(start, x, y)
     love.graphics.draw(options, x, y + 50)
     love.graphics.draw(credits, x, y + 100)
-    love.graphics.draw(exit, x, window_height - 100)
+    love.graphics.draw(exit, x, y + 200)
 end
 
 function Menu:mousepressed(x, y, button, istouch)
