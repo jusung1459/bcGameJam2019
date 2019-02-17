@@ -45,12 +45,13 @@ function Lv4:init()
     volcano1 = Volcano(440, 320)
     volcano2 = Volcano(280, 240)
     volcano3 = Volcano(200, 120)
+    volcano4 = Volcano(640, 200)
     exit = Exit(360, 320, 4)
 
     key1 = Key(280, 200)
     key2 = Key(200, 360)
     key3 = Key(640, 240)
-    --key4 = Key(560, 160)
+    key4 = Key(480, 360)
 
     npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
@@ -173,12 +174,26 @@ function Lv4:update2()
     end
   end
 
+  volcano4:update(dt)
+  if volcano4.halt == true then
+    collides = volcano4:checkCollision(player, volcano4)
+    if collides == true then
+      player:update(dt,true)
+    else
+      collides = volcano4:checkCollision(son, volcano4)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
+    end
+  end
+
   exit:update()
 
   key1:update(dt)
   key2:update(dt)
   key3:update(dt)
-  --key4:update(dt)
+  key4:update(dt)
 
 end
 
@@ -189,11 +204,12 @@ function Lv4:draw2()
     volcano1:draw()
     volcano2:draw()
     volcano3:draw()
+    volcano4:draw()
 
     key1:draw()
     key2:draw()
     key3:draw()
-    --key4:draw()
+    key4:draw()
 
     exit:draw()
 
