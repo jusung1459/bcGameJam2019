@@ -97,7 +97,7 @@ function Lv2:update2()
     end
   end
 
-  exit:update()
+  exit:update(dt)
 
   key1:update(dt)
   key2:update(dt)
