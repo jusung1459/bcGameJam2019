@@ -5,10 +5,10 @@ Menu = typeA:extend()
 
 function Menu:new()
     current_level = 1
-    start = love.graphics.newImage('art/start.png')
-    options = love.graphics.newImage('art/options.png')
-    credits = love.graphics.newImage('art/credits.png')
-    exit = love.graphics.newImage('art/exit.png')
+    start = love.graphics.newImage('art/menu/start.png')
+    options = love.graphics.newImage('art/menu/options.png')
+    credits = love.graphics.newImage('art/menu/credits.png')
+    exit = love.graphics.newImage('art/menu/exit.png')
     background = love.graphics.newImage('art/menu/background.png')
 end
 
