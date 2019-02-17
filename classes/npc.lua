@@ -17,7 +17,6 @@ function Npc:new(x, y, move, name, message, imageLocation)
     self.intact = false
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
-    self.touched = true
   end
 
 function Npc:update(dt, player,bool)
@@ -53,4 +52,8 @@ function Npc:keypressed(key)
     if self.intact == true and key == "a" then
         love.window.showMessageBox(self.name, self.message)
     end
+end
+
+function Npc:getIntact()
+    return intact
 end
