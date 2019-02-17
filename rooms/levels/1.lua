@@ -1,6 +1,4 @@
-Object = require 'libraries/classic/classic'
 require 'game'
-require 'classes/box'
 
 Lv1 = Game:extend()
 
@@ -32,7 +30,7 @@ function Lv1:init()
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -47,6 +45,10 @@ function Lv1:init()
 
     box = Box(360, 0)
     volcano = Volcano(280, 40)
+    exit = Exit(400, 400, 2)
+
+    key1 = Key(80, 80)
+    key2 = Key(440, 440)
 end
 
 function Lv1:update2()
@@ -64,6 +66,11 @@ function Lv1:update2()
       player:update(dt,true)
     end
   end
+  
+  exit:update()
+
+  key1:update(dt)
+  key2:update(dt)
 
 end
 function Lv1:draw2()
@@ -112,9 +119,6 @@ function Lv1:draw2()
             if tile == 1 then
               love.graphics.draw(wall, (j-1)*40, (i-1)*40)
             end
-            if tile == 2 then
-                love.graphics.draw(door, (j-1)*40, (i-1)*40)
-            end
             -- love.graphics.draw(grass, j * 40, i * 40)
             -- if tile == 1 then
             --    love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
@@ -128,6 +132,11 @@ function Lv1:draw2()
     box:draw()
     
     volcano:draw()
+
+    key1:draw()
+    key2:draw()
+
+    exit:draw()
 end
 
 function Lv1:keypressed2(key)

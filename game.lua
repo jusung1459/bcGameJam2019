@@ -1,6 +1,9 @@
 Object = require 'libraries/classic/classic'
 require "classes/playerClass"
 require "classes/volcano"
+require "classes/box"
+require "classes/key"
+require "classes/exit"
 
 Game = Object:extend()
 

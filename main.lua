@@ -10,7 +10,6 @@ function love.load()
 
     decay_rate = 0.5
     color = 255
-    dead = 0
     pause = 1
     stored_color = 255
     love.window.setMode(800, 600)
@@ -25,17 +24,18 @@ function love.load()
     current_level = nil
     next_level = nil
     next_level_index = nil
+    keys = 0
 
 end
 
 function love.update(dt)
-    if dead == 1 then color = 255 end
-    love.graphics.setColor(color/255, color/255, color/255)
-    if pause == 0 then color = color - decay_rate end
+    if pause == 0 then 
+        color = color - decay_rate
+        love.graphics.setColor(color/255, color/255, color/255)
+    end
     if pause == 1 then love.graphics.setColor(255, 255, 255) end
     if color == 0 then
       color = 255
-      dead = 1
       pause = 1
       gotoRoom("Death", 0)
     end

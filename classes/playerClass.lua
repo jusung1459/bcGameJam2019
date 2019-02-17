@@ -1,3 +1,6 @@
+
+
+
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
@@ -12,6 +15,7 @@ function Player:new()
   self.image = love.graphics.newImage( "/art/whale.png" )
   self.x = 40
   self.y = 0
+  self.keys = 0
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
@@ -46,6 +50,7 @@ function Player:checkCollision(player, b)
         return false
     end
 end
+
 
 --check the boundaries
 function Player:update(dt, stop)
@@ -83,6 +88,7 @@ function Player:draw()
   love.graphics.draw( self.image, self.x, self.y )
 end
 
+
 --move character+son
 function Player:keypressed(key, son)
 
@@ -92,11 +98,10 @@ function Player:keypressed(key, son)
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= 0 then
-      if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
+      if walls[current_level][(self.y/40)][(self.x/40)+1] ~= 1 then
         self.y = self.y - 40
       end
     end
-
   end
 
   if key == "down" then
@@ -137,13 +142,19 @@ function Player:keypressed(key, son)
   if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 2 then
     self:nextLevel()
   end
+  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 3 then
+      walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
+      keys = keys + 1
 end
+end
+
 
 function Player:nextLevel()
   self.x = 40
   self.y = 0
   son.x = 0
   son.y = 0
+  keys = 0
   gotoRoom(next_level, next_level_index)
 end
 
