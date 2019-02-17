@@ -27,6 +27,13 @@ function Box:new(x, y)
     else
       self.intact = false
     end
+    if self.push == false then
+      player.box = false
+      if self.intact == true then
+        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
+      else walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+      end
+    end
   end
 
   function Box:keypressed(key,player)
@@ -35,13 +42,7 @@ function Box:new(x, y)
         self.push = not self.push
       end
     end
-    if self.push == false then
-      player.box = false
-      if self.intact == true then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
-      else walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
-      end
-    end
+    
       if self.push == true then
         player.box = true
         if key == "up" then
