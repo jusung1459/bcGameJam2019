@@ -25,15 +25,15 @@ end
 
 function Player:checkCollision(player, b)
     --With locals it's common usage to use underscores instead of camelCasing
-    local player_left = self.x
-    local player_right = self.x + self.width
-    local player_top = self.y
-    local player_bottom = self.y + self.height
+    local player_left = player.x
+    local player_right = player.x + player.width + 40
+    local player_top = player.y
+    local player_bottom = player.y + player.height + 40
 
     local b_left = b.x
-    local b_right = b.x + b.width
+    local b_right = b.x + b.width + 40
     local b_top = b.y
-    local b_bottom = b.y + b.height
+    local b_bottom = b.y + b.height + 40
 
     --If Red's right side is further to the right than Blue's left side.
     if player_right > b_left and
