@@ -51,7 +51,6 @@ function Player:checkCollision(player, b)
     end
 end
 
-
 --check the boundaries
 function Player:update(dt, stop, Son)
 
