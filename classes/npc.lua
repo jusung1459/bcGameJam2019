@@ -30,6 +30,7 @@ function Npc:draw()
     end]]--
 end
 
+
 function Npc:dialogue(dialogue)
   if self.intact then
 

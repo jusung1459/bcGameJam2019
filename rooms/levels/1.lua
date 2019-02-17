@@ -76,6 +76,8 @@ function Lv1:init()
     dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
+
+    trap = Trap(720, 520)
 end
 
 function Lv1:drawBackground()
@@ -176,6 +178,8 @@ function Lv1:update2()
 
   door:update(dt)
 
+  trap:update(dt)
+
 end
 function Lv1:draw2()
 
@@ -194,6 +198,7 @@ function Lv1:draw2()
     npc1:draw()
     npc1:dialogue(dial1)
 
+    trap:draw()
 end
 
 function Lv1:keypressed2(key)

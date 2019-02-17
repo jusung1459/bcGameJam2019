@@ -5,6 +5,11 @@
 Player = Object:extend()
 Son = Object:extend()
 
+-- 0: empty space
+-- 1: impassable wall
+-- 2: exit
+-- 3: key location
+-- 4: death locations
 
 
 local window_width = love.graphics.getWidth()
@@ -209,6 +214,10 @@ function Player:keypressed(key, son)
   if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 3 then
       walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
       keys = keys + 1
+  end
+
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 4 then
+      gotoRoom("Death", 0)
   end
 end
 
