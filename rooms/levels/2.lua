@@ -17,21 +17,21 @@ function Lv2:init()
     bot = love.graphics.newImage("art/floor_tiles/bot.png")
     botright = love.graphics.newImage("art/floor_tiles/botright.png")
     wall = love.graphics.newImage("art/floor_tiles/wall.png")
-    
+
     --insert matrix here for obstacle
     walls[current_level] = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -42,6 +42,46 @@ function Lv2:init()
     self.width = width
     self.height = height
     self.tileblocks = tileblocks
+
+    box = Box(360, 0)
+    volcano1 = Volcano(280, 200)
+    exit = Exit(260, 360, 3)
+
+    key1 = Key(120, 80)
+    key2 = Key(480, 480)
+    key3 = Key(520, 240)
+
+    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
+end
+
+function Lv2:update2()
+-- box:update(dt)
+  pushBox = box:checkCollision(player, box)
+  if pushBox == true then
+    box:update(dt, true)
+  end
+
+  nearNpc = npc2:checkCollision(npc2,player)
+  if nearNpc == true then
+    npc2:update(dt, player, true)
+  else
+    npc2:update(dt,player, false)
+  end
+
+  volcano1:update(dt)
+  if volcano1.halt == true then
+    collides = player:checkCollision(player, volcano1)
+    if collides == true then
+      player:update(dt,true)
+    end
+  end
+
+  exit:update()
+
+  key1:update(dt)
+  key2:update(dt)
+  key3:update(dt)
+
 end
 
 function Lv2:draw2()
@@ -98,6 +138,24 @@ function Lv2:draw2()
     end
 
     love.graphics.draw(topright, 760, 0)
+
+    box:draw()
+
+    volcano1:draw()
+
+    key1:draw()
+    key2:draw()
+    key3:draw()
+
+    exit:draw()
+
+    npc2:draw()
+end
+
+function Lv2:keypressed2(key)
+
+  box:keypressed(key,player)
+  npc2:keypressed(key)
 end
 
 function Lv2:activate()
