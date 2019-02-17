@@ -25,7 +25,6 @@ function Player:new()
   self.x = tile_size
   self.y = 0
   self.keys = 0
-  self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
   self.prevX = tile_size;
