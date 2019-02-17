@@ -184,8 +184,6 @@ end
 
 function Lv3:draw2()
 
-    love.graphics.draw(topright, 760, 0)
-
     box:draw()
 
     volcano1:draw()
