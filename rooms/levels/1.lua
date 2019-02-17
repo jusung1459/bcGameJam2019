@@ -17,20 +17,22 @@ function Lv1:init()
     botright = love.graphics.newImage("art/floor_tiles/botright.png")
     wall = love.graphics.newImage("art/floor_tiles/wall.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
-    
+
     --insert matrix here for obstacle
+    --1 is a wall
+
     walls[current_level] = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -44,8 +46,8 @@ function Lv1:init()
     self.tileblocks = tileblocks
 
     box = Box(360, 0)
-    volcano = Volcano(280, 40)
-    exit = Exit(400, 400, 2)
+    volcano = Volcano(360, 240)
+    exit = Exit(400, 320, 2)
 
     key1 = Key(80, 80)
     key2 = Key(440, 440)
@@ -61,7 +63,7 @@ function Lv1:update2()
   end
 
   npc1:update(dt, player)
-  
+
   volcano:update(dt)
   if volcano.halt == true then
     collides = player:checkCollision(player, volcano)
@@ -69,7 +71,7 @@ function Lv1:update2()
       player:update(dt,true)
     end
   end
-  
+
   exit:update()
 
   key1:update(dt)
@@ -131,9 +133,9 @@ function Lv1:draw2()
 
     love.graphics.draw(topright, 760, 0)
 
-    
+
     box:draw()
-    
+
     volcano:draw()
 
     key1:draw()
@@ -145,7 +147,7 @@ function Lv1:draw2()
 end
 
 function Lv1:keypressed2(key)
-  
+
   box:keypressed(key,player)
   npc1:keypressed(key)
 end

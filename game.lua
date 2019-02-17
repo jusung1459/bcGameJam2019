@@ -32,7 +32,7 @@ function Game:extend()
 end
 
   function Game:update(dt)
-      player:update(dt)
+      player:update(dt, son)
       son:update(dt)
 
       self:update2(dt)
