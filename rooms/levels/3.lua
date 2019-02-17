@@ -69,11 +69,17 @@ function Lv3:update2()
     npc3:update(dt,player, false)
   end
 
-  volcano:update(dt)
-  if volcano.halt == true then
-    collides = player:checkCollision(player, volcano)
+  volcano1:update(dt)
+  if volcano1.halt == true then
+    collides = volcano1:checkCollision(player, volcano1)
     if collides == true then
       player:update(dt,true)
+    else
+      collides = volcano1:checkCollision(son, volcano1)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
     end
   end
 
