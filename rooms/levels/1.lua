@@ -158,9 +158,9 @@ function Lv1:draw2()
 
     exit:draw()
 
-    npc1:draw()
-
     door:draw()
+
+    npc1:draw()
 end
 
 function Lv1:keypressed2(key)

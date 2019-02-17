@@ -14,7 +14,7 @@ function Npc:new(x, y, move, name, message, imageLocation)
     self.move = move
     self.name = name
     self.message = message
-    self.intact = false
+    self.intact = false --for the encounter with the player
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
   end
@@ -25,8 +25,11 @@ end
 
 function Npc:draw()
     love.graphics.draw(self.image, self.x, self.y)
+    --[[if self.intact then
+      Moan.draw()
+    end]]--
 end
-                
+
 function Npc:keypressed(key)
     if self.move == true and self.intact == false then
         if key == "up" or key == "down" or key == "left" or key == "right" then

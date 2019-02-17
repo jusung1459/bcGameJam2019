@@ -33,7 +33,7 @@ function love.load()
     next_level_index = nil
     keys = 0
 
-    Moan.speak("Title", {"Hello World!"})
+    --Moan.speak("Title", {"Hello World!"})
 
 end
 
@@ -50,16 +50,16 @@ function love.update(dt)
     end
     if current_room then current_room:update(dt) end
 
-    Moan.update(dt)
+    --Moan.update(dt)
 end
 
 function love.draw()
 
     if current_room then current_room:draw() end
-    
-    if true == true then
+
+    --[[if true == true then
         Moan.draw()
-    end
+    end]]--
 end
 
 function love.keypressed(key)
