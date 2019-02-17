@@ -17,9 +17,11 @@ function Npc:new(x, y, move, name, message, imageLocation)
     self.intact = false
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
+    self.touched = true
   end
 
-function Npc:update(dt, player)
+function Npc:update(dt, player,bool)
+    self.touched = bool
 end
 
 function Npc:draw()
@@ -27,7 +29,7 @@ function Npc:draw()
 end
                 
 function Npc:keypressed(key)
-    if self.move == true then
+    if self.move == self.touched then
         if key == "up" or key == "down" or key == "left" or key == "right" then
             rng = love.math.random(4)
             if rng == 1 and self.x ~= 0 then
@@ -53,14 +55,14 @@ end
 function Npc:checkNearBy(npc, player)
     -- npc and player sides
     local npc_left = self.x
-    local npc_right = self.x + self.width
+    local npc_right = self.x + self.width + 41
     local npc_top = self.y
-    local npc_bottom = self.y + self.height
+    local npc_bottom = self.y + self.height + 41
 
     local player_left = player.x
-    local player_right = player.x + player.width
+    local player_right = player.x + player.width + 41
     local player_top = player.y
-    local player_bottom = player.y + player.height
+    local player_bottom = player.y + player.height + 41
 
     if npc_right > player_left and 
     npc_left < player_right and

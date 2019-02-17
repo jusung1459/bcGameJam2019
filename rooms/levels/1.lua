@@ -52,7 +52,7 @@ function Lv1:init()
     key1 = Key(80, 80)
     key2 = Key(440, 440)
 
-    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
 end
 
 function Lv1:update2()
@@ -64,7 +64,9 @@ function Lv1:update2()
   
   nearNpc = npc1:checkNearBy(npc1,player)
   if nearNpc == true then
-    npc1:update(dt, player)
+    npc1:update(dt, player, false)
+  else  
+    npc1:update(dt,player, true)
   end
   
   volcano:update(dt)
