@@ -1,33 +1,35 @@
 
-
-
 -- Player and Son class
 Player = Object:extend()
 Son = Object:extend()
 
--- 0: empty space
--- 1: impassable wall
--- 2: exit
--- 3: key location
--- 4: death locations
+-- Possible icons (for directions)
+playerDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
+playerUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_back.png")
+playerLeft = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_left.png")
+playerRight = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_right.png")
 
+sonDown = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_front.png")
+sonUp = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_back.png")
+sonLeft = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_left.png")
+sonRight = love.graphics.newImage("art/Tiny Adventure Pack/Character/Char_one/char_right.png")
 
 local window_width = love.graphics.getWidth()
 local window_height = love.graphics.getHeight()
 
 --create a new player
 function Player:new()
-  self.image = love.graphics.newImage( "/art/alienBlue_badge2.png" )
+  self.image = playerDown --love.graphics.newImage( "/art/alienBlue_badge2.png" )
   self.x = tile_size
   self.y = 0
   self.keys = 0
-  self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
   self.prevX = tile_size;
   self.prevY = 0;
   self.sonFollow = true;
   self.box = false
+  self.direction = "down"
 end
 
 function Player:checkCollision(player, b)
@@ -60,7 +62,6 @@ end
 
 --check the boundaries
 function Player:update(dt, stop, Son)
-
 --when you are inside a volcano and it turns red
 if stop == true then
     --send the player to prev coordinates if prev coord is free
@@ -125,14 +126,18 @@ function Player:keypressed(key, son)
   end
 
   if key == "up" then
-
     --if son is following you, change his coordinates
     if self.sonFollow then
+      son.direction = "up"
+      son.image = sonUp
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
       if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     end
+
+    self.direction = "up"
+    self.image = playerUp
 
     --store the previous coordinates
     self.prevX = self.x
@@ -150,14 +155,21 @@ function Player:keypressed(key, son)
     end
   end
 
+
   if key == "down" then
 
     if self.sonFollow then
+      son.direction = "down"
+      son.image = sonDown
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
+
       son.y = self.y
       son.x = self.x
-
     end
+
+    self.direction = "down"
+    self.image = playerDown
+
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
@@ -172,11 +184,18 @@ function Player:keypressed(key, son)
   end
 
   if key == "left" then
+
     if self.sonFollow then
+      son.direction = "left"
+      son.image = sonLeft
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
     end
+
+    self.direction = "left"
+    self.image = playerLeft
+
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
@@ -190,11 +209,18 @@ function Player:keypressed(key, son)
   end
 
   if key == "right" then
+
     if self.sonFollow then
+      son.direction = "right"
+      son.image = sonRight
       walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
       son.y = self.y
       son.x = self.x
     end
+
+    self.direction = "right"
+    self.image = playerRight
+
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
@@ -235,7 +261,7 @@ end
 
 
 function Son:new()
-  self.image = love.graphics.newImage("art/alienPink_badge1.png")
+  self.image = sonDown --love.graphics.newImage("art/alienPink_badge1.png")
   self.x = 0
   self.y = 0
   self.speed = 500
@@ -243,6 +269,7 @@ function Son:new()
   self.height = self.image:getHeight()
   self.prevX = 0
   self.prevY = 0
+  self.direction = "down"
 end
 
 function Son:update(dt)
