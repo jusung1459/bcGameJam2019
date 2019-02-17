@@ -57,6 +57,8 @@ function Player:update(dt, stop)
     self.y = self.height - self.y]]--
     return false
   end
+
+  --check boundaries
   if self.x < 0 then self.x = 0
   elseif self.x + self.width > window_width then
     self.x = window_width - self.width
@@ -67,6 +69,13 @@ function Player:update(dt, stop)
     self.y = window_height - self.height
   end
 
+  --when you are inside a volcano and it turns red
+  if self.y ~= 560 and self.y ~= 0 and self.x ~= 0 and self.x ~= 760 then
+    if walls[current_level][(self.y/40)][(self.x/40)] == 1 then
+      self.x = self.prevX
+      self.y = self.prevY
+    end
+  end
 end
 
 --draw the player
