@@ -144,13 +144,19 @@ function Player:keypressed(key, son)
   end
 
   if key == "down" then
-  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
-    son.y = self.y
-    son.x = self.x
+
+    if self.sonFollow then
+      walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
+      son.y = self.y
+      son.x = self.x
+
+    end
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= window_height - tile_size then
+
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
       if walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y + tile_size
         if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
@@ -159,14 +165,17 @@ function Player:keypressed(key, son)
   end
 
   if key == "left" then
-  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
-    son.y = self.y
-    son.x = self.x
+    if self.sonFollow then
+      walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
+      son.y = self.y
+      son.x = self.x
+    end
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 0 then
       if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] ~= 1 then
+        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
         self.x = self.x - tile_size
         if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
@@ -174,14 +183,17 @@ function Player:keypressed(key, son)
   end
 
   if key == "right" then
-  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
-    son.y = self.y
-    son.x = self.x
+    if self.sonFollow then
+      walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
+      son.y = self.y
+      son.x = self.x
+    end
     if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= window_width - tile_size then
       if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] ~= 1 then
+        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
         self.x = self.x + tile_size
         if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
