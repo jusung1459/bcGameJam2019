@@ -60,7 +60,7 @@ function Npc:keypressed(key)
             end
         end
     end
-    if self.intact == true and key == "a" then
+    if self.intact == true and key == "e" then
         love.window.showMessageBox(self.name, self.message)
     end
 end

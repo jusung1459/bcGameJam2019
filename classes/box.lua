@@ -24,7 +24,7 @@ function Box:new(x, y)
   function Box:update(dt, bool)
     if bool == true then
       self.intact = true
-    else 
+    else
       self.intact = false
     end
     if self.push == false then
@@ -38,7 +38,7 @@ function Box:new(x, y)
 
   function Box:keypressed(key,player)
     if self.intact == true then
-      if key == "a" then
+      if key == "e" then
         self.push = not self.push
       end
     end
