@@ -114,7 +114,7 @@ end
 --move character+son
 function Player:keypressed(key, son)
 
-  if key == "x" then
+  if key == "x" and self:checkCollision(self, son) then
     self.sonFollow = not self.sonFollow
   end
 
