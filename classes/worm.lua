@@ -21,6 +21,7 @@ function Worm:new(x, y)
   self.left = true
   self.idle = true
   self.frameLimit = idleFrameLimit
+  self.counter = 0
   self.width = worm_right:getWidth()
   self.height = worm_left:getHeight()
   walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 4
@@ -47,47 +48,41 @@ function Worm:update(dt)
     end
     ]]
     currentframe = currentFrame + 1
-    if currentFrame > self.frameLimit then currentFrame = 1 end
+    self.counter = self.counter + 1
+
 end
 
 function Worm:draw()
     if pause == 0 then
-    if self.idle == false and self.left == true and self.frameLimit == currentFrame then
-        self.frameLimit = moveFrameLimit
-        self:drawLeft()
-        self.idle = true
-        count = 0
-        self.frameLimit = idleFrameLimit
+      if self.counter > 3 then
+        if self.idle == false and self.left == true then
+          self.image = worm_left
+        end
+        if self.idle == false and self.left == false then
+          self.image = worm_right
+        else self:drawIdle() end
     end
-    if self.idle == false and self.left == false and self.frameLimit == currentFrame then
-        self.frameLimit = moveFrameLimit
-        self:drawRight()
-        self.idle = true
-        count = 0
-        self.frameLimit = idleFrameLimit
-    else self:drawIdle() end
-end
+    counter = 0
+  end
 end
 
 function Worm:drawIdle()
     love.graphics.draw(self.image, idleFrames[math.floor(currentFrame)], self.x, self.y)
 end
-
-function Worm:drawLeft()
-    if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] = 4
-        self.x = self.x - tile_size
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 0
-    end
-end
-
-function Worm:drawRight()
-    if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 4
-        self.x = self.x + tile_size
-        walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 0
-    end
-
-end
-
-
+--
+-- function Worm:drawLeft()
+--     if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
+--         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] = 4
+--         self.x = self.x - tile_size
+--         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 0
+--     end
+-- end
+--
+-- function Worm:drawRight()
+--     if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then
+--         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 4
+--         self.x = self.x + tile_size
+--         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 0
+--     end
+--
+-- end
