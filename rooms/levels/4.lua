@@ -171,7 +171,7 @@ end
 function Lv4:keypressed2(key)
 
   box:keypressed(key,player)
-  npc4:keypressed(key)
+  -- npc4:keypressed(key)
 end
 
 function Lv4:activate()

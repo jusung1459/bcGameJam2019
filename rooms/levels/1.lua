@@ -66,7 +66,7 @@ function Lv1:init()
     self.width = width
     self.height = height
     self.tileblocks = tileblocks
-    
+
     self.intro = true
 
     box = Box(360, 0)
@@ -210,7 +210,7 @@ end
 function Lv1:keypressed2(key)
 
   box:keypressed(key,player)
-  npc1:keypressed(key)
+  -- npc1:keypressed(key)
 end
 
 function Lv1:activate()
@@ -223,6 +223,3 @@ function Lv1:deactivate()
     previous_room = 'Lv1'
     previous_room_index = 4
 end
-
-
-  
