@@ -25,6 +25,6 @@ end
 
 function DialogueBox:draw()
   --draw the black dialogue box
-  love.graphics.setColor(0, 0, 0)
+  local color = love.graphics.setColor(0, 0, 0)
   love.graphics.rectangle('fill', self.xPos, self.yPos, self.width, self.height)
 end
