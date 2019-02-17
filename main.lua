@@ -29,8 +29,8 @@ function love.load()
 end
 
 function love.update(dt)
-    if pause == 0 then 
-        color = color - decay_rate
+    if pause == 0 then
+        --color = color - decay_rate COMMENT BACK AFTER
         love.graphics.setColor(color/255, color/255, color/255)
     end
     if pause == 1 then love.graphics.setColor(255, 255, 255) end
@@ -64,9 +64,9 @@ function gotoRoom(room_type, room_name, ...)
     if current_room and rooms[room_name] then
         current_room = rooms[room_name]
         if current_room.activate then current_room:activate() end
-    else current_room = addRoom(room_type, room_name, ...) 
+    else current_room = addRoom(room_type, room_name, ...)
         current_room:activate() end
-    
+
 end
 
 function love.mousepressed(x, y, button, istouch)

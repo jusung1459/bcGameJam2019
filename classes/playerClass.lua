@@ -55,11 +55,12 @@ end
 --check the boundaries
 function Player:update(dt, stop)
 
-  if stop == true then
-    self.x = self.x - self.width
-    self.y = self.y - self.height
-    --[[self.x = self.width - self.x
-    self.y = self.height - self.y]]--
+--when you are inside a volcano and it turns red
+if stop == true then
+    --send the player to prev coordinates
+    self.x = self.prevX
+    self.y = self.prevY
+
     return false
   end
 
@@ -74,13 +75,6 @@ function Player:update(dt, stop)
     self.y = window_height - self.height
   end
 
-  --when you are inside a volcano and it turns red
-  if self.y ~= 560 and self.y ~= 0 and self.x ~= 0 and self.x ~= 760 then
-    if walls[current_level][(self.y/40)][(self.x/40)] == 1 then
-      self.x = self.prevX
-      self.y = self.prevY
-    end
-  end
 end
 
 --draw the player
@@ -127,6 +121,7 @@ function Player:keypressed(key, son)
       end
     end
   end
+
   if key == "right" then
     son.y = self.y
     son.x = self.x
