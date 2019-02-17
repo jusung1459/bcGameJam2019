@@ -190,7 +190,7 @@ end
 function Lv1:draw2()
 
     door:draw()
-    box:draw()
+
 
     volcano:draw()
 
@@ -200,6 +200,7 @@ function Lv1:draw2()
     exit:draw()
 
     door:draw()
+    box:draw()
 
     npc1:draw()
     npc1:dialogue(dial1)
