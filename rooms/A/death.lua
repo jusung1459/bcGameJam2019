@@ -24,7 +24,8 @@ function Death:mousepressed(x, y, button, istouch)
             if button == 1 then
                 if y >= 500 then
                     if y <= 540 then
-                        love.event.quit("restart")
+                        rooms = {}
+                        gotoRoom("Menu", 1)
                     end
                 end
             end
