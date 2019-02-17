@@ -119,6 +119,7 @@ function Lv1:drawBackground()
           end
       end
   end
+  love.graphics.draw(topright, 760, 0)
 end
 
 function Lv1:update2()
@@ -159,7 +160,6 @@ function Lv1:update2()
 end
 function Lv1:draw2()
 
-    love.graphics.draw(topright, 760, 0)
     door:draw()
     box:draw()
 
