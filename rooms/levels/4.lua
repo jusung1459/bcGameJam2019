@@ -55,6 +55,73 @@ function Lv4:init()
     npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
 
+function Lv4:drawBackground()
+  envs[current_level] = {
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  }
+
+  for i, row in ipairs (envs[current_level]) do
+      for j, tile in ipairs(row) do
+
+          if tile == 0 then
+            -- if j == 1  or i == 1 then
+            --   love.graphics.draw(grass, (j-1) * 40, (i-1) * 40)
+            -- end
+            if j == 1 and i == 1 then
+              love.graphics.draw(topleft, 0, 0)
+
+            elseif j == 1 and i == 15 then
+              love.graphics.draw(botleft, (j-1)*40, (i-1)*40)
+
+            elseif j == 20 and i == 1 then
+              love.graphics.draw(topright, (j-1)*40, (i-1)*40)
+
+            elseif j == 20 and i == 15 then
+              love.graphics.draw(botright, (j-1)*40, (i-1)*40)
+
+            elseif i == 1 and j ~= 1 and j ~= 20 then
+              love.graphics.draw(top, (j-1)*40, (i-1)*40)
+
+            elseif j == 1 and i ~= 1 and i ~= 15 then
+              love.graphics.draw(left, (j-1)*40, (i-1)*40)
+
+            elseif j == 20  and i ~= 1 and i ~= 15 then
+              love.graphics.draw(right, (j-1)*40, (i-1)*40)
+
+            elseif i == 15 and j ~= 1 and j ~= 20 then
+              love.graphics.draw(bot, (j-1)*40, (i-1)*40)
+
+            elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
+              love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
+            end
+
+          end
+          if tile == 1 then
+            love.graphics.draw(wall, (j-1)*40, (i-1)*40)
+          end
+          -- love.graphics.draw(grass, j * 40, i * 40)
+          -- if tile == 1 then
+          --    love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
+          -- end
+      end
+  end
+
+end
+
 function Lv4:update2()
 -- box:update(dt)
   pushBox = box:checkCollision(player, box)
@@ -93,57 +160,6 @@ function Lv4:update2()
 end
 
 function Lv4:draw2()
-
-    for i, row in ipairs (walls[current_level]) do
-        for j, tile in ipairs(row) do
-            -- if tile == 0 and i != 15 and j != 20 then
-            --   love.graphics.rectangle("fill", (j-1) * 40, (i-1) * 40, 40, 40)
-            -- end
-            -- else
-            --   love.graphics.rectangle("fill", j * 40, i * 40, 40, 40)
-            -- end
-            if tile == 0 then
-              -- if j == 1  or i == 1 then
-              --   love.graphics.draw(grass, (j-1) * 40, (i-1) * 40)
-              -- end
-              if j == 1 and i == 1 then
-                love.graphics.draw(topleft, 0, 0)
-
-              elseif j == 1 and i == 15 then
-                love.graphics.draw(botleft, (j-1)*40, (i-1)*40)
-
-              elseif j == 20 and i == 1 then
-                love.graphics.draw(topright, (j-1)*40, (i-1)*40)
-
-              elseif j == 20 and i == 15 then
-                love.graphics.draw(botright, (j-1)*40, (i-1)*40)
-
-              elseif i == 1 and j ~= 1 and j ~= 20 then
-                love.graphics.draw(top, (j-1)*40, (i-1)*40)
-
-              elseif j == 1 and i ~= 1 and i ~= 15 then
-                love.graphics.draw(left, (j-1)*40, (i-1)*40)
-
-              elseif j == 20  and i ~= 1 and i ~= 15 then
-                love.graphics.draw(right, (j-1)*40, (i-1)*40)
-
-              elseif i == 15 and j ~= 1 and j ~= 20 then
-                love.graphics.draw(bot, (j-1)*40, (i-1)*40)
-
-              elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
-                love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
-              end
-
-            end
-            if tile == 1 then
-              love.graphics.draw(wall, (j-1)*40, (i-1)*40)
-            end
-            -- love.graphics.draw(grass, j * 40, i * 40)
-            -- if tile == 1 then
-            --    love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
-            -- end
-        end
-    end
 
     love.graphics.draw(topright, 760, 0)
 

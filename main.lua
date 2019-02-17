@@ -32,6 +32,9 @@ function love.load()
     next_level_index = nil
     keys = 0
 
+    envs = {}
+    --current_env = current_level
+
 end
 
 function love.update(dt)
