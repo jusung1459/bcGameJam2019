@@ -17,8 +17,6 @@ function Exit:new(x, y, num)
     walls[current_level][(self.y/40)+1][(self.x/40)+1] = 2
     self.door = open
   end
-  self.width = self.image:getWidth()
-  self.height = self.image:getHeight()
 end
 
 function Exit:update(dt)

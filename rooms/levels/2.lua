@@ -45,7 +45,7 @@ function Lv2:init()
 
     box = Box(360, 0)
     volcano1 = Volcano(280, 200)
-    exit = Exit(260, 360, 3)
+    exit = Exit(240, 360, 3)
 
     key1 = Key(120, 80)
     key2 = Key(480, 480)
@@ -64,15 +64,21 @@ function Lv2:update2()
   nearNpc = npc2:checkCollision(npc2,player)
   if nearNpc == true then
     npc2:update(dt, player, true)
-  else
+  else  
     npc2:update(dt,player, false)
   end
 
   volcano1:update(dt)
   if volcano1.halt == true then
-    collides = player:checkCollision(player, volcano1)
+    collides = volcano1:checkCollision(player, volcano1)
     if collides == true then
       player:update(dt,true)
+    else
+      collides = volcano1:checkCollision(son, volcano1)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
     end
   end
 
