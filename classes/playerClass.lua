@@ -123,6 +123,7 @@ function Player:keypressed(key, son)
     if self.y ~= 0 then
       if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y - tile_size
+        --below line causes black box bug
         if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
