@@ -12,16 +12,16 @@ function Exit:new(x, y, num)
   self.y = y
   self.door = close
   self.num = num
-  walls[current_level][(self.y/40)+1][(self.x/40)+1] = 1
+  walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
   if num == 0 then 
-    walls[current_level][(self.y/40)+1][(self.x/40)+1] = 2
+    walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 2
     self.door = open
   end
 end
 
 function Exit:update(dt)
     if self.num == keys then
-    walls[current_level][(self.y/40)+1][(self.x/40)+1] = 2
+    walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 2
     self.door = open
 end
 end

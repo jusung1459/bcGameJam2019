@@ -2,18 +2,22 @@ Object = require 'libraries/classic/classic'
 require 'rooms/A/main_menu'
 require 'rooms/A/options'
 require 'rooms/A/credits'
+require 'rooms/A/death'
 require 'rooms/levels/1'
 require 'rooms/levels/2'
-require 'rooms/A/death'
 
 function love.load()
 
+    --control variables
+    window_width = 800
+    window_height = 600
+    tile_size = 40
     decay_rate = 0.5
+
+    
     color = 255
     pause = 1
-    stored_color = 255
-    love.window.setMode(800, 600)
-
+    love.window.setMode(window_width, window_height)
     rooms = {}
     walls = {}
     current_room = Menu()

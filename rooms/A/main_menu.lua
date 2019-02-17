@@ -17,28 +17,32 @@ function Menu:update(dt)
 end
 
 function Menu:draw()
+    local x = (window_width/2) - 100
+    local y = (window_height/2)
     love.graphics.draw(background, 0, 0)
-    love.graphics.draw(start, 300, 300)
-    love.graphics.draw(options, 300, 350)
-    love.graphics.draw(credits, 300, 400)
-    love.graphics.draw(exit, 300, 500)
+    love.graphics.draw(start, x, y)
+    love.graphics.draw(options, x, y + 50)
+    love.graphics.draw(credits, x, y + 100)
+    love.graphics.draw(exit, x, window_height - 100)
 end
 
 function Menu:mousepressed(x, y, button, istouch)
-    if x >= 300 then
-        if x <= 500 then
+    local bx = (window_width/2) - 100
+    local by = (window_height/2)
+    if x >= bx - 100 then
+        if x <= bx + 100 then
             if button == 1 then
-                if y >= 300 then
-                    if y <= 340 then
+                if y >= by then
+                    if y <= by + 40 then
                         gotoRoom('Lv1', 4)
-                    elseif y >= 350 then
-                        if y <= 390 then
+                    elseif y >= by + 50 then
+                        if y <= by + 90 then
                             gotoRoom('Options', 2)
-                        elseif y >= 400 then
-                            if y <= 440 then
+                        elseif y >= by + 100 then
+                            if y <= by + 140 then
                                 gotoRoom('Credits', 3)
-                            elseif y >= 550 then
-                                if y <= 590 then
+                            elseif y >= window_height - 100 then
+                                if y <= window_height - 60 then
                                     love.event.quit()
                                 end
                             end

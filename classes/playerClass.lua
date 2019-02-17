@@ -13,27 +13,27 @@ local window_height = love.graphics.getHeight()
 --create a new player
 function Player:new()
   self.image = love.graphics.newImage( "/art/alienBlue_badge2.png" )
-  self.x = 40
+  self.x = tile_size
   self.y = 0
   self.keys = 0
   self.speed = 500
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
-  self.prevX = 40;
+  self.prevX = tile_size;
   self.prevY = 0;
 end
 
 function Player:checkCollision(player, b)
     --With locals it's common usage to use underscores instead of camelCasing
     local player_left = player.x
-    local player_right = player.x + player.width + 40
+    local player_right = player.x + player.width + tile_size
     local player_top = player.y
-    local player_bottom = player.y + player.height + 40
+    local player_bottom = player.y + player.height + tile_size
 
     local b_left = b.x
-    local b_right = b.x + b.width + 40
+    local b_right = b.x + b.width + tile_size
     local b_top = b.y
-    local b_bottom = b.y + b.height + 40
+    local b_bottom = b.y + b.height + tile_size
 
     --If Red's right side is further to the right than Blue's left side.
     if player_right > b_left and
@@ -57,36 +57,36 @@ function Player:update(dt, stop, Son)
 --when you are inside a volcano and it turns red
 if stop == true then
     --send the player to prev coordinates if prev coord is free
-    if walls[current_level][(self.prevY/40)+1][(self.prevX/40)+1] == 0 or walls[current_level][(self.prevY/40)+1][(self.prevX/40)+1] == -1 then
+    if walls[current_level][(self.prevY/tile_size)+1][(self.prevX/tile_size)+1] == 0 or walls[current_level][(self.prevY/tile_size)+1][(self.prevX/tile_size)+1] == -1 then
       self.x = self.prevX
       self.y = self.prevY
       son.x = self.prevX
       son.y = self.prevY
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
-    elseif walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then 
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+    elseif walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then 
       self.x = self.x 
-      self.y = self.y - 40
+      self.y = self.y - tile_size
       son.x = self.x 
       son.y = self.y
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
-    elseif walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then 
-      self.x = self.x - 40
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+    elseif walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then 
+      self.x = self.x - tile_size
       self.y = self.y
       son.x = self.x 
       son.y = self.y
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
-    elseif walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then 
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+    elseif walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] == 0 then 
       self.x = self.x 
-      self.y = self.y + 40
+      self.y = self.y + tile_size
       son.x = self.x 
       son.y = self.y
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
-    elseif walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then 
-      self.x = self.x + 40
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
+    elseif walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then 
+      self.x = self.x + tile_size
       self.y = self.y
       son.x = self.x 
       son.y = self.y
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
     else gotoRoom("Death", 0) end
     return false
   end
@@ -114,78 +114,78 @@ end
 function Player:keypressed(key, son)
 
   if key == "up" then
-  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
+  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
     son.y = self.y
     son.x = self.x
-    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
+    if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.y ~= 0 then
-      if walls[current_level][(self.y/40)][(self.x/40)+1] ~= 1 then
-        self.y = self.y - 40
-        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
+      if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] ~= 1 then
+        self.y = self.y - tile_size
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
 
   if key == "down" then
-  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
+  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
     son.y = self.y
     son.x = self.x
-    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
+    if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
-    if self.y ~= 560 then
-      if walls[current_level][(self.y/40)+2][(self.x/40)+1] ~= 1 then
-        self.y = self.y + 40
-        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
+    if self.y ~= window_height - tile_size then
+      if walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] ~= 1 then
+        self.y = self.y + tile_size
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
 
   if key == "left" then
-  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
+  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
     son.y = self.y
     son.x = self.x
-    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
+    if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
     if self.x ~= 0 then
-      if walls[current_level][(self.y/40)+1][(self.x/40)] ~= 1 then
-        self.x = self.x - 40
-        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
+      if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] ~= 1 then
+        self.x = self.x - tile_size
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
 
   if key == "right" then
-  walls[current_level][(son.y/40)+1][(son.x/40)+1] = 0
+  walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = 0
     son.y = self.y
     son.x = self.x
-    if walls[current_level][(son.y/40)+1][(son.x/40)+1] == 0 then walls[current_level][(son.y/40)+1][(son.x/40)+1] = -1 end
+    if walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] == 0 then walls[current_level][(son.y/tile_size)+1][(son.x/tile_size)+1] = -1 end
     self.prevX = self.x
     self.prevY = self.y
-    if self.x ~= 760 then
-      if walls[current_level][(self.y/40)+1][(self.x/40)+2] ~= 1 then
-        self.x = self.x + 40
-        if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 end
+    if self.x ~= window_width - tile_size then
+      if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] ~= 1 then
+        self.x = self.x + tile_size
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
 
-  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 2 then
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 2 then
     self:nextLevel()
   end
 
-  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 3 then
-      walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 3 then
+      walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1
       keys = keys + 1
   end
 end
 
 
 function Player:nextLevel()
-  self.x = 40
+  self.x = tile_size
   self.y = 0
   son.x = 0
   son.y = 0

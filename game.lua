@@ -48,8 +48,7 @@ function Game:draw()
     player:draw()
     son:draw()
 
-    width = love.graphics.getWidth()
-    love.graphics.draw(gear, width - 40, 0)
+    love.graphics.draw(gear, window_width - tile_size, 0)
 end
 
 function Game:draw2()
@@ -69,10 +68,10 @@ end
 
 function Game:mousepressed(x, y, button, istouch)
     if button == 1 then
-        if x >= 750 then
+        if x >= window_width - gear:getWidth() then
             if y >= 0 then
-                if x <= 800 then
-                    if y <= 50 then
+                if x <= window_width then
+                    if y <= gear:getHeight() then
                         gotoRoom('Options', 2)
                     end
                 end

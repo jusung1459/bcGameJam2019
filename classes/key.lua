@@ -10,11 +10,11 @@ function Key:new(x, y)
   self.halt = false
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
-  walls[current_level][(self.y/40)+1][(self.x/40)+1] = 3
+  walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 3
 end
 
 function Key:update(dt)
-  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == 0 then
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then
     self.halt = true
   end
 end

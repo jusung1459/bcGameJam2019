@@ -14,16 +14,16 @@ end
 
 function Death:draw()
     love.graphics.draw(background, 0, 0)
-    love.graphics.draw(picture, 300, 500)
+    love.graphics.draw(picture, window_width/2 - 100 , window_height - 100)
     love.graphics.print('you died!')
 end
 
 function Death:mousepressed(x, y, button, istouch)
-    if x >= 300 then
-        if x <= 500 then
+    if x >= window_width/2 - 100 then
+        if x <= window_width/2 + 100 then
             if button == 1 then
-                if y >= 500 then
-                    if y <= 540 then
+                if y >= window_height - 100 then
+                    if y <= window_height - 60 then
                         rooms = {}
                         keys = 0
                         gotoRoom("Menu", 1)

@@ -15,20 +15,20 @@ end
 
 function Options:draw()
     love.graphics.draw(background, 0, 0)
-    love.graphics.draw(picture, 300, 500)
-    if previous_room ~= "Menu" then love.graphics.draw(suicide, 300, 450) end
+    love.graphics.draw(picture, window_width/2 - 100, window_height - 100)
+    if previous_room ~= "Menu" then love.graphics.draw(suicide, window_width/2 - 100, window_height - 150) end
     love.graphics.print('nothing seems to be here!')
 end
 
 function Options:mousepressed(x, y, button, istouch)
-    if x >= 300 then
-        if x <= 500 then
+    if x >= window_width/2 - 100 then
+        if x <= window_width/2 + 100 then
             if button == 1 then
-                if y >= 450 then
-                    if y <= 490 then
+                if y >= window_height - 150 then
+                    if y <= window_height - 110 then
                         gotoRoom("Death", 0)
-                    elseif y >= 500 then
-                        if y <= 540 then
+                    elseif y >= window_height - 100 then
+                        if y <= window_height - 60 then
                             gotoRoom(previous_room, previous_room_index)
                         end
                     end

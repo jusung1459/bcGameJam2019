@@ -21,10 +21,10 @@ end
 function Door:update(dt)
     plate:update(dt)
   if plate:check() == true then
-    walls[current_level][(self.y/40)+1][(self.x/40)+1] = 0
+    walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
     self.image = open
   else 
-    walls[current_level][(self.y/40)+1][(self.x/40)+1] = 1
+    walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
     self.image = close
   end
 end

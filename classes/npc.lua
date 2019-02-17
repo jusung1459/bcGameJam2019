@@ -33,20 +33,20 @@ function Npc:keypressed(key)
         if key == "up" or key == "down" or key == "left" or key == "right" then
             rng = love.math.random(4)
             if rng == 1 and self.x ~= 0 then
-                if walls[current_level][(self.y/40)+1][(self.x/40)] == 0 then
-                    self.x = self.x - 40 end
+                if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] == 0 then
+                    self.x = self.x - tile_size end
             end
             if rng == 2 and self.y ~= 0 then
-                if walls[current_level][(self.y/40)][(self.x/40)+1] == 0 then
-                    self.y = self.y - 40 end
+                if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
+                    self.y = self.y - tile_size end
             end
             if rng == 3 and self.x ~= 760 then
-                if walls[current_level][(self.y/40)+1][(self.x/40)+2] == 0 then
-                    self.x = self.x + 40 end
+                if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] == 0 then
+                    self.x = self.x + tile_size end
             end
             if rng == 4 and self.y ~= 560 then
-                if walls[current_level][(self.y/40)+2][(self.x/40)+1] == 0 then
-                    self.y = self.y + 40 end
+                if walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] == 0 then
+                    self.y = self.y + tile_size end
             end
         end
     end

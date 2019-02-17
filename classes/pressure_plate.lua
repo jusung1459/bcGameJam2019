@@ -9,7 +9,7 @@ function Plate:new(x, y)
   self.occupied = false
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
-  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == -1 then self.occupied = true end
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == -1 then self.occupied = true end
 end
 
 function Plate:check()
@@ -17,7 +17,7 @@ function Plate:check()
 end
 
 function Plate:update(dt)
-  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == -1 then
+  if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == -1 then
     self.occupied = true
   else self.occupied = false end
 end
