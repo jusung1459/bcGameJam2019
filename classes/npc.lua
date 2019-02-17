@@ -21,7 +21,7 @@ function Npc:new(x, y, move, name, message, imageLocation)
   end
 
 function Npc:update(dt, player,bool)
-    self.touched = bool
+    self.intact = bool
 end
 
 function Npc:draw()
@@ -29,7 +29,7 @@ function Npc:draw()
 end
                 
 function Npc:keypressed(key)
-    if self.move == self.touched then
+    if self.move == true and self.intact == false then
         if key == "up" or key == "down" or key == "left" or key == "right" then
             rng = love.math.random(4)
             if rng == 1 and self.x ~= 0 then
@@ -49,6 +49,9 @@ function Npc:keypressed(key)
                     self.y = self.y + 40 end
             end
         end
+    end
+    if self.intact == true and key == "a" then
+        love.window.showMessageBox(self.name, self.message)
     end
 end
 

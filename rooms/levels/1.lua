@@ -64,9 +64,9 @@ function Lv1:update2()
   
   nearNpc = npc1:checkNearBy(npc1,player)
   if nearNpc == true then
-    npc1:update(dt, player, false)
+    npc1:update(dt, player, true)
   else  
-    npc1:update(dt,player, true)
+    npc1:update(dt,player, false)
   end
   
   volcano:update(dt)
