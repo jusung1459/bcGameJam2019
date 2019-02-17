@@ -1,4 +1,5 @@
 Object = require 'libraries/classic/classic'
+require 'classes/dialogue'
 require 'game'
 
 Lv3 = Game:extend()

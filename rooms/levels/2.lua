@@ -1,4 +1,5 @@
 Object = require 'libraries/classic/classic'
+require 'classes/dialogue'
 require 'game'
 
 Lv2 = Game:extend()
@@ -122,7 +123,7 @@ function Lv2:update2()
     box:update(dt, true)
   else box:update(dt, false) end
 
-  nearNpc = npc1:checkCollision(npc1,player)
+  nearNpc = npc2:checkCollision(npc2,player)
   if nearNpc == true then
     npc2:update(dt, player, true)
   else
