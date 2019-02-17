@@ -1,10 +1,10 @@
 Object = require 'libraries/classic/classic'
 require 'game'
 
-Lv2 = Game:extend()
+Lv4 = Game:extend()
 
-function Lv2:init()
-    current_level = 5
+function Lv4:init()
+    current_level = 7
     grass = love.graphics.newImage("/art/grass.png")
     sand = love.graphics.newImage("/art/sand.png")
     topleft = love.graphics.newImage("art/floor_tiles/topleft.png")
@@ -23,15 +23,15 @@ function Lv2:init()
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -43,30 +43,30 @@ function Lv2:init()
     self.height = height
     self.tileblocks = tileblocks
 
-    box = Box(360, 0)
-    volcano1 = Volcano(280, 200)
-    volcano2 = Volcano(520, 280)
-    exit = Exit(240, 360, 3)
+    box = Box(680, 480)
+    volcano = Volcano(280, 200)
+    exit = Exit(480, 320, 4)
 
-    key1 = Key(120, 80)
-    key2 = Key(480, 480)
-    key3 = Key(520, 240)
+    key1 = Key(280, 160)
+    key2 = Key(360, 400)
+    key3 = Key(240, 320)
+    key4 = Key(560, 160)
 
-    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
 
-function Lv2:update2()
+function Lv4:update2()
 -- box:update(dt)
   pushBox = box:checkCollision(player, box)
   if pushBox == true then
     box:update(dt, true)
   else box:update(dt, false) end
 
-  nearNpc = npc1:checkCollision(npc1,player)
+  nearNpc = npc4:checkCollision(npc3,player)
   if nearNpc == true then
-    npc1:update(dt, player, true)
+    npc3:update(dt, player, true)
   else
-    npc1:update(dt,player, false)
+    npc3:update(dt,player, false)
   end
 
   volcano1:update(dt)
@@ -83,29 +83,16 @@ function Lv2:update2()
     end
   end
 
-  volcano2:update(dt)
-  if volcano2.halt == true then
-    collides = volcano2:checkCollision(player, volcano2)
-    if collides == true then
-      player:update(dt,true)
-    else
-      collides = volcano2:checkCollision(son, volcano2)
-      if collides == true then
-        son.x = player.x
-        son.y = player.y
-      end
-    end
-  end
-
-  exit:update(dt)
+  exit:update()
 
   key1:update(dt)
   key2:update(dt)
   key3:update(dt)
+  key4:update(dt)
 
 end
 
-function Lv2:draw2()
+function Lv4:draw2()
 
     for i, row in ipairs (walls[current_level]) do
         for j, tile in ipairs(row) do
@@ -162,31 +149,31 @@ function Lv2:draw2()
 
     box:draw()
 
-    volcano1:draw()
-    volcano2:draw()
+    volcano:draw()
 
     key1:draw()
     key2:draw()
     key3:draw()
+    key4:draw()
 
     exit:draw()
 
-    npc1:draw()
+    npc4:draw()
 end
 
-function Lv2:keypressed2(key)
+function Lv4:keypressed2(key)
 
   box:keypressed(key,player)
-  npc1:keypressed(key)
+  npc4:keypressed(key)
 end
 
-function Lv2:activate()
-    current_level = 5
-    next_level = 'Lv3'
-    next_level_index = 6
+function Lv4:activate()
+    current_level = 7
+    next_level = 'Lv4'
+    next_level_index = 8
 end
 
-function Lv2:deactivate()
-    previous_room = 'Lv2'
-    previous_room_index = 5
+function Lv4:deactivate()
+    previous_room = 'Lv3'
+    previous_room_index = 7
 end

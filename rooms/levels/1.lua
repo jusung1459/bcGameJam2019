@@ -52,7 +52,7 @@ function Lv1:init()
     key1 = Key(80, 80)
     key2 = Key(440, 440)
 
-    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
+    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
 
     door = Door(320, 240, 40, 40)
 end
@@ -63,14 +63,14 @@ function Lv1:update2()
   if pushBox == true then
     box:update(dt, true)
   else box:update(dt, false) end
-  
+
   nearNpc = npc1:checkCollision(npc1,player)
   if nearNpc == true then
     npc1:update(dt, player, true)
-  else  
+  else
     npc1:update(dt,player, false)
   end
-  
+
   volcano:update(dt)
   if volcano.halt == true then
     collides = volcano:checkCollision(player, volcano)
