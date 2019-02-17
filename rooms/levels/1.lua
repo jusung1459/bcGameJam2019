@@ -6,17 +6,15 @@ function Lv1:init()
 
 
     current_level = 4
-    grass = love.graphics.newImage("/art/grass.png")
-    sand = love.graphics.newImage("/art/sand.png")
-    topleft = love.graphics.newImage("art/floor_tiles/topleft.png")
-    top = love.graphics.newImage("art/floor_tiles/top.png")
-    topright = love.graphics.newImage("art/floor_tiles/topright.png")
-    left = love.graphics.newImage("art/floor_tiles/left.png")
-    center = love.graphics.newImage("art/floor_tiles/center.png")
-    right = love.graphics.newImage("art/floor_tiles/right.png")
-    botleft = love.graphics.newImage("art/floor_tiles/botleft.png")
-    bot = love.graphics.newImage("art/floor_tiles/bot.png")
-    botright = love.graphics.newImage("art/floor_tiles/botright.png")
+    topleft = love.graphics.newImage("art/floor_tiles/topleft1.png")
+    top = love.graphics.newImage("art/floor_tiles/top1.png")
+    topright = love.graphics.newImage("art/floor_tiles/topright1.png")
+    left = love.graphics.newImage("art/floor_tiles/left1.png")
+    center = love.graphics.newImage("art/floor_tiles/center1.png")
+    right = love.graphics.newImage("art/floor_tiles/right1.png")
+    botleft = love.graphics.newImage("art/floor_tiles/botleft1.png")
+    bot = love.graphics.newImage("art/floor_tiles/bot1.png")
+    botright = love.graphics.newImage("art/floor_tiles/botright1.png")
     wall = love.graphics.newImage("art/floor_tiles/wall.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
 
@@ -160,8 +158,9 @@ function Lv1:update2()
 
 end
 function Lv1:draw2()
-  
+
     love.graphics.draw(topright, 760, 0)
+    door:draw()
     box:draw()
 
     volcano:draw()
@@ -173,7 +172,6 @@ function Lv1:draw2()
 
     npc1:draw()
 
-    door:draw()
 end
 
 function Lv1:keypressed2(key)
