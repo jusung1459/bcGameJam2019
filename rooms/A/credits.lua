@@ -6,8 +6,8 @@ Credits = typeA:extend()
 function Credits:new()
     current_level = 3
     background = love.graphics.newImage('art/menu/background.png')
-    picture = love.graphics.newImage('art/menu.png')
-end 
+    picture = love.graphics.newImage('art/start.png')
+end
 
 function Credits:update(dt)
 end
