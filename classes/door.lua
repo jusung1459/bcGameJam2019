@@ -2,8 +2,8 @@ Object = require('libraries/classic/classic')
 require 'classes/pressure_plate'
 
 Door = Object:extend()
-local close = love.graphics.newImage('art/gate.png')
-local open = love.graphics.newImage('art/open_gate.png')
+local close = love.graphics.newImage('art/floor_tiles/fenceLow.png')
+local open = love.graphics.newImage('art/floor_tiles/fenceGate.png')
 
 
 function Door:new(x, y, px, py)
@@ -23,7 +23,7 @@ function Door:update(dt)
   if plate:check() == true then
     walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0
     self.image = open
-  else 
+  else
     walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
     self.image = close
   end
