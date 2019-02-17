@@ -29,8 +29,8 @@ function love.load()
 end
 
 function love.update(dt)
-    if pause == 0 then
         --color = color - decay_rate COMMENT BACK AFTER
+    if pause == 0 then
         love.graphics.setColor(color/255, color/255, color/255)
     end
     if pause == 1 then love.graphics.setColor(255, 255, 255) end
