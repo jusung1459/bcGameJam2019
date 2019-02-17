@@ -160,8 +160,9 @@ function Lv1:update2()
 
 end
 function Lv1:draw2()
-  
+
     love.graphics.draw(topright, 760, 0)
+    door:draw()
     box:draw()
 
     volcano:draw()
@@ -173,7 +174,6 @@ function Lv1:draw2()
 
     npc1:draw()
 
-    door:draw()
 end
 
 function Lv1:keypressed2(key)
