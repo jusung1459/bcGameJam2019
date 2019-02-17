@@ -20,7 +20,7 @@ function Key:update(dt)
 end
 
 function Key:draw()
-    if self.halt == false then 
+    if self.halt == false then
         love.graphics.draw(self.image, self.x, self.y)
     else love.graphics.draw(obtainedKey, self.x, self.y)
     end
