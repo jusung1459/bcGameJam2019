@@ -119,13 +119,8 @@ function Lv1:drawBackground()
           if tile == 1 then
             love.graphics.draw(wall, (j-1)*40, (i-1)*40)
           end
-          -- love.graphics.draw(grass, j * 40, i * 40)
-          -- if tile == 1 then
-          --    love.graphics.draw(sand, (j-1) * 40, (i-1) * 40)
-          -- end
       end
   end
-
 end
 
 function Lv1:update2()
