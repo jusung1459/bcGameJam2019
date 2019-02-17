@@ -49,7 +49,7 @@ function Lv4:init()
 
     key1 = Key(280, 200)
     key2 = Key(200, 360)
-    key3 = Key(540, 240)
+    key3 = Key(640, 240)
     --key4 = Key(560, 160)
 
     npc4 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
