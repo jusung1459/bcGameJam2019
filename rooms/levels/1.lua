@@ -184,6 +184,8 @@ function Lv1:update2()
 
   trap:update(dt)
 
+  intro:update(dt)
+
 end
 function Lv1:draw2()
 
