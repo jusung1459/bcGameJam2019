@@ -1,10 +1,10 @@
 Object = require('libraries/classic/classic')
 
 Key = Object:extend()
-local obtainedKey = love.graphics.newImage("art/obtainedKey.png")
+local obtainedKey = love.graphics.newImage('art/obtainedKey.png')
 
 function Key:new(x, y)
-  self.image = love.graphics.newImage("art/key.png")
+  self.image = love.graphics.newImage('art/key.png')
   self.x = x
   self.y = y
   self.halt = false
