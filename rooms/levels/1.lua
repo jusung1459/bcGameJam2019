@@ -49,6 +49,8 @@ function Lv1:init()
 
     key1 = Key(80, 80)
     key2 = Key(440, 440)
+
+    npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
 end
 
 function Lv1:update2()
@@ -58,6 +60,7 @@ function Lv1:update2()
     box:update(dt, true)
   end
 
+  npc1:update(dt, player)
   
   volcano:update(dt)
   if volcano.halt == true then
@@ -137,12 +140,14 @@ function Lv1:draw2()
     key2:draw()
 
     exit:draw()
+
+    npc1:draw()
 end
 
 function Lv1:keypressed2(key)
   
   box:keypressed(key,player)
-
+  npc1:keypressed(key)
 end
 
 function Lv1:activate()
