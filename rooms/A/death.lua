@@ -37,3 +37,7 @@ function Death:activate()
     current_level = 0
     pause = 1
 end
+
+function Death:deactivate()
+    pause = 0
+end
