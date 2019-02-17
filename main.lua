@@ -32,10 +32,8 @@ function love.load()
     next_level_index = nil
     keys = 0
 
-    --start changes
-    env = {}
-    current_env = Menu{}
-    --end changes
+    envs = {}
+    --current_env = current_level
 
 end
 
