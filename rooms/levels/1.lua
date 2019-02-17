@@ -73,6 +73,7 @@ function Lv1:init()
     key2 = Key(440, 440)
 
     npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    dial1 = DialogueBox()
 
     door = Door(320, 240, 40, 40)
 
@@ -192,7 +193,10 @@ function Lv1:draw2()
 
     exit:draw()
 
+    door:draw()
+
     npc1:draw()
+    npc1:dialogue(dial1)
 
     trap:draw()
 end

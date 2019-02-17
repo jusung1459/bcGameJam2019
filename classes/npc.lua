@@ -14,10 +14,9 @@ function Npc:new(x, y, move, name, message, imageLocation)
     self.move = move
     self.name = name
     self.message = message
-    self.intact = false
+    self.intact = false --for the encounter with the player
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
-    self.touched = true
   end
 
 function Npc:update(dt, player,bool)
@@ -26,6 +25,18 @@ end
 
 function Npc:draw()
     love.graphics.draw(self.image, self.x, self.y)
+    --[[if self.intact then
+      Moan.draw()
+    end]]--
+end
+
+
+function Npc:dialogue(dialogue)
+  if self.intact then
+
+    dialogue:draw()
+    dialogue:speak()
+  end
 end
 
 function Npc:keypressed(key)
@@ -53,4 +64,8 @@ function Npc:keypressed(key)
     if self.intact == true and key == "e" then
         love.window.showMessageBox(self.name, self.message)
     end
+end
+
+function Npc:getIntact()
+    return intact
 end

@@ -3,7 +3,7 @@ Object = require('libraries/classic/classic')
 Plate = Object:extend()
 
 function Plate:new(x, y)
-  self.image = love.graphics.newImage('art/pressure_plate.png')
+  self.image = love.graphics.newImage('art/pressure_plate1.png')
   self.x = x
   self.y = y
   self.occupied = false

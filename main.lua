@@ -6,7 +6,11 @@ require 'rooms/A/death'
 require 'rooms/levels/1'
 require 'rooms/levels/2'
 require 'rooms/levels/3'
-require 'rooms/levels/4'
+require 'classes/npc'
+Moan = require('Moan')
+--require 'classes/dialogue'
+
+
 
 function love.load()
 
@@ -31,6 +35,9 @@ function love.load()
     next_level = nil
     next_level_index = nil
     keys = 0
+    --dialogue = DialogueBox()
+
+    --Moan.speak("Title", {"Hello World!"})
 
     envs = {}
     --current_env = current_level
@@ -49,11 +56,18 @@ function love.update(dt)
       gotoRoom("Death", 0)
     end
     if current_room then current_room:update(dt) end
+
+    --Moan.update(dt)
 end
 
 function love.draw()
 
     if current_room then current_room:draw() end
+
+    --[[if true == true then
+        Moan.draw()
+    end]]--
+    --dialogue:draw()
 
 end
 

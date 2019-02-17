@@ -16,7 +16,7 @@ function Trap:new(x, y)
     botleft = love.graphics.newImage("art/floor_tiles/botleft1.png")
     bot = love.graphics.newImage("art/floor_tiles/bot1.png")
     botright = love.graphics.newImage("art/floor_tiles/botright1.png")
-    wall = love.graphics.newImage("art/floor_tiles/wall.png")
+    wall = love.graphics.newImage("art/floor_tiles/wall1.png")
 
     if j == 1 and i == 1 then
         close = topleft
