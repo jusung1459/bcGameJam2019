@@ -32,7 +32,9 @@ end
 
 function Npc:dialogue(dialogue)
   if self.intact then
-    dialogue:draw(self)
+
+    dialogue:draw()
+    dialogue:speak()
   end
 end
 

@@ -22,13 +22,15 @@ function DialogueBox:update()
 
 end
 
-function DialogueBox:draw(npc)
-  love.graphics.setColor(0, 0, 0)
-  love.graphics.print("Hello", self.xPos+20, self.yPos + 20)
+function DialogueBox:draw()
+
   --draw the black dialogue box
-  love.graphics.setColor(100, 100, 0)
+  love.graphics.setColor(0, 0, 0, 0.2)
   love.graphics.rectangle('fill', self.xPos, self.yPos, self.width, self.height)
 
+end
 
-  --love.graphics.print(text, x, y, r, sx, sy, ox, oy, kx, ky)
+function DialogueBox:speak()
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.print("Hello World", self.xPos+20, self.yPos + 20)
 end
