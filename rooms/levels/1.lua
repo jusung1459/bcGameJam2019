@@ -74,6 +74,12 @@ function Lv1:update2()
     collides = volcano:checkCollision(player, volcano)
     if collides == true then
       player:update(dt,true)
+    else
+      collides = volcano:checkCollision(son, volcano)
+      if collides == true then
+        son.x = player.x
+        son.y = player.y
+      end
     end
   end
 
