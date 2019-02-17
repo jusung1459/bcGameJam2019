@@ -17,7 +17,8 @@ function Lv1:init()
     botleft = love.graphics.newImage("art/floor_tiles/botleft1.png")
     bot = love.graphics.newImage("art/floor_tiles/bot1.png")
     botright = love.graphics.newImage("art/floor_tiles/botright1.png")
-    wall = love.graphics.newImage("art/floor_tiles/wall1.png")
+    -- wall = love.graphics.newImage("art/floor_tiles/wall1.png")
+    wall = love.graphics.newImage("art/platformergraphics-buildings/fenceLow.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
 
 
@@ -141,6 +142,7 @@ function Lv1:drawBackground()
 
           end
           if tile == 1 then
+            love.graphics.draw(center, (j-1) * 40, (i-1) * 40)
             love.graphics.draw(wall, (j-1)*40, (i-1)*40)
           end
       end
