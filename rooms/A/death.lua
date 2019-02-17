@@ -33,5 +33,6 @@ function Death:mousepressed(x, y, button, istouch)
 end
 
 function Death:activate()
-    current_level = 2
+    current_level = 0
+    pause = 1
 end

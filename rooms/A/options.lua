@@ -34,4 +34,9 @@ end
 
 function Options:activate()
     current_level = 2
+    pause = 1
+end
+
+function Options:deactivate()
+    pause = 0
 end

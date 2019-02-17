@@ -34,4 +34,9 @@ end
 
 function Credits:activate()
     current_level = 3
+    pause = 1
+end
+
+function Credits:deactivate()
+    pause = 0
 end

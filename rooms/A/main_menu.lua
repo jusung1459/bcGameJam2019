@@ -49,9 +49,11 @@ end
 
 function Menu:activate()
     current_level = 1
+    pause = 1
 end
 
 function Menu:deactivate()
     previous_room = "Menu"
     previous_room_index = 1
+    pause = 0
 end
