@@ -161,7 +161,8 @@ function Lv1:draw2()
 
     door:draw()
 
-    npc1:draw(dial1)
+    npc1:draw()
+    npc1:dialogue(dial1)
 end
 
 function Lv1:keypressed2(key)
