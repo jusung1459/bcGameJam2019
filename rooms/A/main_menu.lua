@@ -5,7 +5,10 @@ Menu = typeA:extend()
 
 function Menu:new()
     current_level = 1
-    picture = love.graphics.newImage('art/start.png')
+    start = love.graphics.newImage('art/start.png')
+    options = love.graphics.newImage('art/options.png')
+    credits = love.graphics.newImage('art/credits.png')
+    exit = love.graphics.newImage('art/exit.png')
     background = love.graphics.newImage('art/menu/background.png')
 end
 
@@ -15,10 +18,10 @@ end
 
 function Menu:draw()
     love.graphics.draw(background, 0, 0)
-    love.graphics.draw(picture, 300, 300)
-    love.graphics.draw(picture, 300, 350)
-    love.graphics.draw(picture, 300, 400)
-    love.graphics.draw(picture, 300, 550)
+    love.graphics.draw(start, 300, 300)
+    love.graphics.draw(options, 300, 350)
+    love.graphics.draw(credits, 300, 400)
+    love.graphics.draw(exit, 300, 500)
 end
 
 function Menu:mousepressed(x, y, button, istouch)
