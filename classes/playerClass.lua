@@ -22,6 +22,7 @@ function Player:new()
   self.prevX = tile_size;
   self.prevY = 0;
   self.sonFollow = true;
+  self.box = false
 end
 
 function Player:checkCollision(player, b)
@@ -139,7 +140,7 @@ function Player:keypressed(key, son)
       if walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y - tile_size
         --below line causes black box bug
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -160,7 +161,7 @@ function Player:keypressed(key, son)
       if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
       if walls[current_level][(self.y/tile_size)+2][(self.x/tile_size)+1] ~= 1 then
         self.y = self.y + tile_size
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -178,7 +179,7 @@ function Player:keypressed(key, son)
       if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
       if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)] ~= 1 then
         self.x = self.x - tile_size
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
@@ -196,7 +197,7 @@ function Player:keypressed(key, son)
       if self.sonFollow == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 0 end
       if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] ~= 1 then
         self.x = self.x + tile_size
-        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
+        if walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] == 0 and self.box == false then walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = -1 end
       end
     end
   end
