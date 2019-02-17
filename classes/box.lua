@@ -30,9 +30,9 @@ function Box:new(x, y)
       if key == "a" then
         self.push = not self.push
       end
-    if self.push == false then
+      if self.push == false then
         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 1
-    end
+      end
       if self.push == true then
         if key == "up" then
           if self.y ~= 0 and walls[current_level][(self.y/tile_size)][(self.x/tile_size)+1] == 0 then
