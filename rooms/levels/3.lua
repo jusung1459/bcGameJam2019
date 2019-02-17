@@ -45,7 +45,7 @@ function Lv3:init()
 
     box = Box(360, 0)
     volcano = Volcano(280, 200)
-    exit = Exit(260, 360, 3)
+    exit = Exit(260, 360, 4)
 
     key1 = Key(120, 80)
     key2 = Key(480, 480)
