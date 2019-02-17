@@ -5,8 +5,6 @@ Lv3 = Game:extend()
 
 function Lv3:init()
     current_level = 6
-    grass = love.graphics.newImage("/art/grass.png")
-    sand = love.graphics.newImage("/art/sand.png")
     topleft = love.graphics.newImage("art/floor_tiles/topleft.png")
     top = love.graphics.newImage("art/floor_tiles/top.png")
     topright = love.graphics.newImage("art/floor_tiles/topright.png")
