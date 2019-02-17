@@ -9,7 +9,7 @@ function Plate:new(x, y)
   self.occupied = false
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
-  if walls[current_level][(self.y/40)+1][(self.x/40)+1] = -1 then self.occupied = true end
+  if walls[current_level][(self.y/40)+1][(self.x/40)+1] == -1 then self.occupied = true end
 end
 
 function Plate:check()
@@ -23,5 +23,5 @@ function Plate:update(dt)
 end
 
 function Plate:draw()
-    love.graphics.draw(self.iamge, self.x, self.y)
+    love.graphics.draw(self.image, self.x, self.y)
 end

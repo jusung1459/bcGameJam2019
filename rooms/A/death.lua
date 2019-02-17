@@ -25,6 +25,7 @@ function Death:mousepressed(x, y, button, istouch)
                 if y >= 500 then
                     if y <= 540 then
                         rooms = {}
+                        keys = 0
                         gotoRoom("Menu", 1)
                     end
                 end

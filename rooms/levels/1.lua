@@ -53,6 +53,8 @@ function Lv1:init()
     key2 = Key(440, 440)
 
     npc1 = Npc(160, 160, true, "Bob", "Bob is uttering his dfirst sentence!")
+
+    door = Door(320, 240, 40, 40)
 end
 
 function Lv1:update2()
@@ -87,6 +89,8 @@ function Lv1:update2()
 
   key1:update(dt)
   key2:update(dt)
+
+  door:update(dt)
 
 end
 function Lv1:draw2()
@@ -155,6 +159,8 @@ function Lv1:draw2()
     exit:draw()
 
     npc1:draw()
+
+    door:draw()
 end
 
 function Lv1:keypressed2(key)
