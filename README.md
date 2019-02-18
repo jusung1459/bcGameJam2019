@@ -5,7 +5,7 @@ A 2D RPG game made for BC Game Jam 2019
 ![](boxes_nextLevel.gif)
 
 
-## Theme
+## Themes
 * Energy
 * Flight
 
