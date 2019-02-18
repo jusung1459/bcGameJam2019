@@ -191,8 +191,8 @@ function Lv1:update2()
 
   -- worm:update(dt)
   animation.currentTime = animation.currentTime + love.timer.getDelta()
-    if animation.currentTime >= animation.duration then
-        animation.currentTime = animation.currentTime - animation.duration
+  if animation.currentTime >= animation.duration then
+      animation.currentTime = animation.currentTime - animation.duration
   end
 
 end
@@ -218,9 +218,8 @@ function Lv1:draw2()
 
     trap:draw()
 
-    -- worm:draw()
     local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
-    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], 0, 0, 0, 4)
+    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], worm.x, worm.y, 0, 1)
 end
 
 function newAnimation(image, width, height, duration)

@@ -25,7 +25,7 @@ function Worm:new(x, y)
   -- self.frameLimit = idleFrameLimit
   -- self.width = worm_right:getWidth()
   -- self.height = worm_left:getHeight()
-  -- walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 4
+  walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 4
 
   -- local img = worm_left
   -- for y = 0, img.getHeight() - 40, 40 do
@@ -93,21 +93,4 @@ end
 --         walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+2] = 0
 --     end
 --
--- end
-
--- function Worm:newAnimation(image, width, height, duration)
---   local animation = {}
---   animation.spriteSheet = image;
---   animation.quads = {};
---
---   for y = 0, imgage.getHeight() - height, height do
---     for x = 0, imgage.getWidth() - width, width do
---       table.insert(animation.quads, love.graphics.newQuad(i * frame_width, 0, frame_width, frame_height, self.width, self.height))
---     end
---   end
---
---   ildeFrames.duration = duration or 1
---   idleFrames.currentTime = 0
---
---   return idleFrames
 -- end
