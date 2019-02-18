@@ -221,11 +221,10 @@ function Lv4:keypressed2(key)
   box:keypressed(key,player)
 end
 
---[[function Lv4:activate()
+function Lv4:activate()
     current_level = 7
-    next_level = 'Lv4'
     next_level_index = 8
-end]]--
+end
 
 function Lv4:deactivate()
     previous_room = 'Lv3'
