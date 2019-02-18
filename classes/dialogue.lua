@@ -11,6 +11,7 @@ function DialogueBox:new()
   self.width = winWidth
   self.xPos = 0
   self.yPos = winHeight - winHeight/4
+  self.visible = false
 
 end
 
@@ -25,8 +26,10 @@ end
 function DialogueBox:draw()
 
   --draw the black dialogue box
-  love.graphics.setColor(0, 0, 0, 0.3)
-  love.graphics.rectangle('fill', self.xPos, self.yPos, self.width, self.height)
+
+    love.graphics.setColor(0, 0, 0, 0.3)
+    love.graphics.rectangle('fill', self.xPos, self.yPos, self.width, self.height)
+
 
 end
 
@@ -37,4 +40,5 @@ function DialogueBox:speak(message)
     font = love.graphics.newFont("orange_kid.ttf", 30)
     love.graphics.setFont(font)
     love.graphics.print(message, self.xPos+offset, self.yPos + offset)
+
 end

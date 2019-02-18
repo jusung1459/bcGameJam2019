@@ -30,21 +30,21 @@ end
 
 function Menu:mousepressed(x, y, button, istouch)
     local bx = (window_width/2) - 100
-    local by = (window_height/2)
-    if x >= bx - 100 then
+    local by = (window_height/2) - 40
+    if x >= bx then
         if x <= bx + 200 then
             if button == 1 then
                 if y >= by then
-                    if y <= by + 40 then
+                    if y <= by + 50 then
                         gotoRoom('Lv1', 4)
                     elseif y >= by + 50 then
-                        if y <= by + 90 then
+                        if y <= by + 100 then
                             gotoRoom('Options', 2)
                         elseif y >= by + 100 then
-                            if y <= by + 140 then
+                            if y <= by + 150 then
                                 gotoRoom('Credits', 3)
-                            elseif y >= window_height - 100 then
-                                if y <= window_height - 60 then
+                            elseif y >= by + 200 then
+                                if y <= by + 250 then
                                     love.event.quit()
                                 end
                             end

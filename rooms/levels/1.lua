@@ -21,7 +21,8 @@ function Lv1:init()
     -- wall = love.graphics.newImage("art/platformergraphics-buildings/fenceLow.png")
     door = love.graphics.newImage("art/floor_tiles/door.png")
 
-
+    image = love.graphics.newImage("art/wormSequence.png")
+    animation = newAnimation(image, 40, 40, 1)
 
     --insert matrix here for obstacle
     --1 is a wall
@@ -60,13 +61,15 @@ function Lv1:init()
     key1 = Key(80, 80)
     key2 = Key(440, 440)
 
-    npc1 = Npc(160, 160, true, "Bob", "You and your son want to go through the door? Try moving the box by pressing 'E'")
+    npc1 = Npc(160, 160, true, "Bob", "You and your son want to go through the door? \n Try collecting the keys first.")
     dial1 = DialogueBox()
     intro = Intro("You are on your own kidos LMAO", true)
 
     door = Door(320, 240, 40, 40)
 
     trap = Trap(720, 520)
+
+    worm = Worm(120, 120)
 end
 
 function Lv1:drawBackground()
@@ -171,6 +174,12 @@ function Lv1:update2()
 
   intro:update(dt)
 
+  -- worm:update(dt)
+  animation.currentTime = animation.currentTime + love.timer.getDelta()
+  if animation.currentTime >= animation.duration then
+      animation.currentTime = animation.currentTime - animation.duration
+  end
+
 end
 function Lv1:draw2()
 
@@ -190,9 +199,29 @@ function Lv1:draw2()
     npc1:draw()
     npc1:dialogue(dial1)
 
-    intro:dialogue(dial1)
+    --intro:dialogue(dial1)
 
     trap:draw()
+
+    local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
+    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], worm.x, worm.y, 0, 1)
+end
+
+function newAnimation(image, width, height, duration)
+  local animation = {}
+  animation.spriteSheet = image;
+  animation.quads = {};
+
+  for y = 0, 40 - 40, 40 do
+    for x = 0, 320 - 40, 40 do
+      table.insert(animation.quads, love.graphics.newQuad(x, y, width, height, image:getDimensions()))
+    end
+  end
+
+  animation.duration = duration or 1
+  animation.currentTime = 0
+
+  return animation
 end
 
 function Lv1:keypressed2(key)

@@ -1,4 +1,5 @@
 Object = require 'libraries/classic/classic'
+require 'classes/dialogue'
 require 'game'
 
 Lv2 = Game:extend()
@@ -50,7 +51,8 @@ function Lv2:init()
     key2 = Key(480, 480)
     key3 = Key(520, 240)
 
-    npc2 = Npc(160, 160, true, "Bob", "Bob is uttering his first sentence!")
+    npc2 = Npc(160, 160, true, "Bob", "Did you figure out how to move the boxes yet? Psssst, it's done by pressing 'E'")
+    dial2 = DialogueBox()
 end
 
 function Lv2:drawBackground()
@@ -122,7 +124,7 @@ function Lv2:update2()
     box:update(dt, true)
   else box:update(dt, false) end
 
-  nearNpc = npc1:checkCollision(npc1,player)
+  nearNpc = npc2:checkCollision(npc2,player)
   if nearNpc == true then
     npc2:update(dt, player, true)
   else
@@ -179,12 +181,13 @@ function Lv2:draw2()
     exit:draw()
 
     npc2:draw()
+    npc2:dialogue(dial1)
 end
 
 function Lv2:keypressed2(key)
 
   box:keypressed(key,player)
-  
+
 end
 
 function Lv2:activate()

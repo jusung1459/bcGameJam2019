@@ -4,7 +4,7 @@ Object = require 'libraries/classic/classic'
 
 Intro = Object:extend()
 
-local time = 1000
+local time = 0
 
 function Intro:new(message, stop)
     self.message = message
@@ -20,13 +20,8 @@ end
 
 function Intro:update(dt)
     time = time - 1
-    if time == 0 then
+    if time <= 0 then
         self.stop = false
     end
-    
+
 end
-
-
-
-
-
