@@ -1,8 +1,9 @@
 # Boxes
 A 2D RPG game made for BC Game Jam 2019
 
-![](boxes_nextLevel.gif)
 ![](boxes_start.gif)
+![](boxes_nextLevel.gif)
+
 
 ## Theme
 * Energy
