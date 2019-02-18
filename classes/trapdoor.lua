@@ -6,7 +6,7 @@ local close
 local img
 local count = 0
 
-function Trap:new(x, y)
+function Trap:new(x, y, constant)
     topleft = love.graphics.newImage("art/floor_tiles/topleft1.png")
     top = love.graphics.newImage("art/floor_tiles/top1.png")
     topright = love.graphics.newImage("art/floor_tiles/topright1.png")
@@ -37,13 +37,15 @@ function Trap:new(x, y)
     elseif i ~= 1 and i ~= 15 and j ~= 1 and j ~= 20 then
         close = center
     end
-    img = close
+    img = open
   self.image = img
   self.x = x
   self.y = y
-  self.open = false
+  self.constant = constant
+  self.open = true
   self.width = self.image:getWidth()
   self.height = self.image:getHeight()
+  walls[current_level][(self.y/tile_size)+1][(self.x/tile_size)+1] = 4
 end
 
 function Trap:update(dt)
@@ -60,9 +62,9 @@ function Trap:update(dt)
       end
       count = 0
     end
-    return self.open
 end
 
 function Trap:draw()
-    love.graphics.draw(img, self.x, self.y)
+    if self.constant == 1 then love.graphics.draw(open, self.x, self.y)
+    else love.graphics.draw(img, self.x, self.y) end
 end

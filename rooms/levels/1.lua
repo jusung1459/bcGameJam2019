@@ -83,7 +83,8 @@ function Lv1:init()
 
     door = Door(320, 240, 40, 40)
 
-    trap = Trap(720, 520)
+    trap1 = Trap(720, 520, 0)
+    trap2 = Trap(680, 520, 1)
 
     worm = Worm(120, 120)
 end
@@ -185,7 +186,8 @@ function Lv1:update2()
 
   door:update(dt)
 
-  trap:update(dt)
+  trap1:update(dt)
+  trap2:update(dt)
 
   intro:update(dt)
 
@@ -216,7 +218,8 @@ function Lv1:draw2()
 
     --intro:dialogue(dial1)
 
-    trap:draw()
+    trap1:draw()
+    trap2:draw()
 
     local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
     love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], worm.x, worm.y, 0, 1)
