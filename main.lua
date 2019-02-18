@@ -19,7 +19,7 @@ function love.load()
     window_width = 800
     window_height = 600
     tile_size = 40
-    decay_rate = 0.5
+    decay_rate = 0.1
 
 
     XTiles = window_width / tile_size
@@ -52,8 +52,8 @@ function love.load()
 end
 
 function love.update(dt)
-        --color = color - decay_rate COMMENT BACK AFTER
     if pause == 0 then
+        color = color - decay_rate
         love.graphics.setColor(color/255, color/255, color/255)
     end
     if pause == 1 then love.graphics.setColor(255, 255, 255) end
