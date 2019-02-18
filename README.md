@@ -15,7 +15,7 @@ A 2D RPG game made for BC Game Jam 2019
 
 ## HOW TO TRY IT OUT
 You need:
-* Linux/Mac OS machine
+* Linux/Mac OS/Windows machine
 * Löve installed
 
 How to:
