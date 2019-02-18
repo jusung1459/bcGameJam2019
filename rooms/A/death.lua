@@ -15,6 +15,8 @@ end
 function Death:draw()
     love.graphics.draw(background, 0, 0)
     love.graphics.draw(picture, window_width/2 - 100 , window_height - 100)
+    font = love.graphics.newFont("orange_kid.ttf", 30)
+    love.graphics.setFont(font)
     love.graphics.print('you died!')
 end
 
