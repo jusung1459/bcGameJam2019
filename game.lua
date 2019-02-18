@@ -8,6 +8,7 @@ require "classes/npc"
 require "classes/door"
 require "classes/dialogue"
 require "classes/trapdoor"
+require "classes/worm"
 
 
 Game = Object:extend()

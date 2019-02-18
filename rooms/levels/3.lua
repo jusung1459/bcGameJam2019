@@ -1,4 +1,5 @@
 Object = require 'libraries/classic/classic'
+require 'classes/dialogue'
 require 'game'
 
 Lv3 = Game:extend()
@@ -51,8 +52,9 @@ function Lv3:init()
     key2 = Key(360, 400)
     key3 = Key(240, 320)
     key4 = Key(560, 160)
-
-    npc3 = Npc(120, 160, true, "Bob", "Bob is uttering his first sentence!")
+    
+    dial3 = DialogueBox()
+    npc3 = Npc(120, 160, true, "Bob", "Here is a tip! Don't Die!")
 end
 
 function Lv3:drawBackground()
@@ -198,6 +200,7 @@ function Lv3:draw2()
     exit:draw()
 
     npc3:draw()
+    npc3:dialogue(dial3)
 end
 
 function Lv3:keypressed2(key)
