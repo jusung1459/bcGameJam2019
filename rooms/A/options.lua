@@ -17,6 +17,8 @@ function Options:draw()
     love.graphics.draw(background, 0, 0)
     love.graphics.draw(picture, window_width/2 - 100, window_height - 100)
     if previous_room ~= "Menu" then love.graphics.draw(suicide, window_width/2 - 100, window_height - 150) end
+    font = love.graphics.newFont("orange_kid.ttf", 30)
+    love.graphics.setFont(font)
     love.graphics.print('nothing seems to be here!')
 end
 
